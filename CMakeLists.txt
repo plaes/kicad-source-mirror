@@ -587,14 +587,6 @@ if( KICAD_SCRIPTING OR KICAD_SCRIPTING_MODULES )
 
 endif()
 
-if( EXISTS ${CMAKE_SOURCE_DIR}/include/config.h )
-    # This file may exist ( created by an alternate process to the svn test above),
-    # e.g. could be created by a checkout script that produces a source tar file.
-    # This directive means the about box will have the svn date & revision in it,
-    # but the hard coded release date ( program version) will be preserved.
-    add_definitions( -DHAVE_SVN_REVISION )
-endif()
-
 
 #================================================
 # Let CMake look in these directories for nested
