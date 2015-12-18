@@ -797,9 +797,6 @@ if( UNIX AND NOT APPLE )
         )
 endif()
 
-#include( CTest )
-
-
 if( UNIX AND NOT APPLE )
 
     # Create a *.deb file:
