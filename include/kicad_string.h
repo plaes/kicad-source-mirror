@@ -168,7 +168,7 @@ bool ReplaceIllegalFileNameChars( std::string* aName, int aReplaceChar = 0 );
 
 #ifndef HAVE_STRTOKR
 // common/strtok_r.c optionally:
-extern "C" char* strtok_r( char* str, const char* delim, char** nextp );
+extern "C" char* strtok_r(char *s, const char *delim, char **last);
 #endif
 
 #endif  // KICAD_STRING_H_
