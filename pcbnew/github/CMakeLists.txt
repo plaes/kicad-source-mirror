@@ -48,5 +48,4 @@ if( MINGW )
         )
 endif()
 
-add_dependencies( github_plugin boost )
 
