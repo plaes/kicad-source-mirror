@@ -535,10 +535,6 @@ void PCB_BASE_FRAME::ProcessItemSelection( wxCommandEvent& aEvent )
         BOARD_ITEM* item = (*m_Collector)[itemNdx];
         m_canvas->SetAbortRequest( false );
 
-#if 0 && defined (DEBUG)
-        item->Show( 0, std::cout );
-#endif
-
         SetCurItem( item );
     }
 }

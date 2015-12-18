@@ -385,13 +385,7 @@ void COMPONENT_TREE_SEARCH_CONTAINER::UpdateSearchTerm( const wxString& aSearch 
             continue;
 
         wxString node_text;
-#if 0
-        // Node text with scoring information for debugging
-        node_text.Printf( wxT("%s (s=%u)%s"), GetChars(node->DisplayName),
-                          node->MatchScore, GetChars( node->DisplayInfo ));
-#else
         node_text = node->DisplayName + node->DisplayInfo;
-#endif
         node->TreeId = m_tree->AppendItem( node->Parent ? node->Parent->TreeId : root_id,
                                            node_text );
 

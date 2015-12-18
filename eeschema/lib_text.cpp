@@ -404,17 +404,6 @@ void LIB_TEXT::drawGraphic( EDA_DRAW_PANEL* aPanel, wxDC* aDC, const wxPoint& aO
     DrawGraphicText( clipbox, aDC, txtpos, color, GetShownText(), orient, m_Size,
                      GR_TEXT_HJUSTIFY_CENTER, GR_TEXT_VJUSTIFY_CENTER, GetPenSize(),
                      m_Italic, m_Bold );
-
-
-    /* Enable this to draw the bounding box around the text field to validate
-     * the bounding box calculations.
-     */
-#if 0
-    // bBox already uses libedit Y axis.
-    bBox = aTransform.TransformCoordinate( bBox );
-    bBox.Move( aOffset );
-    GRRect( clipbox, aDC, bBox, 0, LIGHTMAGENTA );
-#endif
 }
 
 

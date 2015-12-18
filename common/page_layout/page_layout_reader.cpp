@@ -789,13 +789,6 @@ void WORKSHEET_LAYOUT::SetPageLayout( const wxString& aFullFileName, bool Append
     {
         if( fullFileName.IsEmpty() || !wxFileExists( fullFileName ) )
         {
-            #if 0
-            if( !fullFileName.IsEmpty() )
-            {
-                wxLogMessage( wxT("Page layout file <%s> not found"),
-                              fullFileName.GetData() );
-            }
-            #endif
             SetDefaultLayout();
             return;
         }

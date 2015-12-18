@@ -385,13 +385,6 @@ void GERBER_DRAW_ITEM::Draw( EDA_DRAW_PANEL* aPanel, wxDC* aDC, GR_DRAWMODE aDra
         // Currently, arcs plotted with a rectangular aperture are not supported.
         // a round pen only is expected.
 
-#if 0   // for arc debug only
-        GRLine( aPanel->GetClipBox(), aDC, GetABPosition( m_Start ),
-                GetABPosition( m_ArcCentre ), 0, color );
-        GRLine( aPanel->GetClipBox(), aDC, GetABPosition( m_End ),
-                GetABPosition( m_ArcCentre ), 0, color );
-#endif
-
         if( !isFilled )
         {
             GRArc1( aPanel->GetClipBox(), aDC, GetABPosition( m_Start ),

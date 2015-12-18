@@ -137,13 +137,6 @@ void FOOTPRINT_EDIT_FRAME::ReCreateHToolbar()
     m_mainToolBar->AddTool( ID_MODEDIT_PAD_SETTINGS, wxEmptyString, KiBitmap( options_pad_xpm ),
                             _( "Pad settings" ) );
 
-#if 0       // Currently there is no check footprint function defined, so do not show this tool
-    m_mainToolBar->AddSeparator();
-    m_mainToolBar->AddTool( ID_MODEDIT_CHECK, wxEmptyString,
-                            KiBitmap( module_check_xpm ),
-                            _( "Check footprint" ) );
-#endif
-
     // after adding the buttons to the toolbar, must call Realize() to reflect the changes
     m_mainToolBar->Realize();
 }

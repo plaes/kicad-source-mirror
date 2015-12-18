@@ -743,11 +743,7 @@ void PlotSolderMaskLayer( BOARD *aBoard, PLOTTER* aPlotter,
     }
 
     // Add filled zone areas.
-#if 0   // Set to 1 if a solder mask margin must be applied to zones on solder mask
-    int zone_margin = aBoard->GetDesignSettings().m_SolderMaskMargin;
-#else
     int zone_margin = 0;
-#endif
 
     for( int ii = 0; ii < aBoard->GetAreaCount(); ii++ )
     {

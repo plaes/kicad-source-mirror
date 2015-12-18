@@ -88,26 +88,6 @@ int PCB_EDIT_FRAME::EraseRedundantTrack( wxDC*              aDC,
     aNewTrack = GetBoard()->MarkTrace( aNewTrack, &aNewTrackSegmentsCount, NULL, NULL, true );
     wxASSERT( aNewTrack );
 
-#if 0 && defined(DEBUG)
-    TRACK* EndNewTrack;      // The last segment of the list chained to the track
-
-    EndNewTrack = aNewTrack;
-
-    for( ii = 1;  ii < aNewTrackSegmentsCount; ii++ )
-    {
-        wxASSERT( EndNewTrack->GetState( -1 ) != 0 );
-        D( printf( "track %p is newly part of net %d\n", EndNewTrack, netcode ); )
-        EndNewTrack = EndNewTrack->Next();
-    }
-
-    wxASSERT( EndNewTrack->GetState( -1 ) != 0 );
-    D( printf( "track %p is newly part of net %d\n", EndNewTrack, netcode ); )
-
-    for( TRACK* track = m_Pcb->m_Track;  track;  track = track->Next() )
-        track->Show( 0, std::cout );
-
-#endif
-
     TRACK* bufStart = m_Pcb->m_Track->GetStartNetCode( netcode ); // Beginning of tracks of the net
     TRACK* bufEnd = bufStart->GetEndNetCode( netcode );           // End of tracks of the net
 

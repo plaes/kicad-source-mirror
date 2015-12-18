@@ -447,40 +447,7 @@ enum PCB_VISIBLE
                  (1 << WORKSHEET) +\
                  (1 << GP_OVERLAY) )
 
-/**
- * Enum NETNAMES_VISIBLE
- * is a set of layers specific for displaying net names.
- * Their visiblity is not supposed to be saved in a board file,
- * they are only to be used by the GAL.
- */
-#if 0
-// was:
-enum NETNAMES_VISIBLE
-{
-    LAYER_1_NETNAMES_VISIBLE,   // bottom layer
-    LAYER_2_NETNAMES_VISIBLE,
-    LAYER_3_NETNAMES_VISIBLE,
-    LAYER_4_NETNAMES_VISIBLE,
-    LAYER_5_NETNAMES_VISIBLE,
-    LAYER_6_NETNAMES_VISIBLE,
-    LAYER_7_NETNAMES_VISIBLE,
-    LAYER_8_NETNAMES_VISIBLE,
-    LAYER_9_NETNAMES_VISIBLE,
-    LAYER_10_NETNAMES_VISIBLE,
-    LAYER_11_NETNAMES_VISIBLE,
-    LAYER_12_NETNAMES_VISIBLE,
-    LAYER_13_NETNAMES_VISIBLE,
-    LAYER_14_NETNAMES_VISIBLE,
-    LAYER_15_NETNAMES_VISIBLE,
-    LAYER_16_NETNAMES_VISIBLE,  // top layer
 
-    PAD_FR_NETNAMES_VISIBLE,
-    PAD_BK_NETNAMES_VISIBLE,
-    PADS_NETNAMES_VISIBLE,
-
-    END_NETNAMES_VISIBLE_LIST   // sentinel
-};
-#else
 enum NETNAMES_VISIBLE
 {
     PAD_FR_NETNAMES_VISIBLE = B_Cu+1,
@@ -489,7 +456,6 @@ enum NETNAMES_VISIBLE
 
     END_NETNAMES_VISIBLE_LIST   // sentinel
 };
-#endif
 
 
 /// macro for obtaining layer number for specific item (eg. pad or text)

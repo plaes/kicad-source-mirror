@@ -61,42 +61,6 @@ static void FootprintWriteShape( FILE* File, MODULE* module );
 
 // layer names for Gencad export
 
-#if 0 // was:
-static const wxString GenCADLayerName[] =
-{
-    wxT( "BOTTOM" ),             wxT( "INNER1" ),          wxT( "INNER2" ),
-    wxT( "INNER3" ),             wxT( "INNER4" ),          wxT( "INNER5" ),
-    wxT( "INNER6" ),             wxT( "INNER7" ),          wxT( "INNER8" ),
-    wxT( "INNER9" ),             wxT( "INNER10" ),         wxT( "INNER11" ),
-    wxT( "INNER12" ),            wxT( "INNER13" ),         wxT( "INNER14" ),
-    wxT( "TOP" ),                wxT( "LAYER17" ),         wxT( "LAYER18" ),
-    wxT( "SOLDERPASTE_BOTTOM" ), wxT( "SOLDERPASTE_TOP" ),
-    wxT( "SILKSCREEN_BOTTOM" ),  wxT( "SILKSCREEN_TOP" ),
-    wxT( "SOLDERMASK_BOTTOM" ),  wxT( "SOLDERMASK_TOP" ),  wxT( "LAYER25" ),
-    wxT( "LAYER26" ),            wxT( "LAYER27" ),         wxT( "LAYER28" ),
-    wxT( "LAYER29" ),            wxT( "LAYER30" ),         wxT( "LAYER31" ),
-    wxT( "LAYER32" )
-};
-
-// flipped layer name for Gencad export (to make CAM350 imports correct)
-static const wxString GenCADLayerNameFlipped[32] =
-{
-    wxT( "TOP" ),             wxT( "INNER14" ),            wxT( "INNER13" ),
-    wxT( "INNER12" ),         wxT( "INNER11" ),            wxT( "INNER10" ),
-    wxT( "INNER9" ),          wxT( "INNER8" ),             wxT( "INNER7" ),
-    wxT( "INNER6" ),          wxT( "INNER5" ),             wxT( "INNER4" ),
-    wxT( "INNER3" ),          wxT( "INNER2" ),             wxT( "INNER1" ),
-    wxT( "BOTTOM" ),          wxT( "LAYER17" ),            wxT( "LAYER18" ),
-    wxT( "SOLDERPASTE_TOP" ), wxT( "SOLDERPASTE_BOTTOM" ),
-    wxT( "SILKSCREEN_TOP" ),  wxT( "SILKSCREEN_BOTTOM" ),
-    wxT( "SOLDERMASK_TOP" ),  wxT( "SOLDERMASK_BOTTOM" ),  wxT( "LAYER25" ),
-    wxT( "LAYER26" ),         wxT( "LAYER27" ),            wxT( "LAYER28" ),
-    wxT( "LAYER29" ),         wxT( "LAYER30" ),            wxT( "LAYER31" ),
-    wxT( "LAYER32" )
-};
-
-#else
-
 static std::string GenCADLayerName( int aCuCount, LAYER_ID aId )
 {
     if( IsCopperLayer( aId ) )
@@ -205,15 +169,9 @@ static std::string GenCADLayerNameFlipped( int aCuCount, LAYER_ID aId )
 };
 
 
-#endif
-
 static std::string fmt_mask( LSET aSet )
 {
-#if 0
-    return aSet.FmtHex();
-#else
     return StrPrintf( "%08x", (unsigned) ( aSet & LSET::AllCuMask() ).to_ulong() );
-#endif
 }
 
 
@@ -1154,23 +1112,6 @@ static void FootprintWriteShape( FILE* aFile, MODULE* module )
             fprintf( aFile, "INSERT TH\n" );
         }
     }
-
-#if 0 /* ATTRIBUTE name and value is unspecified and the original exporter
-       * got the syntax wrong, so CAM350 rejected the whole shape! */
-
-    if( module->m_Attributs != MOD_DEFAULT )
-    {
-        fprintf( aFile, "ATTRIBUTE" );
-
-        if( module->m_Attributs & MOD_CMS )
-            fprintf( aFile, " PAD_SMD" );
-
-        if( module->m_Attributs & MOD_VIRTUAL )
-            fprintf( aFile, " VIRTUAL" );
-
-        fprintf( aFile, "\n" );
-    }
-#endif
 
     // Silk outline; wildly interpreted by various importers:
     // CAM350 read it right but only closed shapes

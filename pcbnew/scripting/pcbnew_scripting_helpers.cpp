@@ -88,22 +88,7 @@ bool SaveBoard( wxString& aFileName, BOARD* aBoard,
     aBoard->SynchronizeNetsAndNetClasses();
     aBoard->GetDesignSettings().SetCurrentNetClass( NETCLASS::Default );
 
-#if 0
-    wxString    header;
-    PROPERTIES  props;
-
-    if( aFormat==IO_MGR::LEGACY )
-    {
-        header = wxString::Format(
-            wxT( "PCBNEW-BOARD Version %d date %s\n\n# Created by Pcbnew%s scripting\n\n" ),
-            LEGACY_BOARD_FILE_VERSION, DateAndTime().GetData(),
-            GetBuildVersion().GetData() );
-        props["header"] = header;
-    }
-
-    IO_MGR::Save( aFormat, aFileName, aBoard, &props );
-#else
     IO_MGR::Save( aFormat, aFileName, aBoard, NULL );
-#endif
+
     return true;
 }

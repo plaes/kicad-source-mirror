@@ -131,10 +131,6 @@ SEARCH_RESULT EDA_ITEM::Visit( INSPECTOR* inspector, const void* testData,
 {
     KICAD_T stype;
 
-#if 0 && defined(DEBUG)
-    std::cout << GetClass().mb_str() << ' ';
-#endif
-
     for( const KICAD_T* p = scanTypes;  (stype = *p) != EOT;   ++p )
     {
         // If caller wants to inspect my type

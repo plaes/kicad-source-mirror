@@ -581,21 +581,6 @@ public:
         return m_NetClass->GetuViaDrill();
     }
 
-
-#if 0
-
-    /**
-     * Function GetViaMinSize
-     * returns the Minimum value for via sizes (used in DRC)
-     */
-    int GetViaMinSize()
-    {
-        wxASSERT( m_NetClass );
-        return m_NetClass->GetViaMinSize();
-    }
-
-#endif
-
     /**
      * Function GetClearance
      * returns the clearance when routing near aBoardItem

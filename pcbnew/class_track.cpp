@@ -1101,25 +1101,6 @@ void TRACK::GetMsgPanelInfoBase_Common( std::vector< MSG_PANEL_ITEM >& aList )
     msg.Printf( wxT( "0x%08X" ), m_Flags );
     aList.push_back( MSG_PANEL_ITEM( wxT( "Flags" ), msg, BLUE ) );
 
-#if 0
-    // Display start and end pointers:
-    msg.Printf( wxT( "%p" ), start );
-    aList.push_back( MSG_PANEL_ITEM( wxT( "start ptr" ), msg, BLUE ) );
-    msg.Printf( wxT( "%p" ), end );
-    aList.push_back( MSG_PANEL_ITEM( wxT( "end ptr" ), msg, BLUE ) );
-    // Display this ptr
-    msg.Printf( wxT( "%p" ), this );
-    aList.push_back( MSG_PANEL_ITEM( wxT( "this" ), msg, BLUE ) );
-#endif
-
-#if 0
-    // Display start and end positions:
-    msg.Printf( wxT( "%d %d" ), m_Start.x, m_Start.y );
-    aList.push_back( MSG_PANEL_ITEM( wxT( "Start pos" ), msg, BLUE ) );
-    msg.Printf( wxT( "%d %d" ), m_End.x, m_End.y );
-    aList.push_back( MSG_PANEL_ITEM( wxT( "End pos" ), msg, BLUE ) );
-#endif
-
 #endif  // defined(DEBUG)
 
     // Display the State member

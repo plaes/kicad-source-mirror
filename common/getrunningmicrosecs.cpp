@@ -48,22 +48,6 @@ unsigned GetRunningMicroSecs()
 }
 
 
-#if 0
-// test program
-#include <stdio.h>
-int main( int argc, char** argv )
-{
-    unsigned then = GetRunningMicroSecs();
-
-    Sleep( 2000 );      // Windows Sleep( msecs )
-
-    printf( "delta: %u\n", GetRunningMicroSecs() - then );
-
-    return 0;
-}
-#endif
-
-
 #elif defined(HAVE_CLOCK_GETTIME)
 
 #include <time.h>
@@ -75,7 +59,6 @@ unsigned GetRunningMicroSecs()
     clock_gettime( CLOCK_MONOTONIC, &now );
 
     unsigned usecs = ((unsigned)now.tv_nsec)/1000 + ((unsigned)now.tv_sec) * 1000000;
-//    unsigned msecs = (now.tv_nsec / (1000*1000)) + now.tv_sec * 1000;
 
     return usecs;
 }

@@ -940,16 +940,6 @@ void LIB_PIN::drawGraphic( EDA_DRAW_PANEL*  aPanel,
                       Entry->ShowPinNumbers(), Entry->ShowPinNames(),
                       aColor, aDrawMode );
     }
-
-    /* Set to one (1) to draw bounding box around pin to validate bounding
-     * box calculation. */
-#if 0
-    EDA_RECT  bBox    = GetBoundingBox();
-    bBox.RevertYAxis();
-    bBox = aTransform.TransformCoordinate( bBox );
-    bBox.Move( aOffset );
-    GRRect( aPanel ? aPanel->GetClipBox() : NULL, aDC, bBox, 0, LIGHTMAGENTA );
-#endif
 }
 
 

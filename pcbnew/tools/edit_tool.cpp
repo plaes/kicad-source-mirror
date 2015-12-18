@@ -750,12 +750,6 @@ int EDIT_TOOL::Duplicate( const TOOL_EVENT& aEvent )
             new_item = editFrame->GetBoard()->m_Modules->DuplicateAndAddItem( item, increment );
         else
         {
-#if 0
-            // @TODO: see if we allow zone duplication here
-            // Duplicate zones is especially tricky (overlaping zones must be merged)
-            // so zones are not duplicated
-            if( item->Type() != PCB_ZONE_AREA_T )
-#endif
             new_item = editFrame->GetBoard()->DuplicateAndAddItem( item, increment );
         }
 

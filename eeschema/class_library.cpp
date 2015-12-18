@@ -245,14 +245,6 @@ LIB_ALIAS* PART_LIB::GetFirstEntry()
 
 LIB_PART* PART_LIB::FindPart( const wxString& aName )
 {
-#if 0 && defined(DEBUG)
-    if( !aName.Cmp( wxT( "TI_STELLARIS_BOOSTERPACK" ) ) )
-    {
-        int breakhere = 1;
-        (void) breakhere;
-    }
-#endif
-
     if( LIB_ALIAS* alias = FindEntry( aName ) )
     {
         return alias->GetPart();
@@ -526,16 +518,6 @@ bool PART_LIB::Load( wxString& aErrorMsg )
             || !vers.GetNextToken().ToLong( & minor ) || minor < 0L
             || minor > 99 )
         {
-#if 0       // Note for developers:
-            // Not sure this warning is very useful: old designs *must* be always loadable
-            wxLogWarning( wxT(
-                "The component library '%s' header version "
-                "number is invalid.\n\nIn future versions of Eeschema this library may not "
-                "load correctly.  To resolve this problem open the library in the library "
-                "editor and save it.  If this library is the project cache library, save "
-                "the current schematic." ),
-                GetChars( GetName() ) );
-#endif
         }
         else
         {
@@ -786,13 +768,6 @@ bool PART_LIB::SaveHeader( OUTPUTFORMATTER& aFormatter )
                       LIB_VERSION_MAJOR, LIB_VERSION_MINOR );
 
     aFormatter.Print( 0, "#encoding utf-8\n");
-
-#if 0
-    aFormatter.Print( 0, "$HEADER\n" );
-    aFormatter.Print( 0, "TimeStamp %8.8lX\n", m_TimeStamp );
-    aFormatter.Print( 0, "Parts %d\n", m_amap.size() );
-    aFormatter.Print( 0, "$ENDHEADER\n" ) != 1 );
-#endif
 
     return true;
 }

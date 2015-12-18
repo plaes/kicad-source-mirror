@@ -84,16 +84,6 @@ void LIB_EDIT_FRAME::EditGraphicSymbol( wxDC* DC, LIB_ITEM* DrawItem )
     m_drawSpecificConvert = !dialog.GetApplyToAllConversions();
     m_drawSpecificUnit    = !dialog.GetApplyToAllUnits();
 
-#if 0
-    /* TODO: see if m_drawFillStyle must retain the last fill option or not.
-     * if the last is Filled, having next new graphic items created
-     * with filled body is often bad.
-     * currently m_drawFillStyle is left with the default value (not filled)
-     */
-    if( DrawItem->IsFillable() )
-        m_drawFillStyle = (FILL_T) dialog.GetFillStyle();
-#endif
-
     // Save copy for undo if not in edit (edit command already handle the save copy)
     if( !DrawItem->InEditMode() )
         SaveCopyInUndoList( DrawItem->GetParent() );

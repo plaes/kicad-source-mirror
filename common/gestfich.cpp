@@ -118,16 +118,6 @@ wxString EDA_FILE_SELECTOR( const wxString& aTitle,
 
     wxSetWorkingDirectory( defaultpath );
 
-#if 0 && defined (DEBUG)
-    printf( "defaultpath=\"%s\" defaultname=\"%s\" Ext=\"%s\" Mask=\"%s\" flag=%d keep_working_directory=%d\n",
-            TO_UTF8( defaultpath ),
-            TO_UTF8( defaultname ),
-            TO_UTF8( aExtension ),
-            TO_UTF8( aWildcard ),
-            aStyle,
-            aKeepWorkingDirectory );
-#endif
-
     fullfilename = wxFileSelector( aTitle,
                                    defaultpath,
                                    defaultname,

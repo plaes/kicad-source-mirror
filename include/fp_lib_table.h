@@ -547,14 +547,6 @@ public:
      */
     static wxString GetGlobalTableFileName();
 
-#if 0
-    /**
-     * Function GetFileName
-     * @return the footprint library file name.
-     */
-    static const wxString GetFileName();
-#endif
-
     /**
      * Function GlobalPathEnvVarVariableName
      * returns the name of the environment variable used to hold the directory of

@@ -71,13 +71,6 @@ int main( int argc, char** argv )
 
     vIterateStop = GetRunningMicroSecs();
 
-#if 0
-    for( int i=0; i<TEST_NODES;  ++i )
-    {
-        delete v[i];
-    }
-#endif
-
     v.clear();
 
 

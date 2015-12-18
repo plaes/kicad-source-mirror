@@ -302,14 +302,6 @@ void TEXTE_MODULE::Draw( EDA_DRAW_PANEL* panel, wxDC* DC, GR_DRAWMODE draw_mode,
 
     DrawGraphicText( panel->GetClipBox(), DC, pos, color, GetShownText(), orient,
                      size, m_HJustify, m_VJustify, width, m_Italic, m_Bold );
-
-    // Enable these line to draw the bounding box (debug test purpose only)
-#if 0
-    {
-        EDA_RECT BoundaryBox = GetBoundingBox();
-        GRRect( panel->GetClipBox(), DC, BoundaryBox, 0, BROWN );
-    }
-#endif
 }
 
 /* Draws a line from the TEXTE_MODULE origin to parent MODULE origin.

@@ -99,10 +99,6 @@ bool DXF2BRD_CONVERTER::ImportDxfFile( const wxString& aFile )
 void DXF2BRD_CONVERTER::addLayer( const DRW_Layer& aData )
 {
     // Not yet useful in Pcbnew.
-#if 0
-    wxString name = wxString::FromUTF8( aData.name.c_str() );
-    wxLogMessage( name );
-#endif
 }
 
 

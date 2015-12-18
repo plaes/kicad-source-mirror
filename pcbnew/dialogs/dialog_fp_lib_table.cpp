@@ -503,14 +503,7 @@ private:
 
     void onKeyDown( wxKeyEvent& ev )
     {
-#if 0
-        // send the key to the current grid
-        ((wxEvtHandler*)m_cur_grid)->ProcessEvent( ev );
-#else
-        // or no:
-        // m_cur_grid has the focus most of the time anyways, so above not needed.
         ev.Skip();
-#endif
     }
 
     void pageChangedHandler( wxAuiNotebookEvent& event )

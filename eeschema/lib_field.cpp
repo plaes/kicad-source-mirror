@@ -298,16 +298,6 @@ void LIB_FIELD::drawGraphic( EDA_DRAW_PANEL* aPanel, wxDC* aDC, const wxPoint& a
     EDA_RECT* clipbox = aPanel? aPanel->GetClipBox() : NULL;
     DrawGraphicText( clipbox, aDC, text_pos, (EDA_COLOR_T) color, text, m_Orient, m_Size,
                      m_HJustify, m_VJustify, linewidth, m_Italic, m_Bold );
-
-    /* Set to one (1) to draw bounding box around field text to validate
-     * bounding box calculation. */
-#if 0
-    EDA_RECT bBox = GetBoundingBox();
-    bBox.RevertYAxis();
-    bBox = aTransform.TransformCoordinate( bBox );
-    bBox.Move( aOffset );
-    GRRect( clipbox, aDC, bBox, 0, LIGHTMAGENTA );
-#endif
 }
 
 

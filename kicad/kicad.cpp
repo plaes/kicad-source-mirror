@@ -326,22 +326,3 @@ PROJECT& Prj()
 {
     return Kiway.Prj();
 }
-
-
-#if 0   // there can be only one in C++ project manager.
-
-bool KIWAY_MGR::OnStart( wxApp* aProcess )
-{
-    // The C++ project manager supports only one open PROJECT
-    // We should need no copy constructor for KIWAY to push a pointer.
-    m_kiways.push_back( new KIWAY() );
-
-    return true;
-}
-
-
-void KIWAY_MGR::OnEnd()
-{
-}
-
-#endif

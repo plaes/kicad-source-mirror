@@ -317,23 +317,6 @@ bool DRC::doNetClass( NETCLASSPTR nc, wxString& msg )
 
 #define FmtVal( x ) GetChars( StringFromValue( g_UserUnit, x ) )
 
-#if 0   // set to 1 when (if...) BOARD_DESIGN_SETTINGS has a m_MinClearance value
-    if( nc->GetClearance() < g.m_MinClearance )
-    {
-        msg.Printf( _( "NETCLASS: '%s' has Clearance:%s which is less than global:%s" ),
-                    GetChars( nc->GetName() ),
-                    FmtVal( nc->GetClearance() ),
-                    FmtVal( g.m_TrackClearance )
-                    );
-
-        m_currentMarker = fillMarker( DRCE_NETCLASS_CLEARANCE, msg, m_currentMarker );
-        m_pcb->Add( m_currentMarker );
-        m_mainWindow->GetGalCanvas()->GetView()->Add( m_currentMarker );
-        m_currentMarker = 0;
-        ret = false;
-    }
-#endif
-
     if( nc->GetTrackWidth() < g.m_TrackMinWidth )
     {
         msg.Printf( _( "NETCLASS: '%s' has TrackWidth:%s which is less than global:%s" ),

@@ -363,15 +363,6 @@ void DIALOG_DESIGN_RULES::FillListBoxWithNetNames( NETS_LIST_CTRL* aListCtrl,
     // get a subset of m_AllNets in pointer form, sorted as desired.
     makePointers( &ptrList, aNetClass );
 
-#if 0 && defined(DEBUG)
-    int r = 0;
-    for( PNETCUPS::iterator i = ptrList.begin();  i!=ptrList.end();  ++i, ++r )
-    {
-        printf( "[%d]: %s  %s\n", r, TO_UTF8( (*i)->net ), TO_UTF8( (*i)->clazz ) );
-    }
-
-#endif
-
     // Add netclass info to m_Netnames and m_Classnames wxArrayString buffers
     // aListCtrl uses wxLC_VIRTUAL option, so this is fast
     wxClientDC sDC( aListCtrl );

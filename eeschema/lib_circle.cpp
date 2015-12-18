@@ -240,16 +240,6 @@ void LIB_CIRCLE::drawGraphic( EDA_DRAW_PANEL* aPanel, wxDC* aDC, const wxPoint& 
         GRFilledCircle( clipbox, aDC, pos1.x, pos1.y, m_Radius, 0, color, color );
     else
         GRCircle( clipbox, aDC, pos1.x, pos1.y, m_Radius, GetPenSize(), color );
-
-    /* Set to one (1) to draw bounding box around circle to validate bounding
-     * box calculation. */
-#if 0
-    EDA_RECT bBox = GetBoundingBox();
-    bBox.RevertYAxis();
-    bBox = aTransform.TransformCoordinate( bBox );
-    bBox.Move( aOffset );
-    GRRect( clipbox, aDC, bBox, 0, LIGHTMAGENTA );
-#endif
 }
 
 

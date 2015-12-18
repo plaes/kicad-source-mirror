@@ -600,11 +600,6 @@ bool PCB_EDIT_FRAME::OpenProjectFiles( const std::vector<wxString>& aFileSet, in
     if( m_Draw3DFrame )
         m_Draw3DFrame->NewDisplay();
 
-#if 0 && defined(DEBUG)
-    // Output the board object tree to stdout, but please run from command prompt:
-    GetBoard()->Show( 0, std::cout );
-#endif
-
     // from EDA_APPL which was first loaded BOARD only:
     {
         /* For an obscure reason the focus is lost after loading a board file

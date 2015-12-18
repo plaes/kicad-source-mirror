@@ -838,44 +838,6 @@ void PNS_NODE::FindLineEnds( const PNS_LINE& aLine, PNS_JOINT& aA, PNS_JOINT& aB
 }
 
 
-#if 0
-void PNS_NODE::MapConnectivity ( PNS_JOINT* aStart, std::vector<PNS_JOINT*>& aFoundJoints )
-{
-    std::deque<PNS_JOINT*> searchQueue;
-    std::set<PNS_JOINT*> processed;
-
-    searchQueue.push_back( aStart );
-    processed.insert( aStart );
-
-    while( !searchQueue.empty() )
-    {
-        PNS_JOINT* current = searchQueue.front();
-        searchQueue.pop_front();
-
-        BOOST_FOREACH( PNS_ITEM* item, current->LinkList() )
-        {
-            if ( item->OfKind( PNS_ITEM::SEGMENT ) )
-            {
-                PNS_SEGMENT* seg = static_cast<PNS_SEGMENT *>( item );
-                PNS_JOINT* a = FindJoint( seg->Seg().A, seg );
-                PNS_JOINT* b = FindJoint( seg->Seg().B, seg );
-                PNS_JOINT* next = ( *a == *current ) ? b : a;
-
-                if( processed.find( next ) == processed.end() )
-                {
-                    processed.insert( next );
-                    searchQueue.push_back( next );
-                }
-            }
-        }
-    }
-
-    BOOST_FOREACH(PNS_JOINT* jt, processed)
-        aFoundJoints.push_back( jt );
-}
-#endif
-
-
 int PNS_NODE::FindLinesBetweenJoints( PNS_JOINT& aA, PNS_JOINT& aB, std::vector<PNS_LINE>& aLines )
 {
     BOOST_FOREACH( PNS_ITEM* item, aA.LinkList() )

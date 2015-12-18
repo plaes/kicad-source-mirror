@@ -1349,14 +1349,6 @@ void EDA_DRAW_PANEL::OnMouseEvent( wxMouseEvent& event )
         }
     }
 
-#if 0
-    wxString msg_debug;
-    msg_debug.Printf( " block state %d, cmd %d",
-                      screen->m_BlockLocate.GetState(),
-                      screen->m_BlockLocate.GetCommand() );
-    GetParent()->PrintMsg( msg_debug );
-#endif
-
     lastPanel = this;
 }
 

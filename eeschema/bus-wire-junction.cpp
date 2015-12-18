@@ -350,13 +350,6 @@ static void ComputeBreakPoint( SCH_LINE* aSegment, const wxPoint& aPosition )
     wxCHECK_RET( nextSegment != NULL,
                  wxT( "Cannot compute break point of NULL second line segment." ) );
 
-#if 0
-    if( ABS( midPoint.x - aSegment->GetStartPoint().x ) <
-        ABS( midPoint.y - aSegment->GetStartPoint().y ) )
-        midPoint.x = aSegment->GetStartPoint().x;
-    else
-        midPoint.y = aSegment->GetStartPoint().y;
-#else
     int iDx = aSegment->GetEndPoint().x - aSegment->GetStartPoint().x;
     int iDy = aSegment->GetEndPoint().y - aSegment->GetStartPoint().y;
 
@@ -376,7 +369,6 @@ static void ComputeBreakPoint( SCH_LINE* aSegment, const wxPoint& aPosition )
         else
             midPoint.y = aSegment->GetStartPoint().y;
     }
-#endif
 
     aSegment->SetEndPoint( midPoint );
     nextSegment->SetStartPoint( midPoint );

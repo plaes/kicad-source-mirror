@@ -63,25 +63,11 @@ int main( int argc, char** argv )
     try
     {
         PTREE   doc;
-
-#if 0
-        using namespace boost::property_tree;
-
-        read_xml( argv[1], doc, xml_parser::trim_whitespace | xml_parser::no_comments );
-#else
         Scan( &doc, &lexer );
-#endif
 
-#if 1
         STRING_FORMATTER sf;
         Format( &sf, 0, 0, doc );
         printf( "%s", sf.GetString().c_str() );
-#else
-        // writing the unchanged ptree in file2.xml
-        boost::property_tree::xml_writer_settings<char> settings( ' ', 2 );
-        write_xml( "/tmp/output.xml", doc, std::locale(), settings );
-#endif
-
     }
     catch( const IO_ERROR& ioe )
     {

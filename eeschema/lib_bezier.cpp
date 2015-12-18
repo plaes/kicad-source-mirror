@@ -331,14 +331,6 @@ void LIB_BEZIER::drawGraphic( EDA_DRAW_PANEL* aPanel, wxDC* aDC, const wxPoint& 
     else
         GRPoly( aPanel->GetClipBox(), aDC, m_PolyPoints.size(),
                 &PolyPointsTraslated[0], 0, GetPenSize(), color, color );
-
-    /* Set to one (1) to draw bounding box around bezier curve to validate
-     * bounding box calculation. */
-#if 0
-    EDA_RECT bBox = GetBoundingBox();
-    GRRect( aPanel->GetClipBox(), aDC, bBox.GetOrigin().x, bBox.GetOrigin().y,
-            bBox.GetEnd().x, bBox.GetEnd().y, 0, LIGHTMAGENTA );
-#endif
 }
 
 

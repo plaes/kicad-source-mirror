@@ -412,27 +412,6 @@ void LIB_PART::Draw( EDA_DRAW_PANEL* aPanel, wxDC* aDc, const wxPoint& aOffset, 
         }
 
     }
-
-    // Enable this to draw the anchor of the component.
-#if 0
-    int len = aDc->DeviceToLogicalXRel( 3 );
-    EDA_RECT* const clipbox  = aPanel ? aPanel->GetClipBox() : NULL;
-
-    GRLine( clipbox, aDc, aOffset.x, aOffset.y - len, aOffset.x,
-            aOffset.y + len, 0, aColor );
-    GRLine( clipbox, aDc, aOffset.x - len, aOffset.y, aOffset.x + len,
-            aOffset.y, 0, aColor );
-#endif
-
-    /* Enable this to draw the bounding box around the component to validate
-     * the bounding box calculations. */
-#if 0
-    EDA_RECT bBox = GetBoundingBox( aMulti, aConvert );
-    bBox.RevertYAxis();
-    bBox = aTransform.TransformCoordinate( bBox );
-    bBox.Move( aOffset );
-    GRRect( aPanel ? aPanel->GetClipBox() : NULL, aDc, bBox, 0, LIGHTMAGENTA );
-#endif
 }
 
 

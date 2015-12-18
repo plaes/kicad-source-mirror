@@ -62,24 +62,6 @@ const char* EndsWithRev( const char* start, const char* tail, char separator )
     return 0;
 }
 
-
-#if 0   // Not used
-int RevCmp( const char* s1, const char* s2 )
-{
-    int r = strncmp( s1, s2, 3 );
-
-    if( r || strlen(s1)<4 || strlen(s2)<4 )
-    {
-        return r;
-    }
-
-    int rnum1 = atoi( s1+3 );
-    int rnum2 = atoi( s2+3 );
-
-    return -(rnum1 - rnum2);    // swap the sign, higher revs first
-}
-#endif
-
 //----<Policy and field test functions>-------------------------------------
 
 
@@ -288,54 +270,6 @@ UTF8 FPID::GetFootprintNameAndRev() const
 }
 
 
-#if 0   // this is broken, it does not output aFootprintName for some reason
-
-UTF8 FPID::Format( const UTF8& aLogicalLib, const UTF8& aFootprintName,
-                          const UTF8& aRevision )
-    throw( PARSE_ERROR )
-{
-    UTF8    ret;
-    int     offset;
-
-    if( aLogicalLib.size() )
-    {
-        offset = okLogical( aLogicalLib );
-
-        if( offset != -1 )
-        {
-            THROW_PARSE_ERROR( _( "Illegal character found in logical library name" ),
-                               wxString::FromUTF8( aLogicalLib.c_str() ),
-                               aLogicalLib.c_str(),
-                               0,
-                               offset );
-        }
-
-        ret += aLogicalLib;
-        ret += ':';
-    }
-
-    if( aRevision.size() )
-    {
-        offset = okRevision( aRevision );
-
-        if( offset != -1 )
-        {
-            THROW_PARSE_ERROR( _( "Illegal character found in revision" ),
-                               wxString::FromUTF8( aRevision.c_str() ),
-                               aRevision.c_str(),
-                               0,
-                               offset );
-        }
-
-        ret += '/';
-        ret += aRevision;
-    }
-
-    return ret;
-}
-#endif
-
-
 int FPID::compare( const FPID& aFPID ) const
 {
     // Don't bother comparing the same object.
@@ -354,42 +288,3 @@ int FPID::compare( const FPID& aFPID ) const
 
     return revision.compare( aFPID.revision );
 }
-
-
-#if 0 && defined(DEBUG)
-
-// build this with Debug CMAKE_BUILD_TYPE
-
-void FPID::Test()
-{
-    static const char* lpids[] = {
-        "smt:R_0805/rev0",
-        "mysmt:R_0805/rev2",
-        "device:AXIAL-0500",
-    };
-
-    for( unsigned i=0;  i<sizeof(lpids)/sizeof(lpids[0]);  ++i )
-    {
-        // test some round tripping
-
-        FPID lpid( lpids[i] );  // parse
-
-        // format
-        printf( "input:'%s'  full:'%s'  nickname: %s  footprint:'%s' rev:'%s'\n",
-                lpids[i],
-                lpid.Format().c_str(),
-                lpid.GetLibNickname().c_str(),
-                lpid.GetFootprintName().c_str(),
-                lpid.GetRevision().c_str() );
-    }
-}
-
-
-int main( int argc, char** argv )
-{
-    FPID::Test();
-
-    return 0;
-}
-
-#endif

@@ -224,13 +224,6 @@ static inline char* ReadLine( LINE_READER* rdr, const char* caller )
     const char* line = rdr->Line();
     printf( "%-6u %s: %s", rdr->LineNumber(), caller, line );
 
-#if 0   // trap
-    if( !strcmp( "loadSETUP", caller ) && !strcmp( "$EndSETUP\n", line ) )
-    {
-        int breakhere = 1;
-    }
-#endif
-
     return ret;
 }
 #define READLINE( rdr )     ReadLine( rdr, __FUNCTION__ )

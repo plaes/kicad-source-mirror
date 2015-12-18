@@ -350,21 +350,9 @@ void BOARD_DESIGN_SETTINGS::SetCopperLayerCount( int aNewLayerCount )
     m_copperLayerCount = aNewLayerCount;
 
     // ensure consistency with the m_EnabledLayers member
-#if 0
-    // was:
-    m_enabledLayers &= ~ALL_CU_LAYERS;
-    m_enabledLayers |= LAYER_BACK;
-
-    if( m_copperLayerCount > 1 )
-        m_enabledLayers |= LAYER_FRONT;
-
-    for( LAYER_NUM ii = LAYER_N_2; ii < aNewLayerCount - 1; ++ii )
-        m_enabledLayers |= GetLayerSet( ii );
-#else
     // Update only enabled copper layers mask
     m_enabledLayers &= ~LSET::AllCuMask();
     m_enabledLayers |= LSET::AllCuMask( aNewLayerCount );
-#endif
 }
 
 

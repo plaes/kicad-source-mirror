@@ -874,15 +874,6 @@ T PCB_PARSER::lookUpLayer( const M& aMap ) throw( PARSE_ERROR, IO_ERROR )
 
     if( it == aMap.end() )
     {
-#if 0 && defined(DEBUG)
-        // dump the whole darn table, there's something wrong with it.
-        for( it = aMap.begin();  it != aMap.end();  ++it )
-        {
-            wxLogDebug( &aMap == (void*)&m_layerIndices ? wxT( "lm[%s] = %d" ) :
-                        wxT( "lm[%s] = %08X" ), it->first.c_str(), it->second );
-        }
-#endif
-
         wxString error = wxString::Format( _(
                 "Layer '%s' in file\n"
                 "'%s'\n"

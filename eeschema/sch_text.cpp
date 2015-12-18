@@ -359,14 +359,6 @@ void SCH_TEXT::Draw( EDA_DRAW_PANEL* panel, wxDC* DC, const wxPoint& aOffset,
 
     if( m_isDangling && panel)
         DrawDanglingSymbol( panel, DC, m_Pos + aOffset, color );
-
-    // Enable these line to draw the bounding box (debug tests purposes only)
-#if 0
-    {
-        EDA_RECT BoundaryBox = GetBoundingBox();
-        GRRect( clipbox, DC, BoundaryBox, 0, BROWN );
-    }
-#endif
 }
 
 

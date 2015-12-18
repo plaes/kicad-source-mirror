@@ -335,13 +335,8 @@ void PGM_SINGLE_TOP::MacOpenFile( const wxString& aFileName )
 
     if( filename.FileExists() )
     {
-#if 0
-        // this pulls in EDA_DRAW_FRAME type info, which we don't want in
-        // the single_top link image.
-        KIWAY_PLAYER* frame = dynamic_cast<KIWAY_PLAYER*>( App().GetTopWindow() );
-#else
         KIWAY_PLAYER* frame = (KIWAY_PLAYER*) App().GetTopWindow();
-#endif
+
         if( frame )
             frame->OpenProjectFiles( std::vector<wxString>( 1, aFileName ) );
     }

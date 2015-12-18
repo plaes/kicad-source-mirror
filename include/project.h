@@ -284,39 +284,4 @@ private:
     _ELEM*          m_elems[ELEM_COUNT];
 };
 
-
-//-----<possible futures>---------------------------------------------------------
-
-#if 0
-    /**
-     * Function Value
-     * fetches a project variable @a aVariable and returns true if that variable was
-     * found, else false. If not found, aFetchedValue is not touched.  Any environment
-     * variable is also a project variable.
-     *
-     * @param aVariable is the property or option to look for.
-     * @param aFetchedValue is where to put the value of the property if it exists
-     *  and aFetchedValue is not NULL.
-     * @return bool - true if variable was found, else false.
-     */
-    VTBL_ENTRY bool Value( const wxString& aVariable, wxString* aFetchedValue = NULL );
-
-    /**
-     * Function Substitute
-     * replaces any project variable references found within @a aString with their
-     * values.  Any referenced variable is first sought in the PROJECT space, and if
-     * not found, then sought in the environment.
-     */
-    VTBL_ENTRY const wxString Substitute( const wxString& aString );
-
-    /**
-     * Function SubstituteAndEvaluate
-     * replaces any project variable references found within @a aString with their
-     * values, and evaluates aString as an expression.
-     * Any referenced variable is first sought in the PROJECT space, and if
-     * not found, then sought in the environment.
-     */
-    VTBL_ENTRY const wxString SubstituteAndEvaluate( const wxString& aString );
-#endif
-
 #endif  // PROJECT_H_

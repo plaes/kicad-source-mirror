@@ -233,15 +233,6 @@ void LIB_RECTANGLE::drawGraphic( EDA_DRAW_PANEL* aPanel, wxDC* aDC,
     else
         GRRect( clipbox, aDC, pos1.x, pos1.y, pos2.x, pos2.y, GetPenSize(), color );
 
-    /* Set to one (1) to draw bounding box around rectangle to validate
-     * bounding box calculation. */
-#if 0
-    EDA_RECT bBox = GetBoundingBox();
-    bBox.RevertYAxis();
-    bBox = aTransform.TransformCoordinate( bBox );
-    bBox.Move( aOffset );
-    GRRect( clipbox, aDC, bBox, 0, LIGHTMAGENTA );
-#endif
 }
 
 

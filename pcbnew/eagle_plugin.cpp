@@ -1389,22 +1389,9 @@ void EAGLE_PLUGIN::loadLayerDefs( CPTREE& aLayers )
         else
         {
             // some eagle boards do not have contiguous layer number sequences.
-
-#if 0   // pre LAYER_ID & LSET:
-            m_cu_map[it->number] = cu.size() - 1 - ki_layer_count;
-#else
             m_cu_map[it->number] = ki_layer_count;
-#endif
         }
     }
-
-#if 0 && defined(DEBUG)
-    printf( "m_cu_map:\n" );
-    for( unsigned i=0; i<DIM(m_cu_map);  ++i )
-    {
-        printf( "\t[%d]:%d\n", i, m_cu_map[i] );
-    }
-#endif
 
     // Set the layer names and cu count iff we're loading a board.
     if( m_board )
@@ -1727,14 +1714,6 @@ void EAGLE_PLUGIN::loadLibrary( CPTREE& aLib, const string* aLibName )
         string pack_name( pack_ref );
 
         ReplaceIllegalFileNameChars( &pack_name );
-
-#if 0 && defined(DEBUG)
-        if( pack_name == "TO220H" )
-        {
-            int breakhere = 1;
-            (void) breakhere;
-        }
-#endif
         m_xpath->Value( pack_name.c_str() );
 
         string key = aLibName ? makeKey( *aLibName, pack_name ) : pack_name;

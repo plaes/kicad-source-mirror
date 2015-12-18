@@ -639,15 +639,6 @@ void DIALOG_EDIT_COMPONENT_IN_SCHEMATIC::InitBuffers( SCH_COMPONENT* aComponent 
 
     m_part = Prj().SchLibs()->FindLibPart( m_cmp->m_part_name );
 
-#if 0 && defined(DEBUG)
-    for( int i = 0;  i<aComponent->GetFieldCount();  ++i )
-    {
-        printf( "Orig[%d] (x=%d, y=%d)\n", i, aComponent->m_Fields[i].GetTextPosition().x,
-                aComponent->m_Fields[i].GetTextPosition().y );
-    }
-
-#endif
-
     // When this code was written, all field constructors ensure that the fixed fields
     // are all present within a component.  So we can knowingly copy them over
     // in the normal order.  Copy only the fixed fields at first.

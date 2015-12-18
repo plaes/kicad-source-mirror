@@ -32,21 +32,6 @@
 // So boost seems best for all platforms.
 
 
-#if 0   // C++ std::unordered_map, maybe in the future
-
-#include <unordered_map>
-
-
-/// Map a C string to an integer.  Used in DSNLEXER.
-typedef std::unordered_map< std::string, int >          KEYWORD_MAP;
-
-/// Map a C string to an EDA_RECT.
-/// The key is the classname of the derived wxformbuilder dialog.
-typedef std::unordered_map< std::string, EDA_RECT >     RECT_MAP;
-
-
-#elif 1     // boost::unordered_map
-
 // fix a compile bug at line 97 of boost/detail/container_fwd.hpp
 #define BOOST_DETAIL_TEST_FORCE_CONTAINER_FWD
 
@@ -138,7 +123,5 @@ typedef boost::unordered_map< const char*, int, fnv_1a, iequal_to >     KEYWORD_
 /// Map a std::string to an EDA_RECT.
 /// The key is the classname of the derived wxformbuilder dialog.
 typedef boost::unordered_map< std::string, EDA_RECT >  RECT_MAP;
-
-#endif
 
 #endif // HASHTABLES_H_

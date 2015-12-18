@@ -472,12 +472,6 @@ void MODULE::Draw( EDA_DRAW_PANEL* aPanel, wxDC* aDC, GR_DRAWMODE aDrawMode,
             break;
         }
     }
-
-    // Enable these line to draw m_BoundaryBox (debug tests purposes only)
-#if 0
-    GRRect( aPanel->GetClipBox(), aDC, m_BoundaryBox, 0, BROWN );
-#endif
-
 }
 
 

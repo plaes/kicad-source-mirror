@@ -432,20 +432,6 @@ void FOOTPRINT_WIZARD_FRAME::OnActivate( wxActivateEvent& event )
     // Ensure we do not have old selection:
     if( !event.GetActive() )
         return;
-
-#if 0
-    // Currently, we do not have a way to see if a Python wizard has changed,
-    // therefore the lists of parameters and option has to be rebuilt
-    // This code could be enabled when this way exists
-    bool footprintWizardsChanged = false;
-
-    if( footprintWizardsChanged )
-    {
-        // If we are here, the library list has changed, rebuild it
-        ReCreatePageList();
-        DisplayWizardInfos();
-    }
-#endif
 }
 
 

@@ -352,26 +352,10 @@ const wxPoint D_PAD::ShapePos() const
 
 const wxString D_PAD::GetPadName() const
 {
-#if 0   // m_Padname is not ASCII and not UTF8, it is LATIN1 basically, whatever
-        // 8 bit font is supported in KiCad plotting and drawing.
-
-    // Return pad name as wxString, assume it starts as a non-terminated
-    // utf8 character sequence
-
-    char    temp[sizeof(m_Padname)+1];      // a place to terminate with '\0'
-
-    strncpy( temp, m_Padname, sizeof(m_Padname) );
-
-    temp[sizeof(m_Padname)] = 0;
-
-    return FROM_UTF8( temp );
-#else
-
     wxString name;
 
     StringPadName( name );
     return name;
-#endif
 }
 
 

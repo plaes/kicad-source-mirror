@@ -129,22 +129,12 @@ void DIALOG_GLOBAL_EDIT_TRACKS_AND_VIAS::MyInit()
     value = netclass->GetuViaDiameter();      // Display micro via diameter
     msg   = StringFromValue( g_UserUnit, value, true );
     m_gridDisplayCurrentSettings->SetCellValue( 0, 3, msg  );
-#if 0   // Currently we use always the default netclass value
-    value = board->GetCurrentMicroViaSize();
-    msg   = StringFromValue( g_UserUnit, value, true );
-#endif
     msg = _( "Default" );
     m_gridDisplayCurrentSettings->SetCellValue( 1, 3, msg  );
 
     value = netclass->GetuViaDrill();      // Display micro via drill
     msg   = StringFromValue( g_UserUnit, value, true );
     m_gridDisplayCurrentSettings->SetCellValue( 0, 4, msg  );
-#if 0   // Currently we use always the default netclass value
-    value = board->GetCurrentMicroViaDrill();
-    if( value >= 0 )
-        msg = StringFromValue( g_UserUnit, value, true );
-    else
-#endif
     msg = _( "Default" );
     m_gridDisplayCurrentSettings->SetCellValue( 1, 4, msg  );
 

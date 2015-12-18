@@ -24,11 +24,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#if 0
- #include <wx/filehistory.h>    // wx 3.0:
-#else
- #include <wx/docview.h>
-#endif
+#include <wx/docview.h>
 
 #include <wx/string.h>
 

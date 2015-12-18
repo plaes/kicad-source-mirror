@@ -443,13 +443,9 @@ void SCH_PRINTOUT::DrawPage( SCH_SCREEN* aScreen )
     // This is only a workaround, not a fix
     // see https://bugs.launchpad.net/kicad/+bug/1464773
     // xoffset does not create issues.
-#if 0   // FIX ME
-    int yoffset = ( fitRect.height - pageSizeIU.y ) / 2;
-#else
     // the Y centering will be not perfect, but this is less annoying
     // than a blank page or a buggy centering
     int yoffset = 0;
-#endif
     OffsetLogicalOrigin( xoffset, yoffset );
 
     GRResetPenAndBrush( dc );

@@ -1935,29 +1935,6 @@ void SPECCTRA_DB::FromBOARD( BOARD* aBoard )
         wxASSERT( pcb->library->vias.size() == 0 );
         pcb->library->AppendVia( via );
 
-#if 0
-        // I've seen no way to make stock vias useable by freerouter.  Also the
-        // zero based diameter was leading to duplicates in the LookupVia() function.
-        // User should use netclass based vias when going to freerouter.
-
-        // Output the stock vias, but preserve uniqueness in the via container by
-        // using LookupVia().
-        for( unsigned i = 0; i < aBoard->m_ViasDimensionsList.size(); ++i )
-        {
-            int viaSize     = aBoard->m_ViasDimensionsList[i].m_Diameter;
-            int viaDrill    = aBoard->m_ViasDimensionsList[i].m_Drill;
-
-            via = makeVia( viaSize, viaDrill,
-                           m_top_via_layer, m_bot_via_layer );
-
-            // maybe add 'via' to the library, but only if unique.
-            PADSTACK* registered = pcb->library->LookupVia( via );
-
-            if( registered != via )
-                delete via;
-        }
-#endif
-
         // set the "spare via" index at the start of the
         // pcb->library->spareViaIndex = pcb->library->vias.size();
 
@@ -1976,9 +1953,6 @@ void SPECCTRA_DB::FromBOARD( BOARD* aBoard )
                 delete via;
         }
     }
-
-
-#if 1    // do existing wires and vias
 
     //-----<create the wires from tracks>-----------------------------------
     {
@@ -2090,8 +2064,6 @@ void SPECCTRA_DB::FromBOARD( BOARD* aBoard )
             dsnVia->via_type = T_protect;     // @todo, this should be configurable
         }
     }
-
-#endif    // do existing wires and vias
 
     //-----<via_descriptor>-------------------------------------------------
     {

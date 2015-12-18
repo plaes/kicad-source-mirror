@@ -132,18 +132,6 @@ bool SCH_EDIT_FRAME::LoadOneEEFile( SCH_SCREEN* aScreen, const wxString& aFullFi
         DisplayInfoMessage( this, msgDiag );
     }
 
-#if 0
-    // Compile it if the new version is unreadable by previous Eeschema versions
-    else if( version < EESCHEMA_VERSION )
-    {
-        MsgDiag = aFullFileName + _( " was created by an older version of \
-Eeschema. It will be stored in the new file format when you save this file \
-again." );
-
-        DisplayInfoMessage( this, MsgDiag );
-    }
-#endif
-
     // The next lines are the lib list section, and are mainly comments, like:
     // LIBS:power
     // the lib list is not used, but is in schematic file just in case.

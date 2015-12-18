@@ -857,13 +857,6 @@ void AddMenusForBlock( wxMenu* PopMenu, SCH_EDIT_FRAME* frame )
         AddMenuItem( PopMenu, ID_SCH_MIRROR_X, msg, KiBitmap( mirror_v_xpm ) );
         msg = AddHotkeyName( _( "Rotate Block CCW" ), g_Schematic_Hokeys_Descr, HK_ROTATE );
         AddMenuItem( PopMenu, ID_SCH_ROTATE_CLOCKWISE, msg, KiBitmap( rotate_ccw_xpm ) );
-
-#if 0
-  #ifdef __WINDOWS__
-        AddMenuItem( menu_other_block_commands, ID_GEN_COPY_BLOCK_TO_CLIPBOARD,
-                     _( "Copy to Clipboard" ), KiBitmap( copy_button_xpm ) );
-  #endif
-#endif
     }
 }
 

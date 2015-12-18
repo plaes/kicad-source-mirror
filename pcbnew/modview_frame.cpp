@@ -733,13 +733,6 @@ void FOOTPRINT_VIEWER_FRAME::SelectCurrentLibrary( wxCommandEvent& event )
 
 void FOOTPRINT_VIEWER_FRAME::SelectCurrentFootprint( wxCommandEvent& event )
 {
-#if 0 // cannot remember why this is here
-    // The PCB_EDIT_FRAME may not be the FOOTPRINT_VIEW_FRAME's parent,
-    // so use Kiway().Player() to fetch.
-    PCB_EDIT_FRAME* parent = (PCB_EDIT_FRAME*) Kiway().Player( FRAME_PCB, true );
-    (void*) parent;
-#endif
-
     wxString        nickname = getCurNickname();
     MODULE*         oldmodule = GetBoard()->m_Modules;
     MODULE*         module = LoadModuleFromLibrary( nickname, Prj().PcbFootprintLibs(), false );

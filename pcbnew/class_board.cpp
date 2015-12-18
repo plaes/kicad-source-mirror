@@ -377,23 +377,14 @@ bool BOARD::SetLayerName( LAYER_ID aLayer, const wxString& aLayerName )
 
     if( IsLayerEnabled( aLayer ) )
     {
-#if 0
-        for( LAYER_NUM i = FIRST_COPPER_LAYER; i < NB_COPPER_LAYERS; ++i )
-        {
-            if( i != aLayer && IsLayerEnabled( i ) && nameTemp == m_Layer[i].m_Name )
-                return false;
-        }
-#else
         for( LSEQ cu = GetEnabledLayers().CuStack();  cu;  ++cu )
         {
             LAYER_ID id = *cu;
 
             // veto changing the name if it exists elsewhere.
             if( id != aLayer && nameTemp == m_Layer[id].m_name )
-//            if( id != aLayer && nameTemp == wxString( m_Layer[id].m_name ) )
                 return false;
         }
-#endif
 
         m_Layer[aLayer].m_name = nameTemp;
 

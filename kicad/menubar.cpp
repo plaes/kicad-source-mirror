@@ -245,16 +245,6 @@ void KICAD_MANAGER_FRAME::ReCreateMenuBar()
                  _( "Create new project" ),
                  KiBitmap( new_project_xpm ) );
 
-    // Currently there is nothing to save
-    // (Kicad manager does not save any info in .pro file)
-#if 0
-    // Save
-    msg = AddHotkeyName( _( "&Save" ), kicad_Manager_Hokeys_Descr, HK_SAVE_PROJECT );
-    AddMenuItem( fileMenu, ID_SAVE_PROJECT, msg,
-                 _( "Save current project" ),
-                 KiBitmap( save_project_xpm ) );
-#endif
-
     // Archive
     fileMenu->AppendSeparator();
     AddMenuItem( fileMenu,

@@ -77,16 +77,9 @@ int main( int argc, char** argv )
     // we will be outputting only a portion of what we wanted to read in.
     db.SetFILE( stdout );
 
-#if 0
-    // export a PCB
-    DSN::PCB* pcb = db.GetPCB();
-    pcb->Format( &db, 0 );
-
-#else
     // export a SESSION file.
     DSN::SESSION* ses = db.GetSESSION();
     ses->Format( &db, 0 );
-#endif
 }
 
 //-----<dummy code>---------------------------------------------------

@@ -355,14 +355,6 @@ public:
         return FindJoint( aPos, aItem->Layers().Start(), aItem->Net() );
     }
 
-#if 0
-    void MapConnectivity( PNS_JOINT* aStart, std::vector<PNS_JOINT*> & aFoundJoints );
-
-    PNS_ITEM* NearestUnconnectedItem( PNS_JOINT* aStart, int *aAnchor = NULL,
-                                      int aKindMask = PNS_ITEM::ANY);
-
-#endif
-
     ///> finds all lines between a pair of joints. Used by the loop removal procedure.
     int FindLinesBetweenJoints( PNS_JOINT&                  aA,
                                 PNS_JOINT&                  aB,

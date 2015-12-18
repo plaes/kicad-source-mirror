@@ -459,11 +459,6 @@ bool GITHUB_PLUGIN::repoURL_zipURL( const wxString& aRepoURL, std::string& aZipU
         {
             //codeload.github.com only supports https
             zip_url = "https://";
-#if 0       // A proper code path would be this one, but it is not the fastest.
-            zip_url += repo.GetServer();
-            zip_url += repo.GetPath();      // path comes with a leading '/'
-            zip_url += "/archive/master.zip";
-#else
             // Github issues a redirect for the "master.zip".  i.e.
             //  "https://github.com/liftoff-sr/pretty_footprints/archive/master.zip"
             // would be redirected to:
@@ -474,7 +469,6 @@ bool GITHUB_PLUGIN::repoURL_zipURL( const wxString& aRepoURL, std::string& aZipU
             zip_url += "codeload.github.com";
             zip_url += repo.GetPath();      // path comes with a leading '/'
             zip_url += "/zip/master";
-#endif
         }
 
         else
@@ -553,35 +547,3 @@ void GITHUB_PLUGIN::remoteGetZip( const wxString& aRepoURL ) throw( IO_ERROR )
         THROW_IO_ERROR( msg );
     }
 }
-
-#if 0 && defined(STANDALONE)
-
-int main( int argc, char** argv )
-{
-    INIT_LOGGER( ".", "test.log" );
-
-    GITHUB_PLUGIN gh;
-
-    try
-    {
-        wxArrayString fps = gh.FootprintEnumerate(
-                wxT( "https://github.com/liftoff-sr/pretty_footprints" ),
-                NULL
-                );
-
-        for( int i=0; i<(int)fps.Count(); ++i )
-        {
-            printf("[%d]:%s\n", i, TO_UTF8( fps[i] ) );
-        }
-    }
-    catch( const IO_ERROR& ioe )
-    {
-        printf( "%s\n", TO_UTF8(ioe.errorText) );
-    }
-
-    UNINIT_LOGGER();
-
-    return 0;
-}
-
-#endif

@@ -514,11 +514,7 @@ void PCB::MapLayer( XNODE* aNode )
         if( layernum == -1 )
             KiCadLayer = Dwgs_User;    // default
         else
-#if 0 // was:
-            KiCadLayer = FIRST_COPPER_LAYER + m_layersStackup.GetCount() - 1 - layernum;
-#else
             KiCadLayer = ToLAYER_ID( layernum );
-#endif
     }
 
     if( FindNode( aNode, wxT( "layerNum" ) ) )
