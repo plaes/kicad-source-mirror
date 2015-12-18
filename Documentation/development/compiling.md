@@ -270,6 +270,7 @@ the following commands:
               mingw-w64-x86_64-pkg-config \
               mingw-w64-x86_64-swig \
               mingw-w64-x86_64-boost \
+              mingw-w64-x86_64-curl \
               mingw-w64-x86_64-cairo \
               mingw-w64-x86_64-glew \
               mingw-w64-x86_64-wxPython \
@@ -418,3 +419,4 @@ Boost patches in the KiCad source [patches folder][].
 [MinGW]: http://mingw.org/
 [build Boost]: http://www.boost.org/doc/libs/1_59_0/more/getting_started/index.html
 [MSYS2 64-bit SourceForge repo]: http://sourceforge.net/projects/msys2/files/REPOS/MINGW/x86_64/
+[curl]: http://curl.haxx.se/libcurl/
