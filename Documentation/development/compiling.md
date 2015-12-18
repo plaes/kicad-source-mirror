@@ -272,7 +272,6 @@ the following commands:
               mingw-w64-x86_64-boost \
               mingw-w64-x86_64-cairo \
               mingw-w64-x86_64-glew \
-              mingw-w64-x86_64-openssl \
               mingw-w64-x86_64-wxPython \
               mingw-w64-x86_64-wxWidgets
     cd kicad-source
@@ -284,7 +283,6 @@ the following commands:
           -DCMAKE_PREFIX_PATH=/mingw64 \
           -DCMAKE_INSTALL_PREFIX=/mingw64 \
           -DDEFAULT_INSTALL_PATH=/mingw64 \
-          -DOPENSSL_ROOT_DIR=/mingw64 \
           -DKICAD_SKIP_BOOST=ON \
           -DKICAD_SCRIPTING=ON \
           -DKICAD_SCRIPTING_MODULES=ON \
@@ -407,7 +405,6 @@ Boost patches in the KiCad source [patches folder][].
 [wxWidgets]: http://wxwidgets.org/
 [patches folder]: http://bazaar.launchpad.net/~kicad-product-committers/kicad/product/files/head:/patches/
 [Boost]: http://www.boost.org/
-[OpenSSL]: https://www.openssl.org/
 [GLEW]: http://glew.sourceforge.net/
 [GLUT]: https://www.opengl.org/resources/libraries/glut/
 [Cairo]: http://cairographics.org/
