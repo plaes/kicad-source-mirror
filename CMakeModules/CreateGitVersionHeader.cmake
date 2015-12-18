@@ -70,19 +70,11 @@ macro( create_git_version_header _git_src_path )
             OUTPUT_VARIABLE _git_LAST_CHANGE_LOG
             OUTPUT_STRIP_TRAILING_WHITESPACE)
 
-            execute_process(
-            COMMAND
-            ${GIT_EXECUTABLE} rev-list HEAD --count
-            --first-parent
-            WORKING_DIRECTORY ${_git_src_path}
-            OUTPUT_VARIABLE _git_SERIAL
-            OUTPUT_STRIP_TRAILING_WHITESPACE)
-
             message(STATUS "Git hash: ${_git_LONG_HASH}")
 
             if( ${_git_log_result} EQUAL 0 )
                 string( REGEX REPLACE "^(.*\n)?revno: ([^ \n]+).*"
-                        "\\2" Kicad_REPO_REVISION "BZR ${_git_SERIAL}, Git ${_git_SHORT_HASH}" )
+                        "\\2" Kicad_REPO_REVISION "Git ${_git_SHORT_HASH}" )
                 string( REGEX REPLACE "^(.*\n)?committer: ([^\n]+).*"
                         "\\2" Kicad_REPO_LAST_CHANGED_AUTHOR "${_git_LAST_COMITTER}")
                 string( REGEX REPLACE "^(.*\n)?timestamp: [a-zA-Z]+ ([^ \n]+).*"
