@@ -54,13 +54,6 @@ option( KICAD_SCRIPTING_WXPYTHON
     "Build wxPython implementation for wx interface building in Python and py.shell (default OFF)."
     )
 
-# WARNING: KiCad developers strongly advise you to build Boost with supplied patches,
-# as it is known to work with KiCad.  Other versions may contain bugs that may result
-# in KiCad errors.
-option( KICAD_SKIP_BOOST
-    "Skip building downloaded Boost library components, use Boost from your system."
-    )
-mark_as_advanced( KICAD_SKIP_BOOST )    # Normal builders should build Boost.
 
 # when option KICAD_SCRIPTING OR KICAD_SCRIPTING_MODULES is enabled:
 # PYTHON_EXECUTABLE can be defined when invoking cmake
@@ -466,27 +459,12 @@ if( NOT CAIRO_FOUND )
     check_find_package_result( CAIRO_FOUND "Cairo" )
 endif()
 
-# Download boost and possibly build parts of it
-#################################################
-if( KICAD_SKIP_BOOST )
-    find_package( Boost 1.54.0 REQUIRED COMPONENTS context date_time filesystem iostreams locale
-                                                   program_options regex system thread )
+# Find Boost
+find_package( Boost 1.54.0 REQUIRED COMPONENTS context date_time filesystem iostreams locale
+                                               program_options regex system thread )
 
-    if( NOT Boost_FOUND )
-        message( FATAL_ERROR "Boost 1.54+ libraries are required." )
-    endif()
-
-    # Keeps CMake from complaining about undefined boost dependencies even though Boost was
-    # found.  Sigh!!!!!
-    add_custom_target( boost )
-
-    message( WARNING "
-WARNING: You decided to skip building boost library.
-KiCad developers strongly advise you to build the bundled boost library, as it is known to work with KiCad.
-Other versions may contain bugs that may result in KiCad errors." )
-else()
-    add_dependencies( lib-dependencies boost )
-    include( download_boost )
+if( NOT Boost_FOUND )
+    message( FATAL_ERROR "Boost 1.54+ libraries are required." )
 endif()
 
 # Include MinGW resource compiler.
@@ -664,21 +642,6 @@ add_subdirectory( utils )
 add_subdirectory( qa )
 
 #add_subdirectory( new )
-
-
-# Make all libs and executables depend on ExternalProject_Add( boost ),
-# except perhaps bitmap lib.  This allows a multi-threaded build to succeed.
-add_dependencies( pcbnew boost )
-add_dependencies( eeschema boost )
-add_dependencies( cvpcb_kiface boost )
-add_dependencies( gal boost )
-add_dependencies( common boost )
-add_dependencies( pcbcommon boost )
-add_dependencies( 3d-viewer boost )
-add_dependencies( pcad2kicadpcb boost )
-add_dependencies( polygon boost )
-add_dependencies( pl_editor boost )
-add_dependencies( pnsrouter boost )
 
 
 if( KICAD_BUILD_STATIC OR KICAD_BUILD_DYNAMIC )
