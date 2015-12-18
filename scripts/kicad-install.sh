@@ -155,7 +155,6 @@ install_prerequisites()
             glew-devel
             glm
             grep
-            openssl-devel
             wxGTK3-devel
         "
 

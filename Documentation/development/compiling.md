@@ -78,14 +78,6 @@ specific patches required to build a working Boost library.  These patches can b
 [patches folder][] in the KiCad source.  These patches are named by the platform name they should
 be applied against.
 
-## OpenSSL Secure Socket Layer Library ## {#openssl}
-
-The [OpenSSL][] library is only required when the KiCad build is configured with the Github plugin
-enabled.  See the [KiCad Build Configuration Options](#build_opts)` section for more information.
-Please note that KiCad will download and build version 1.0.1e of OpenSSL by default.  You should
-probably use the version of OpenSSL installed on your system as it will most likely be more up to
-date and contain the latest security fixes.
-
 ## GLEW OpenGL Extension Wrangler Library ## {#glew}
 
 The [OpenGL Extension Wrangler][GLEW] is an OpenGL helper library used by the KiCad graphics
