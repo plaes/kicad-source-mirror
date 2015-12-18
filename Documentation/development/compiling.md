@@ -23,12 +23,6 @@ Some of these tools are required to build from source and some are optional.
 [CMake][] is the build configuration and makefile generation tool used by KiCad.  It is required.
 
 
-## Bazaar Version Control System ## {#bazaar}
-
-The official source code repository is hosted on [Launchpad][] and requires the [Bazaar][] version
-control system in order to create a branch of the latest source.  Bazaar is not required if you are
-going to build a stable version of KiCad from a source archive.
-
 ## GIT Version Control System ## {#git}
 
 If you prefer to use [GIT][] for version control, there is a mirror of the official KiCad
@@ -397,7 +391,6 @@ Boost patches in the KiCad source [patches folder][].
 [Clang]: http://clang.llvm.org/
 [CMake]: https://cmake.org/
 [Launchpad]: https://code.launchpad.net/~kicad-product-committers/kicad/product
-[Bazaar]: http://bazaar.canonical.com/en/
 [GIT]: https://git-scm.com/
 [Github]: https://github.com/KiCad/kicad-source-mirror
 [Doxygen]: http://www.stack.nl/~dimitri/doxygen/
