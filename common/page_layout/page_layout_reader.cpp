@@ -787,9 +787,6 @@ void WORKSHEET_LAYOUT::SetPageLayout( const wxString& aFullFileName, bool Append
 
     if( !Append )
     {
-        if( fullFileName.IsEmpty() )
-            wxGetEnv( wxT( "KICAD_WKSFILE" ), &fullFileName );
-
         if( fullFileName.IsEmpty() || !wxFileExists( fullFileName ) )
         {
             #if 0

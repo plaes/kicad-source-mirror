@@ -650,8 +650,7 @@ public:
      * Populates the list with a custom layout, or
      * the default layout, if no custom layout available
      * @param aFullFileName = the custom page layout description file.
-     * if empty, loads the file defined by KICAD_WKSFILE
-     * and if its is not defined, uses the default internal description
+     * if empty, uses the default internal description
      * @param Append = if true: do not delete old layout, and load only
        aFullFileName.
      */
