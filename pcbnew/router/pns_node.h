@@ -25,7 +25,6 @@
 #include <list>
 
 #include <boost/unordered_set.hpp>
-#include <boost/unordered_map.hpp>
 #include <boost/optional.hpp>
 
 #include <geometry/shape.h>

@@ -39,7 +39,6 @@
 #include "pns_router.h"
 
 using boost::unordered_set;
-using boost::unordered_map;
 
 #ifdef DEBUG
 static boost::unordered_set<PNS_NODE*> allocNodes;
