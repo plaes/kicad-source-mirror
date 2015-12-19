@@ -863,7 +863,7 @@ bool LIB_PART::Load( LINE_READER& aLineReader, wxString& aErrorMsg )
         {
             p = strtok( line, " \t\n" );
 
-            if( stricmp( p, "ENDDEF" ) == 0 )
+            if( p && stricmp( p, "ENDDEF" ) == 0 )
                 break;
         }
 
@@ -923,6 +923,9 @@ bool LIB_PART::Load( LINE_READER& aLineReader, wxString& aErrorMsg )
         result = true;
 
         if( *line == '#' )      // a comment
+            continue;
+
+        if( p == NULL )         // empty line
             continue;
 
         if( line[0] == 'T'  &&  line[1] == 'i' )
@@ -1013,7 +1016,12 @@ bool LIB_PART::LoadDrawEntries( LINE_READER& aLineReader, wxString& aErrorMsg )
             break;
 
         case '#':    // Comment
-                continue;
+            continue;
+
+        case '\n':
+        case '\r':
+        case 0:   // empty line
+            continue;
 
         default:
             aErrorMsg.Printf( wxT( "undefined DRAW command %c" ), line[0] );
