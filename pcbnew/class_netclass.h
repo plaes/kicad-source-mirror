@@ -33,8 +33,7 @@
 
 #include <set>
 #include <map>
-#include <boost/shared_ptr.hpp>
-
+#include <memory>
 #include <wx/string.h>
 
 #include <richio.h>
@@ -206,7 +205,7 @@ public:
 #endif
 };
 
-typedef boost::shared_ptr<NETCLASS> NETCLASSPTR;
+typedef std::shared_ptr<NETCLASS> NETCLASSPTR;
 
 /**
  * Class NETCLASSES

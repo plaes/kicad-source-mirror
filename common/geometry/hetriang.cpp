@@ -45,7 +45,7 @@
 #include <algorithm>
 #include <fstream>
 #include <limits>
-#include <boost/make_shared.hpp>
+#include <memory>
 #include <class_board_connected_item.h>
 
 using namespace hed;
@@ -126,22 +126,22 @@ EDGE_PTR TRIANGULATION::InitTwoEnclosingTriangles( NODES_CONTAINER::iterator aFi
     double dx = ( xmax - xmin ) / fac;
     double dy = ( ymax - ymin ) / fac;
 
-    NODE_PTR n1 = boost::make_shared<NODE>( xmin - dx, ymin - dy );
-    NODE_PTR n2 = boost::make_shared<NODE>( xmax + dx, ymin - dy );
-    NODE_PTR n3 = boost::make_shared<NODE>( xmax + dx, ymax + dy );
-    NODE_PTR n4 = boost::make_shared<NODE>( xmin - dx, ymax + dy );
+    NODE_PTR n1 = std::make_shared<NODE>( xmin - dx, ymin - dy );
+    NODE_PTR n2 = std::make_shared<NODE>( xmax + dx, ymin - dy );
+    NODE_PTR n3 = std::make_shared<NODE>( xmax + dx, ymax + dy );
+    NODE_PTR n4 = std::make_shared<NODE>( xmin - dx, ymax + dy );
 
     // diagonal
-    EDGE_PTR e1d = boost::make_shared<EDGE>();
-    EDGE_PTR e2d = boost::make_shared<EDGE>();
+    EDGE_PTR e1d = std::make_shared<EDGE>();
+    EDGE_PTR e2d = std::make_shared<EDGE>();
 
     // lower triangle
-    EDGE_PTR e11 = boost::make_shared<EDGE>();
-    EDGE_PTR e12 = boost::make_shared<EDGE>();
+    EDGE_PTR e11 = std::make_shared<EDGE>();
+    EDGE_PTR e12 = std::make_shared<EDGE>();
 
     // upper triangle
-    EDGE_PTR e21 = boost::make_shared<EDGE>();
-    EDGE_PTR e22 = boost::make_shared<EDGE>();
+    EDGE_PTR e21 = std::make_shared<EDGE>();
+    EDGE_PTR e22 = std::make_shared<EDGE>();
 
     // lower triangle
     e1d->SetSourceNode( n3 );
@@ -452,12 +452,12 @@ EDGE_PTR TRIANGULATION::SplitTriangle( EDGE_PTR& aEdge, const NODE_PTR& aPoint )
     EDGE_PTR e3( e2->GetNextEdgeInFace() );
     NODE_PTR n3( e3->GetSourceNode() );
 
-    EDGE_PTR e1_n = boost::make_shared<EDGE>();
-    EDGE_PTR e11_n = boost::make_shared<EDGE>();
-    EDGE_PTR e2_n = boost::make_shared<EDGE>();
-    EDGE_PTR e22_n = boost::make_shared<EDGE>();
-    EDGE_PTR e3_n = boost::make_shared<EDGE>();
-    EDGE_PTR e33_n = boost::make_shared<EDGE>();
+    EDGE_PTR e1_n = std::make_shared<EDGE>();
+    EDGE_PTR e11_n = std::make_shared<EDGE>();
+    EDGE_PTR e2_n = std::make_shared<EDGE>();
+    EDGE_PTR e22_n = std::make_shared<EDGE>();
+    EDGE_PTR e3_n = std::make_shared<EDGE>();
+    EDGE_PTR e33_n = std::make_shared<EDGE>();
 
     e1_n->SetSourceNode( n1 );
     e11_n->SetSourceNode( aPoint );

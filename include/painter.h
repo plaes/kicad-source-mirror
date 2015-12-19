@@ -33,7 +33,6 @@
 #include <gal/color4d.h>
 #include <colors.h>
 #include <worksheet_shape_builder.h>
-#include <boost/shared_ptr.hpp>
 
 class EDA_ITEM;
 class COLORS_DESIGN_SETTINGS;

@@ -635,7 +635,7 @@ int OPENGL_GAL::BeginGroup()
 {
     isGrouping = true;
 
-    boost::shared_ptr<VERTEX_ITEM> newItem( new VERTEX_ITEM( cachedManager ) );
+    std::shared_ptr<VERTEX_ITEM> newItem( new VERTEX_ITEM( cachedManager ) );
     int groupNumber = getNewGroupNumber();
     groups.insert( std::make_pair( groupNumber, newItem ) );
 

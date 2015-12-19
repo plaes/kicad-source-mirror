@@ -30,6 +30,8 @@
 #ifndef RATSNEST_DATA_H
 #define RATSNEST_DATA_H
 
+#include <memory>
+
 #include <ttl/halfedge/hetriang.h>
 #include <ttl/halfedge/hetraits.h>
 
@@ -65,7 +67,7 @@ typedef hed::EDGE           RN_EDGE;
 typedef hed::EDGE_PTR       RN_EDGE_PTR;
 typedef hed::EDGE_MST       RN_EDGE_MST;
 typedef hed::TRIANGULATION  TRIANGULATOR;
-typedef boost::shared_ptr<hed::EDGE_MST> RN_EDGE_MST_PTR;
+typedef std::shared_ptr<hed::EDGE_MST> RN_EDGE_MST_PTR;
 
 bool operator==( const RN_NODE_PTR& aFirst, const RN_NODE_PTR& aSecond );
 bool operator!=( const RN_NODE_PTR& aFirst, const RN_NODE_PTR& aSecond );
@@ -573,7 +575,7 @@ protected:
     RN_LINKS m_links;
 
     ///> Vector of edges that makes ratsnest for a given net.
-    boost::shared_ptr< std::vector<RN_EDGE_MST_PTR> > m_rnEdges;
+    std::shared_ptr< std::vector<RN_EDGE_MST_PTR> > m_rnEdges;
 
     ///> List of nodes which will not be used as ratsnest target nodes.
     boost::unordered_set<RN_NODE_PTR> m_blockedNodes;

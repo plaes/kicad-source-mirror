@@ -26,7 +26,6 @@
  */
 
 #include <io_mgr.h>
-#include <boost/shared_ptr.hpp>
 #include <string>
 #include <layers_id_colors_and_visibility.h>
 

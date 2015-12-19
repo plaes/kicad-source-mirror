@@ -53,7 +53,7 @@
 #include <zones.h>
 #include <pcb_parser.h>
 
-#include <boost/make_shared.hpp>
+#include <memory>
 
 using namespace PCB_KEYS_T;
 
@@ -1192,7 +1192,7 @@ void PCB_PARSER::parseNETCLASS() throw( IO_ERROR, PARSE_ERROR )
 
     T token;
 
-    NETCLASSPTR nc = boost::make_shared<NETCLASS>( wxEmptyString );
+    NETCLASSPTR nc = std::make_shared<NETCLASS>( wxEmptyString );
 
     // Read netclass name (can be a name or just a number like track width)
     NeedSYMBOLorNUMBER();

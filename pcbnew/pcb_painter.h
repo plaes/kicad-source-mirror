@@ -27,7 +27,6 @@
 #define __CLASS_PCB_PAINTER_H
 
 #include <layers_id_colors_and_visibility.h>
-#include <boost/shared_ptr.hpp>
 #include <painter.h>
 
 
