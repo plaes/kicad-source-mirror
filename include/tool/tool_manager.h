@@ -27,6 +27,7 @@
 #define __TOOL_MANAGER_H
 
 #include <deque>
+#include <list>
 #include <typeinfo>
 #include <map>
 
