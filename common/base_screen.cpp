@@ -458,13 +458,6 @@ void BASE_SCREEN::Show( int nestLevel, std::ostream& os ) const
     // for now, make it look like XML, expand on this later.
     NestedSpace( nestLevel, os ) << '<' << GetClass().Lower().mb_str() << ">\n";
 
-    /* this class will eventually go away, but here's a place holder until then.
-    for( EDA_ITEM* item = m_drawList;  item;  item = item->Next() )
-    {
-        item->Show( nestLevel+1, os );
-    }
-    */
-
     NestedSpace( nestLevel, os ) << "</" << GetClass().Lower().mb_str() << ">\n";
 }
 
