@@ -44,7 +44,7 @@
 #include <class_module.h>
 #include <class_edge_mod.h>
 
-#include <boost/bind.hpp>
+#include <functional>
 #include <wx/defs.h>
 
 MODULE_TOOLS::MODULE_TOOLS() :
@@ -427,7 +427,7 @@ int MODULE_TOOLS::PasteItems( const TOOL_EVENT& aEvent )
     KIGFX::VIEW_GROUP preview( m_view );
     pastedModule->SetParent( m_board );
     pastedModule->SetPosition( wxPoint( cursorPos.x, cursorPos.y ) );
-    pastedModule->RunOnChildren( boost::bind( &KIGFX::VIEW_GROUP::Add, boost::ref( preview ), _1 ) );
+    pastedModule->RunOnChildren( std::bind( &KIGFX::VIEW_GROUP::Add, std::ref( preview ), std::placeholders::_1 ) );
     preview.Add( pastedModule );
     m_view->Add( &preview );
 

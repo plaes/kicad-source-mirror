@@ -22,8 +22,6 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <boost/bind.hpp>
-
 #include "pcb_editor_control.h"
 #include "common_actions.h"
 #include <tool/tool_manager.h>
@@ -48,7 +46,7 @@
 #include <view/view_controls.h>
 #include <origin_viewitem.h>
 
-#include <boost/bind.hpp>
+#include <functional>
 
 
 class ZONE_CONTEXT_MENU : public CONTEXT_MENU
@@ -57,7 +55,7 @@ public:
     ZONE_CONTEXT_MENU()
     {
         SetIcon( add_zone_xpm );
-        SetUpdateHandler( boost::bind( &ZONE_CONTEXT_MENU::update, this ) );
+        SetUpdateHandler( std::bind( &ZONE_CONTEXT_MENU::update, this ) );
         Add( COMMON_ACTIONS::zoneFill );
         Add( COMMON_ACTIONS::zoneFillAll );
         Add( COMMON_ACTIONS::zoneUnfill );
@@ -273,14 +271,14 @@ int PCB_EDITOR_CONTROL::PlaceModule( const TOOL_EVENT& aEvent )
 
                 // Add all the drawable parts to preview
                 preview.Add( module );
-                module->RunOnChildren( boost::bind( &KIGFX::VIEW_GROUP::Add, &preview, _1 ) );
+                module->RunOnChildren( std::bind( &KIGFX::VIEW_GROUP::Add, &preview, std::placeholders::_1 ) );
 
                 preview.ViewUpdate( KIGFX::VIEW_ITEM::GEOMETRY );
             }
             else
             {
                 // Place the selected module
-                module->RunOnChildren( boost::bind( &KIGFX::VIEW::Add, view, _1 ) );
+                module->RunOnChildren( std::bind( &KIGFX::VIEW::Add, view, std::placeholders::_1 ) );
                 view->Add( module );
                 module->ViewUpdate( KIGFX::VIEW_ITEM::GEOMETRY );
 
@@ -289,7 +287,7 @@ int PCB_EDITOR_CONTROL::PlaceModule( const TOOL_EVENT& aEvent )
 
                 // Remove from preview
                 preview.Remove( module );
-                module->RunOnChildren( boost::bind( &KIGFX::VIEW_GROUP::Remove, &preview, _1 ) );
+                module->RunOnChildren( std::bind( &KIGFX::VIEW_GROUP::Remove, &preview, std::placeholders::_1 ) );
                 module = NULL;  // to indicate that there is no module that we currently modify
             }
 
@@ -668,7 +666,7 @@ int PCB_EDITOR_CONTROL::DrillOrigin( const TOOL_EVENT& aEvent )
     assert( picker );
 
     m_frame->SetToolID( ID_PCB_PLACE_OFFSET_COORD_BUTT, wxCURSOR_PENCIL, _( "Adjust zero" ) );
-    picker->SetClickHandler( boost::bind( setDrillOrigin, getView(), m_frame, m_placeOrigin, _1 ) );
+    picker->SetClickHandler( std::bind( setDrillOrigin, getView(), m_frame, m_placeOrigin, std::placeholders::_1 ) );
     picker->Activate();
     Wait();
 
@@ -728,7 +726,7 @@ int PCB_EDITOR_CONTROL::HighlightNetCursor( const TOOL_EVENT& aEvent )
     assert( picker );
 
     m_frame->SetToolID( ID_PCB_HIGHLIGHT_BUTT, wxCURSOR_PENCIL, _( "Highlight net" ) );
-    picker->SetClickHandler( boost::bind( highlightNet, m_toolMgr, _1 ) );
+    picker->SetClickHandler( std::bind( highlightNet, m_toolMgr, std::placeholders::_1 ) );
     picker->SetSnapping( false );
     picker->Activate();
     Wait();

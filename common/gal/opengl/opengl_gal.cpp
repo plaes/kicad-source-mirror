@@ -35,8 +35,8 @@
 #include <profile.h>
 #endif /* __WXDEBUG__ */
 
+#include <functional>
 #include <limits>
-#include <boost/bind.hpp>
 
 using namespace KIGFX;
 
@@ -1001,7 +1001,7 @@ void OPENGL_GAL::OPENGL_TEST::Render( wxPaintEvent& WXUNUSED( aEvent ) )
 
         // One test is enough - close the testing dialog when the test is finished
         Disconnect( wxEVT_PAINT, wxPaintEventHandler( OPENGL_GAL::OPENGL_TEST::Render ) );
-        CallAfter( boost::bind( &wxDialog::EndModal, m_parent, wxID_NONE ) );
+        CallAfter( std::bind( &wxDialog::EndModal, m_parent, wxID_NONE ) );
 
         SetCurrent( *OPENGL_GAL::glContext );
         GLenum err = glewInit();

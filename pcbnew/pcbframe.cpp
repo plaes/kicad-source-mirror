@@ -78,7 +78,6 @@
 
 #include <pcb_draw_panel_gal.h>
 #include <gal/graphics_abstraction_layer.h>
-#include <boost/bind.hpp>
 
 // Keys used in read/write config
 #define OPTKEY_DEFAULT_LINEWIDTH_VALUE  wxT( "PlotLineWidth_mm" )

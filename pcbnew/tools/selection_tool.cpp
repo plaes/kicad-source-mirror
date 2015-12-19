@@ -24,7 +24,6 @@
  */
 #include <limits>
 
-#include <boost/bind.hpp>
 #include <functional>
 
 #include <class_board.h>
@@ -717,7 +716,7 @@ int SELECTION_TOOL::find( const TOOL_EVENT& aEvent )
 {
     DIALOG_FIND dlg( m_frame );
     dlg.EnableWarp( false );
-    dlg.SetCallback( boost::bind( &SELECTION_TOOL::findCallback, this, _1 ) );
+    dlg.SetCallback( std::bind( &SELECTION_TOOL::findCallback, this, std::placeholders::_1 ) );
     dlg.ShowModal();
 
     return 0;
@@ -961,7 +960,7 @@ void SELECTION_TOOL::select( BOARD_ITEM* aItem )
     if( aItem->Type() == PCB_MODULE_T )
     {
         MODULE* module = static_cast<MODULE*>( aItem );
-        module->RunOnChildren( boost::bind( &SELECTION_TOOL::selectVisually, this, _1 ) );
+        module->RunOnChildren( std::bind( &SELECTION_TOOL::selectVisually, this, std::placeholders::_1 ) );
     }
 
     if( aItem->Type() == PCB_PAD_T )
@@ -996,7 +995,7 @@ void SELECTION_TOOL::unselect( BOARD_ITEM* aItem )
     if( aItem->Type() == PCB_MODULE_T )
     {
         MODULE* module = static_cast<MODULE*>( aItem );
-        module->RunOnChildren( boost::bind( &SELECTION_TOOL::unselectVisually, this, _1 ) );
+        module->RunOnChildren( std::bind( &SELECTION_TOOL::unselectVisually, this, std::placeholders::_1 ) );
     }
 
     unselectVisually( aItem );

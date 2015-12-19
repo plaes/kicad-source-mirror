@@ -21,7 +21,6 @@
 #include <wx/numdlg.h>
 
 #include <boost/optional.hpp>
-#include <boost/bind.hpp>
 
 #include "class_draw_panel_gal.h"
 #include "class_board.h"

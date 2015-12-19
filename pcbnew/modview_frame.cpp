@@ -57,8 +57,6 @@
 #include "tools/pcbnew_control.h"
 #include "tools/common_actions.h"
 
-#include <boost/bind.hpp>
-
 
 #define NEXT_PART       1
 #define NEW_PART        0

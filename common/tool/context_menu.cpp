@@ -28,7 +28,7 @@
 #include <tool/tool_interactive.h>
 #include <tool/context_menu.h>
 
-#include <boost/bind.hpp>
+#include <functional>
 #include <cassert>
 
 CONTEXT_MENU::CONTEXT_MENU() :
@@ -190,7 +190,7 @@ void CONTEXT_MENU::UpdateAll()
     if( m_tool )
         updateHotKeys();
 
-    runOnSubmenus( boost::bind( &CONTEXT_MENU::UpdateAll, _1 ) );
+    runOnSubmenus( std::bind( &CONTEXT_MENU::UpdateAll, std::placeholders::_1 ) );
 }
 
 
@@ -198,7 +198,7 @@ void CONTEXT_MENU::SetTool( TOOL_INTERACTIVE* aTool )
 {
     m_tool = aTool;
 
-    runOnSubmenus( boost::bind( &CONTEXT_MENU::SetTool, _1, aTool ) );
+    runOnSubmenus( std::bind( &CONTEXT_MENU::SetTool, std::placeholders::_1, aTool ) );
 }
 
 
@@ -306,7 +306,7 @@ void CONTEXT_MENU::runEventHandlers( const wxMenuEvent& aMenuEvent, OPT_TOOL_EVE
     aToolEvent = m_menu_handler( aMenuEvent );
 
     if( !aToolEvent )
-        runOnSubmenus( boost::bind( &CONTEXT_MENU::runEventHandlers, _1, aMenuEvent, aToolEvent ) );
+        runOnSubmenus( std::bind( &CONTEXT_MENU::runEventHandlers, std::placeholders::_1, aMenuEvent, aToolEvent ) );
 }
 
 

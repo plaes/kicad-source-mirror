@@ -22,7 +22,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <boost/bind.hpp>
+#include <functional>
 #include <fctsys.h>
 #include <class_drawpanel.h>
 #include <class_draw_panel_gal.h>
@@ -104,7 +104,7 @@ void FOOTPRINT_EDIT_FRAME::RestoreCopyFromRedoList( wxCommandEvent& aEvent )
     GetScreen()->PushCommandToUndoList( lastcmd );
 
     view->Remove( module );
-    module->RunOnChildren( boost::bind( &KIGFX::VIEW::Remove, view, _1 ) );
+    module->RunOnChildren( std::bind( &KIGFX::VIEW::Remove, view, std::placeholders::_1 ) );
 
     // Retrieve last module state from undo list
     lastcmd = GetScreen()->PopCommandFromRedoList();
@@ -116,7 +116,7 @@ void FOOTPRINT_EDIT_FRAME::RestoreCopyFromRedoList( wxCommandEvent& aEvent )
     {
         GetBoard()->Add( module );
         GetGalCanvas()->GetView()->Add( module );
-        module->RunOnChildren( boost::bind( &KIGFX::VIEW::Add, view, _1 ) );
+        module->RunOnChildren( std::bind( &KIGFX::VIEW::Add, view, std::placeholders::_1 ) );
         module->ViewUpdate();
     }
 
@@ -151,7 +151,7 @@ void FOOTPRINT_EDIT_FRAME::RestoreCopyFromUndoList( wxCommandEvent& aEvent )
     GetScreen()->PushCommandToRedoList( lastcmd );
 
     view->Remove( module );
-    module->RunOnChildren( boost::bind( &KIGFX::VIEW::Remove, view, _1 ) );
+    module->RunOnChildren( std::bind( &KIGFX::VIEW::Remove, view, std::placeholders::_1 ) );
 
     // Retrieve last module state from undo list
     lastcmd = GetScreen()->PopCommandFromUndoList();
@@ -163,7 +163,7 @@ void FOOTPRINT_EDIT_FRAME::RestoreCopyFromUndoList( wxCommandEvent& aEvent )
     {
         GetBoard()->Add( module, ADD_APPEND );
         view->Add( module );
-        module->RunOnChildren( boost::bind( &KIGFX::VIEW::Add, view, _1 ) );
+        module->RunOnChildren( std::bind( &KIGFX::VIEW::Add, view, std::placeholders::_1 ) );
         module->ViewUpdate();
     }
 

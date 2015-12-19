@@ -28,7 +28,7 @@
  * @brief Footprints selection and loading functions.
  */
 
-#include <boost/bind.hpp>
+#include <functional>
 
 #include <fctsys.h>
 #include <class_drawpanel.h>
@@ -99,7 +99,7 @@ bool FOOTPRINT_EDIT_FRAME::Load_Module_From_BOARD( MODULE* aModule )
     aModule = newModule;
 
     newModule->ClearFlags();
-    newModule->RunOnChildren( boost::bind( &clearModuleItemFlags, _1 ) );
+    newModule->RunOnChildren( std::bind( &clearModuleItemFlags, std::placeholders::_1 ) );
 
     GetBoard()->Add( newModule );
 

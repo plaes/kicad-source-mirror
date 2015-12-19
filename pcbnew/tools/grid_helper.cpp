@@ -22,8 +22,6 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <boost/bind.hpp>
-
 #include <wxPcbStruct.h>
 
 #include <class_board.h>

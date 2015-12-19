@@ -41,7 +41,7 @@
 
 #include <boost/range/adaptor/map.hpp>
 #include <boost/scoped_ptr.hpp>
-#include <boost/bind.hpp>
+#include <functional>
 
 #include <geometry/shape_poly_set.h>
 
@@ -379,7 +379,7 @@ void RN_NET::clearNode( const RN_NODE_PTR& aNode )
 
     // Remove all ratsnest edges for associated with the node
     newEnd = std::remove_if( m_rnEdges->begin(), m_rnEdges->end(),
-                             boost::bind( isEdgeConnectingNode, _1, boost::cref( aNode ) ) );
+                             std::bind( isEdgeConnectingNode, std::placeholders::_1, std::cref( aNode ) ) );
 
     m_rnEdges->resize( std::distance( m_rnEdges->begin(), newEnd ) );
 }
@@ -614,7 +614,7 @@ std::list<RN_NODE_PTR> RN_NET::GetClosestNodes( const RN_NODE_PTR& aNode, int aN
         closest.push_back( node );
 
     // Sort by the distance from aNode
-    closest.sort( boost::bind( sortDistance, boost::cref( aNode ), _1, _2 ) );
+    closest.sort( std::bind( sortDistance, std::cref( aNode ), std::placeholders::_1, std::placeholders::_2 ) );
 
     // aNode should not be returned in the results
     closest.remove( aNode );
@@ -638,7 +638,7 @@ std::list<RN_NODE_PTR> RN_NET::GetClosestNodes( const RN_NODE_PTR& aNode,
         closest.push_back( node );
 
     // Sort by the distance from aNode
-    closest.sort( boost::bind( sortDistance, boost::cref( aNode ), _1, _2 ) );
+    closest.sort( std::bind( sortDistance, std::cref( aNode ), std::placeholders::_1, std::placeholders::_2 ) );
 
     // aNode should not be returned in the results
     closest.remove( aNode );
