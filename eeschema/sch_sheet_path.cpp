@@ -44,7 +44,6 @@
 
 #include <dialogs/dialog_schematic_find.h>
 
-#include <boost/foreach.hpp>
 #include <wx/filename.h>
 
 
@@ -719,7 +718,7 @@ void SCH_SHEET_LIST::GetMultiUnitComponents( PART_LIBS* aLibs,
     {
         SCH_MULTI_UNIT_REFERENCE_MAP tempMap;
         path->GetMultiUnitComponents( aLibs, tempMap );
-        BOOST_FOREACH( SCH_MULTI_UNIT_REFERENCE_MAP::value_type& pair, tempMap )
+        for( SCH_MULTI_UNIT_REFERENCE_MAP::value_type& pair : tempMap )
         {
             // Merge this list into the main one
             unsigned n_refs = pair.second.GetCount();

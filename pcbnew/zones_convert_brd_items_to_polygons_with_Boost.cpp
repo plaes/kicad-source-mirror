@@ -72,8 +72,6 @@
 #include <geometry/shape_poly_set.h>
 #include <geometry/shape_file_io.h>
 
-#include <boost/foreach.hpp>
-
 extern void BuildUnconnectedThermalStubsPolygonList( SHAPE_POLY_SET& aCornerBuffer,
                                                      BOARD* aPcb, ZONE_CONTAINER* aZone,
                                                      double aArcCorrection,

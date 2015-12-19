@@ -29,9 +29,7 @@
 #ifndef FOOTPRINT_INFO_H_
 #define FOOTPRINT_INFO_H_
 
-
 #include <boost/ptr_container/ptr_vector.hpp>
-#include <boost/foreach.hpp>
 
 #include <ki_mutex.h>
 #include <kicad_string.h>

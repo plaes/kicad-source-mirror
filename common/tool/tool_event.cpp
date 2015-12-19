@@ -29,8 +29,6 @@
 #include <tool/tool_action.h>
 #include <tool/tool_manager.h>
 
-#include <boost/foreach.hpp>
-
 struct FlagString
 {
     int flag;
@@ -155,7 +153,7 @@ const std::string TOOL_EVENT_LIST::Format() const
 {
     std::string s;
 
-    BOOST_FOREACH( TOOL_EVENT e, m_events )
+    for( TOOL_EVENT e : m_events )
         s += e.Format() + " ";
 
     return s;

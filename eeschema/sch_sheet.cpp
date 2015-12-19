@@ -162,7 +162,7 @@ bool SCH_SHEET::Save( FILE* aFile ) const
 
     /* Save the list of labels in the sheet. */
 
-    BOOST_FOREACH( const SCH_SHEET_PIN& label, m_pins )
+    for( const SCH_SHEET_PIN& label : m_pins )
     {
         if( !label.Save( aFile ) )
             return false;
@@ -328,12 +328,12 @@ void SCH_SHEET::SwapData( SCH_ITEM* aItem )
 
     // Ensure sheet labels have their .m_Parent member pointing really on their
     // parent, after swapping.
-    BOOST_FOREACH( SCH_SHEET_PIN& sheetPin, m_pins )
+    for( SCH_SHEET_PIN& sheetPin : m_pins )
     {
         sheetPin.SetParent( this );
     }
 
-    BOOST_FOREACH( SCH_SHEET_PIN& sheetPin, sheet->m_pins )
+    for( SCH_SHEET_PIN& sheetPin : sheet->m_pins )
     {
         sheetPin.SetParent( sheet );
     }
@@ -374,7 +374,7 @@ void SCH_SHEET::RemovePin( SCH_SHEET_PIN* aSheetPin )
 
 bool SCH_SHEET::HasPin( const wxString& aName )
 {
-    BOOST_FOREACH( SCH_SHEET_PIN pin, m_pins )
+    for( const SCH_SHEET_PIN& pin : m_pins )
     {
         if( pin.GetText().CmpNoCase( aName ) == 0 )
             return true;
@@ -386,7 +386,7 @@ bool SCH_SHEET::HasPin( const wxString& aName )
 
 bool SCH_SHEET::IsVerticalOrientation() const
 {
-    BOOST_FOREACH( SCH_SHEET_PIN pin, m_pins )
+    for( const SCH_SHEET_PIN& pin : m_pins )
     {
         if( pin.GetEdge() > 1 )
             return true;
@@ -397,7 +397,7 @@ bool SCH_SHEET::IsVerticalOrientation() const
 
 bool SCH_SHEET::HasUndefinedPins()
 {
-    BOOST_FOREACH( SCH_SHEET_PIN pin, m_pins )
+    for( const SCH_SHEET_PIN& pin : m_pins )
     {
         /* Search the schematic for a hierarchical label corresponding to this sheet label. */
         EDA_ITEM* DrawStruct  = m_screen->GetDrawItems();
@@ -507,7 +507,7 @@ void SCH_SHEET::CleanupSheet()
 
 SCH_SHEET_PIN* SCH_SHEET::GetPin( const wxPoint& aPosition )
 {
-    BOOST_FOREACH( SCH_SHEET_PIN& pin, m_pins )
+    for( SCH_SHEET_PIN& pin : m_pins )
     {
         if( pin.HitTest( aPosition, 0 ) )
             return &pin;
@@ -618,7 +618,7 @@ void SCH_SHEET::Draw( EDA_DRAW_PANEL* aPanel, wxDC* aDC,
 
 
     /* Draw text : SheetLabel */
-    BOOST_FOREACH( SCH_SHEET_PIN& sheetPin, m_pins )
+    for( SCH_SHEET_PIN& sheetPin : m_pins )
     {
         if( !sheetPin.IsMoving() )
             sheetPin.Draw( aPanel, aDC, aOffset, aDrawMode, aColor );
@@ -826,7 +826,7 @@ void SCH_SHEET::Rotate(wxPoint aPosition)
         m_size.y = -m_size.y;
     }
 
-    BOOST_FOREACH( SCH_SHEET_PIN& sheetPin, m_pins )
+    for( SCH_SHEET_PIN& sheetPin : m_pins )
     {
         sheetPin.Rotate( aPosition );
     }
@@ -838,7 +838,7 @@ void SCH_SHEET::MirrorX( int aXaxis_position )
     MIRROR( m_pos.y, aXaxis_position );
     m_pos.y -= m_size.y;
 
-    BOOST_FOREACH( SCH_SHEET_PIN& sheetPin, m_pins )
+    for( SCH_SHEET_PIN& sheetPin : m_pins )
     {
         sheetPin.MirrorX( aXaxis_position );
     }
@@ -850,7 +850,7 @@ void SCH_SHEET::MirrorY( int aYaxis_position )
     MIRROR( m_pos.x, aYaxis_position );
     m_pos.x -= m_size.x;
 
-    BOOST_FOREACH( SCH_SHEET_PIN& label, m_pins )
+    for( SCH_SHEET_PIN& label : m_pins )
     {
         label.MirrorY( aYaxis_position );
     }
@@ -873,7 +873,7 @@ void SCH_SHEET::Resize( const wxSize& aSize )
     m_size = aSize;
 
     /* Move the sheet labels according to the new sheet size. */
-    BOOST_FOREACH( SCH_SHEET_PIN& label, m_pins )
+    for( SCH_SHEET_PIN& label : m_pins )
     {
         label.ConstrainOnEdge( label.GetPosition() );
     }
@@ -916,7 +916,7 @@ void SCH_SHEET::renumberPins()
 {
     int id = 2;
 
-    BOOST_FOREACH( SCH_SHEET_PIN& pin, m_pins )
+    for( SCH_SHEET_PIN& pin : m_pins )
     {
         pin.SetNumber( id );
         id++;
@@ -942,7 +942,7 @@ bool SCH_SHEET::IsDanglingStateChanged( std::vector< DANGLING_END_ITEM >& aItemL
 {
     bool currentState = IsDangling();
 
-    BOOST_FOREACH( SCH_SHEET_PIN& pinsheet, GetPins() )
+    for( SCH_SHEET_PIN& pinsheet : GetPins() )
     {
         pinsheet.IsDanglingStateChanged( aItemList );
     }
@@ -1292,7 +1292,7 @@ SCH_ITEM& SCH_SHEET::operator=( const SCH_ITEM& aItem )
 
         // Ensure sheet labels have their #m_Parent member pointing really on their
         // parent, after assigning.
-        BOOST_FOREACH( SCH_SHEET_PIN& sheetPin, m_pins )
+        for( SCH_SHEET_PIN& sheetPin : m_pins )
         {
             sheetPin.SetParent( this );
         }
@@ -1342,7 +1342,7 @@ void SCH_SHEET::Show( int nestLevel, std::ostream& os ) const
                                  << TO_UTF8( m_name ) << '"' << ">\n";
 
     // show all the pins, and check the linked list integrity
-    BOOST_FOREACH( const SCH_SHEET_PIN& label, m_pins )
+    for( const SCH_SHEET_PIN& label : m_pins )
     {
         label.Show( nestLevel + 1, os );
     }

@@ -20,7 +20,6 @@
 
 #include <wx/numdlg.h>
 
-#include <boost/foreach.hpp>
 #include <boost/optional.hpp>
 #include <boost/bind.hpp>
 
@@ -132,7 +131,7 @@ PNS_ITEM* PNS_TOOL_BASE::pickSingleItem( const VECTOR2I& aWhere, int aNet, int a
 
     PNS_ITEMSET candidates = m_router->QueryHoverItems( aWhere );
 
-    BOOST_FOREACH( PNS_ITEM* item, candidates.Items() )
+    for( PNS_ITEM* item : candidates.Items() )
     {
         if( !IsCopperLayer( item->Layers().Start() ) )
             continue;
@@ -280,7 +279,7 @@ void PNS_TOOL_BASE::updateEndItem( TOOL_EVENT& aEvent )
 
     std::vector<int> nets = m_router->GetCurrentNets();
 
-    BOOST_FOREACH( int net, nets )
+    for( int net : nets )
     {
         endItem = pickSingleItem( p, net, layer );
 

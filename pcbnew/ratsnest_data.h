@@ -37,7 +37,6 @@
 
 #include <boost/unordered_set.hpp>
 #include <boost/unordered_map.hpp>
-#include <boost/foreach.hpp>
 
 class BOARD;
 class BOARD_ITEM;
@@ -685,7 +684,7 @@ public:
      */
     void ClearSimple()
     {
-        BOOST_FOREACH( RN_NET& net, m_nets )
+        for( RN_NET& net : m_nets )
             net.ClearSimple();
     }
 

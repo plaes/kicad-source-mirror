@@ -37,15 +37,12 @@
 
 #include <wildcards_and_files_ext.h>
 
-#include <boost/foreach.hpp>
-
-
 void wxConfigLoadParams( wxConfigBase* aCfg,
             const PARAM_CFG_ARRAY& aList, const wxString& aGroup )
 {
     wxASSERT( aCfg );
 
-    BOOST_FOREACH( const PARAM_CFG_BASE& param, aList )
+    for( const auto& param : aList )
     {
         if( !!param.m_Group )
             aCfg->SetPath( param.m_Group );
@@ -64,7 +61,7 @@ void wxConfigLoadSetups( wxConfigBase* aCfg, const PARAM_CFG_ARRAY& aList )
 {
     wxASSERT( aCfg );
 
-    BOOST_FOREACH( const PARAM_CFG_BASE& param, aList )
+    for( const auto& param : aList )
     {
         if( !param.m_Setup )
             continue;
@@ -79,7 +76,7 @@ void wxConfigSaveParams( wxConfigBase* aCfg,
 {
     wxASSERT( aCfg );
 
-    BOOST_FOREACH( const PARAM_CFG_BASE& param, aList )
+	for (auto & param : aList)
     {
         if( !!param.m_Group )
             aCfg->SetPath( param.m_Group );
@@ -106,7 +103,7 @@ void wxConfigSaveSetups( wxConfigBase* aCfg, const PARAM_CFG_ARRAY& aList )
 {
     wxASSERT( aCfg );
 
-    BOOST_FOREACH( const PARAM_CFG_BASE& param, aList )
+	for (auto & param : aList)
     {
         if( !param.m_Setup )
             continue;

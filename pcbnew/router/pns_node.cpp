@@ -305,7 +305,7 @@ PNS_NODE::OPT_OBSTACLE PNS_NODE::NearestObstacle(   const PNS_LINE* aItem,
     nearest.m_item = NULL;
     nearest.m_distFirst = INT_MAX;
 
-    BOOST_FOREACH( PNS_OBSTACLE obs, obs_list )
+    for( PNS_OBSTACLE& obs : obs_list )
     {
         VECTOR2I ip_first, ip_last;
         int dist_max = INT_MIN;
@@ -327,7 +327,7 @@ PNS_NODE::OPT_OBSTACLE PNS_NODE::NearestObstacle(   const PNS_LINE* aItem,
 
             viaHull.Intersect( hull, isect_list );
 
-            BOOST_FOREACH( SHAPE_LINE_CHAIN::INTERSECTION isect, isect_list )
+            for( SHAPE_LINE_CHAIN::INTERSECTION& isect : isect_list )
             {
                 int dist = aLine.CLine().Length() +
                            ( isect.p - aLine.Via().Pos() ).EuclideanNorm();
@@ -353,7 +353,7 @@ PNS_NODE::OPT_OBSTACLE PNS_NODE::NearestObstacle(   const PNS_LINE* aItem,
 
         hull.Intersect( aLine.CLine(), isect_list );
 
-        BOOST_FOREACH( SHAPE_LINE_CHAIN::INTERSECTION isect, isect_list )
+        for( SHAPE_LINE_CHAIN::INTERSECTION& isect : isect_list )
         {
             int dist = aLine.CLine().PathLength( isect.p );
 
@@ -386,7 +386,7 @@ PNS_NODE::OPT_OBSTACLE PNS_NODE::NearestObstacle(   const PNS_LINE* aItem,
 
 PNS_NODE::OPT_OBSTACLE PNS_NODE::CheckColliding( const PNS_ITEMSET& aSet, int aKindMask )
 {
-    BOOST_FOREACH( const PNS_ITEM* item, aSet.CItems() )
+    for( const PNS_ITEM* item : aSet.CItems() )
     {
         OPT_OBSTACLE obs = CheckColliding( item, aKindMask );
 
@@ -493,7 +493,7 @@ const PNS_ITEMSET PNS_NODE::HitTest( const VECTOR2I& aPoint ) const
         HIT_VISITOR  visitor_root( items_root, aPoint, m_root );
         m_root->m_index->Query( &s, m_maxClearance, visitor_root );
 
-        BOOST_FOREACH( PNS_ITEM* item, items_root.Items() )
+        for( PNS_ITEM* item : items_root.Items() )
         {
             if( !overrides( item ) )
                 items.Add( item );
@@ -640,7 +640,7 @@ void PNS_NODE::removeLine( PNS_LINE* aLine )
 
     assert( segRefs != NULL );
 
-    BOOST_FOREACH( PNS_SEGMENT* seg, *segRefs )
+    for( PNS_SEGMENT* seg : *segRefs )
     {
         removeSegment( seg );
     }
@@ -686,7 +686,7 @@ void PNS_NODE::removeVia( PNS_VIA* aVia )
     } while( split );
 
     // and re-link them, using the former via's link list
-    BOOST_FOREACH(PNS_ITEM* item, links)
+    for(PNS_ITEM* item : links)
     {
         if( item != aVia )
             linkJoint ( p, item->Layers(), net, item );
@@ -840,7 +840,7 @@ void PNS_NODE::FindLineEnds( const PNS_LINE& aLine, PNS_JOINT& aA, PNS_JOINT& aB
 
 int PNS_NODE::FindLinesBetweenJoints( PNS_JOINT& aA, PNS_JOINT& aB, std::vector<PNS_LINE>& aLines )
 {
-    BOOST_FOREACH( PNS_ITEM* item, aA.LinkList() )
+    for( PNS_ITEM* item : aA.LinkList() )
     {
         if( item->Kind() == PNS_ITEM::SEGMENT )
         {
@@ -1072,7 +1072,7 @@ void PNS_NODE::GetUpdatedItems( ITEM_VECTOR& aRemoved, ITEM_VECTOR& aAdded )
     if( isRoot() )
         return;
 
-    BOOST_FOREACH( PNS_ITEM* item, m_override )
+    for( PNS_ITEM* item : m_override )
         aRemoved.push_back( item );
 
     for( PNS_INDEX::ITEM_SET::iterator i = m_index->begin(); i != m_index->end(); ++i )
@@ -1084,7 +1084,7 @@ void PNS_NODE::releaseChildren()
     // copy the kids as the PNS_NODE destructor erases the item from the parent node.
     std::set<PNS_NODE*> kids = m_children;
 
-    BOOST_FOREACH( PNS_NODE* node, kids )
+    for( PNS_NODE* node : kids )
     {
         node->releaseChildren();
         delete node;
@@ -1097,7 +1097,7 @@ void PNS_NODE::releaseGarbage()
     if( !isRoot() )
         return;
 
-    BOOST_FOREACH( PNS_ITEM* item, m_garbageItems )
+    for( PNS_ITEM* item : m_garbageItems )
     {
         if( !item->BelongsTo( this ) )
             delete item;
@@ -1112,8 +1112,10 @@ void PNS_NODE::Commit( PNS_NODE* aNode )
     if( aNode->isRoot() )
         return;
 
-    BOOST_FOREACH( PNS_ITEM* item, aNode->m_override )
-    Remove( item );
+    for( PNS_ITEM* item : aNode->m_override )
+    {
+        Remove( item );
+    }
 
     for( PNS_INDEX::ITEM_SET::iterator i = aNode->m_index->begin();
          i != aNode->m_index->end(); ++i )
@@ -1141,7 +1143,7 @@ void PNS_NODE::AllItemsInNet( int aNet, std::set<PNS_ITEM*>& aItems )
 
     if( l_cur )
     {
-        BOOST_FOREACH( PNS_ITEM*item, *l_cur )
+        for( PNS_ITEM*item : *l_cur )
             aItems.insert( item );
     }
 
@@ -1207,7 +1209,7 @@ PNS_SEGMENT* PNS_NODE::findRedundantSegment( PNS_SEGMENT* aSeg )
     if( !jtStart )
         return NULL;
 
-    BOOST_FOREACH( PNS_ITEM* item, jtStart->LinkList() )
+    for( PNS_ITEM* item : jtStart->LinkList() )
     {
         if( item->OfKind( PNS_ITEM::SEGMENT ) )
         {
@@ -1239,7 +1241,7 @@ PNS_ITEM *PNS_NODE::FindItemByParent( const BOARD_CONNECTED_ITEM* aParent )
 {
     PNS_INDEX::NET_ITEMS_LIST* l_cur = m_index->GetItemsForNet( aParent->GetNetCode() );
 
-    BOOST_FOREACH( PNS_ITEM*item, *l_cur )
+    for( PNS_ITEM*item : *l_cur )
         if( item->Parent() == aParent )
             return item;
 
