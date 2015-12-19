@@ -25,7 +25,7 @@
 #include <limits>
 
 #include <boost/bind.hpp>
-#include <boost/function.hpp>
+#include <functional>
 
 #include <class_board.h>
 #include <class_board_item.h>

@@ -27,7 +27,7 @@
 #define DIALOG_FIND_BASE_H
 
 #include <dialog_find_base.h>
-#include <boost/function.hpp>
+#include <functional>
 
 class DIALOG_FIND : public DIALOG_FIND_BASE
 {
@@ -35,7 +35,7 @@ public:
     DIALOG_FIND( PCB_BASE_FRAME* aParent );
     inline BOARD_ITEM* GetItem() const { return foundItem; }
     void EnableWarp( bool aEnabled );
-    void SetCallback( boost::function<void (BOARD_ITEM*)> aCallback ) { callback = aCallback; }
+    void SetCallback( std::function<void (BOARD_ITEM*)> aCallback ) { callback = aCallback; }
 
 private:
     PCB_BASE_FRAME* parent;
@@ -46,7 +46,7 @@ private:
     BOARD_ITEM* foundItem;
 
     // Function called when an item is found
-    boost::function<void (BOARD_ITEM*)> callback;
+    std::function<void (BOARD_ITEM*)> callback;
 
     void onButtonFindItemClick( wxCommandEvent& event );
     void onButtonFindMarkerClick( wxCommandEvent& event );
