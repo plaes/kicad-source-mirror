@@ -1294,7 +1294,7 @@ void SCH_EDIT_FRAME::UpdateTitle()
 
     if( GetScreen()->GetFileName() == m_DefaultSchematicFileName )
     {
-        title.Printf( wxT( "Eeschema %s [%s]" ), GetChars( GetBuildVersion() ),
+        title.Printf( wxT( "Eeschema [%s]" ),
                             GetChars( GetScreen()->GetFileName() ) );
     }
     else

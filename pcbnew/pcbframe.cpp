@@ -962,7 +962,7 @@ void PCB_EDIT_FRAME::SVG_Print( wxCommandEvent& event )
 void PCB_EDIT_FRAME::UpdateTitle()
 {
     wxFileName  fileName = GetBoard()->GetFileName();
-    wxString    title = wxString::Format( wxT( "Pcbnew %s " ), GetChars( GetBuildVersion() ) );
+    wxString    title = wxT( "Pcbnew " );
 
     if( fileName.IsOk() && fileName.FileExists() )
     {

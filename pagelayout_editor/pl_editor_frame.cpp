@@ -333,7 +333,7 @@ void PL_EDITOR_FRAME::SaveSettings( wxConfigBase* aCfg )
 void PL_EDITOR_FRAME::UpdateTitleAndInfo()
 {
     wxString title;
-    title.Printf( wxT( "Pl_Editor %s [%s]" ), GetChars( GetBuildVersion() ),
+    title.Printf( wxT( "Pl_Editor [%s]" ),
         GetChars( GetCurrFileName() ) );
     SetTitle( title );
 }

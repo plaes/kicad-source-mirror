@@ -231,7 +231,7 @@ bool SCH_EDIT_FRAME::LoadCmpToFootprintLinkFile()
         return false;
 
     wxString filename = dlg.GetPath();
-    wxString title    = wxT( "Eeschema " ) + GetBuildVersion() + wxT( ' ' ) + filename;
+    wxString title    = wxT( "Eeschema " ) + filename;
 
     SetTitle( title );
 

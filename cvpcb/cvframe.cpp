@@ -702,7 +702,7 @@ bool CVPCB_MAINFRAME::LoadFootprintFiles()
 
 void CVPCB_MAINFRAME::UpdateTitle()
 {
-    wxString    title = wxString::Format( wxT( "Cvpcb %s  " ), GetChars( GetBuildVersion() ) );
+    wxString    title = wxT( "Cvpcb" );
     PROJECT&    prj = Prj();
     wxFileName fn = prj.GetProjectFullName();
 
