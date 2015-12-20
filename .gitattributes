@@ -1,0 +1,6 @@
+* text=auto
+
+*.sh text=lf
+
+*.png binary
+*.pdf binary
