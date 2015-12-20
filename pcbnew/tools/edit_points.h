@@ -25,6 +25,8 @@
 #ifndef EDIT_POINTS_H_
 #define EDIT_POINTS_H_
 
+#include <deque>
+#include <list>
 #include <memory>
 #include <base_struct.h>
 #include <layers_id_colors_and_visibility.h>

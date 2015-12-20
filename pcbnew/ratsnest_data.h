@@ -30,6 +30,7 @@
 #ifndef RATSNEST_DATA_H
 #define RATSNEST_DATA_H
 
+#include <deque>
 #include <memory>
 
 #include <ttl/halfedge/hetriang.h>
@@ -38,7 +39,7 @@
 #include <math/box2.h>
 
 #include <unordered_set>
-#include <boost/unordered_map.hpp>
+#include <unordered_map>
 
 class BOARD;
 class BOARD_ITEM;
@@ -607,10 +608,10 @@ protected:
     } RN_PAD_DATA;
 
     ///> Helper typedefs
-    typedef boost::unordered_map<const D_PAD*, RN_PAD_DATA> PAD_NODE_MAP;
-    typedef boost::unordered_map<const VIA*, RN_NODE_PTR> VIA_NODE_MAP;
-    typedef boost::unordered_map<const TRACK*, RN_EDGE_MST_PTR> TRACK_EDGE_MAP;
-    typedef boost::unordered_map<const ZONE_CONTAINER*, RN_ZONE_DATA> ZONE_DATA_MAP;
+    typedef std::unordered_map<const D_PAD*, RN_PAD_DATA> PAD_NODE_MAP;
+    typedef std::unordered_map<const VIA*, RN_NODE_PTR> VIA_NODE_MAP;
+    typedef std::unordered_map<const TRACK*, RN_EDGE_MST_PTR> TRACK_EDGE_MAP;
+    typedef std::unordered_map<const ZONE_CONTAINER*, RN_ZONE_DATA> ZONE_DATA_MAP;
 
     ///> Map that associates nodes in the ratsnest model to respective nodes.
     PAD_NODE_MAP m_pads;

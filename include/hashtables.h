@@ -27,17 +27,7 @@
 #include <base_struct.h>
 #include <wx/string.h>
 
-// Three strategies for providing a portable hashtable are given.
-// C++, boost, and wx, in that order.  C++ solution is no good for mingw.
-// So boost seems best for all platforms.
-
-
-// fix a compile bug at line 97 of boost/detail/container_fwd.hpp
-#define BOOST_DETAIL_TEST_FORCE_CONTAINER_FWD
-
-#include <boost/unordered_map.hpp>
-
-// see http://www.boost.org/doc/libs/1_49_0/doc/html/boost/unordered_map.html
+#include <unordered_map>
 
 /// Equality test for "const char*" type used in very specialized KEYWORD_MAP below
 struct iequal_to : std::binary_function< const char*, const char*, bool >
@@ -54,21 +44,6 @@ struct iequal_to : std::binary_function< const char*, const char*, bool >
 /// taken from: http://www.boost.org/doc/libs/1_53_0/libs/unordered/examples/fnv1.hpp
 struct fnv_1a
 {
-    /* not used, std::string is too slow:
-    std::size_t operator()( std::string const& text ) const
-    {
-        std::size_t hash = 2166136261u;
-
-        for( std::string::const_iterator it = text.begin(), end = text.end();
-                it != end;  ++it )
-        {
-            hash ^= *it;
-            hash *= 16777619;
-        }
-        return hash;
-    }
-    */
-
     std::size_t operator()( const char* it ) const
     {
         std::size_t hash = 2166136261u;
@@ -117,11 +92,11 @@ struct WXSTRING_HASH : std::unary_function<wxString, std::size_t>
  * to the hashtable (unordered_map) template.
  * @author Dick Hollenbeck
  */
-typedef boost::unordered_map< const char*, int, fnv_1a, iequal_to >     KEYWORD_MAP;
+typedef std::unordered_map< const char*, int, fnv_1a, iequal_to > KEYWORD_MAP;
 
 
 /// Map a std::string to an EDA_RECT.
 /// The key is the classname of the derived wxformbuilder dialog.
-typedef boost::unordered_map< std::string, EDA_RECT >  RECT_MAP;
+typedef std::unordered_map< std::string, EDA_RECT >  RECT_MAP;
 
 #endif // HASHTABLES_H_

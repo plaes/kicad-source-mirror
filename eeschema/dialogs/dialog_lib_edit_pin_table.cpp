@@ -3,6 +3,7 @@
 #include "lib_pin.h"
 
 #include <boost/algorithm/string/join.hpp>
+#include <list>
 #include <queue>
 
 /* Avoid wxWidgets bug #16906 -- http://trac.wxwidgets.org/ticket/16906

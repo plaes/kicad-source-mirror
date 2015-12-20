@@ -27,7 +27,8 @@
 
 #include <vector>
 #include <set>
-#include <boost/unordered/unordered_map.hpp>
+#include <functional>
+#include <unordered_map>
 
 #include <math/box2.h>
 #include <gal/definitions.h>
@@ -577,7 +578,7 @@ private:
     };
 
     // Convenience typedefs
-    typedef boost::unordered_map<int, VIEW_LAYER>   LAYER_MAP;
+    typedef std::unordered_map<int, VIEW_LAYER>   LAYER_MAP;
     typedef LAYER_MAP::iterator                     LAYER_MAP_ITER;
     typedef std::vector<VIEW_LAYER*>                LAYER_ORDER;
     typedef std::vector<VIEW_LAYER*>::iterator      LAYER_ORDER_ITER;

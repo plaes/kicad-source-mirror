@@ -27,6 +27,7 @@
  */
 
 #include <algorithm>
+#include <map>
 
 #include <fctsys.h>
 #include <class_drawpanel.h>

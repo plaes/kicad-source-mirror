@@ -26,6 +26,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
+#include <memory>
 #include <macros.h>
 #include <common.h>
 #include <kicad_string.h>

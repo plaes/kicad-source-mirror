@@ -127,7 +127,7 @@ static std::vector<RN_EDGE_MST_PTR>* kruskalMST( RN_LINKS::RN_EDGE_LIST& aEdges,
     mst->reserve( mstExpectedSize );
 
     // Set tags for marking cycles
-    boost::unordered_map<RN_NODE_PTR, int> tags;
+    std::unordered_map<RN_NODE_PTR, int> tags;
     unsigned int tag = 0;
     for( RN_NODE_PTR& node : aNodes )
     {

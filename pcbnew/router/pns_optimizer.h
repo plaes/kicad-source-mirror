@@ -21,7 +21,7 @@
 #ifndef __PNS_OPTIMIZER_H
 #define __PNS_OPTIMIZER_H
 
-#include <boost/unordered_map.hpp>
+#include <unordered_map>
 
 #include <geometry/shape_index_list.h>
 #include <geometry/shape_line_chain.h>
@@ -166,7 +166,7 @@ private:
 
     SHAPE_INDEX_LIST<PNS_ITEM*> m_cache;
 
-    typedef boost::unordered_map<PNS_ITEM*, CACHED_ITEM> CachedItemTags;
+    typedef std::unordered_map<PNS_ITEM*, CACHED_ITEM> CachedItemTags;
     CachedItemTags m_cacheTags;
     PNS_NODE* m_world;
     int m_collisionKindMask;

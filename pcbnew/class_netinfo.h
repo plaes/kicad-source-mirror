@@ -34,9 +34,10 @@
 #define __CLASSES_NETINFO__
 
 
+#include <functional>
 #include <gr_basic.h>
 #include <class_netclass.h>
-#include <boost/unordered_map.hpp>
+#include <unordered_map>
 #include <hashtables.h>
 
 
@@ -357,8 +358,8 @@ public:
     void Show() const;
 #endif
 
-    typedef boost::unordered_map<const wxString, NETINFO_ITEM*, WXSTRING_HASH> NETNAMES_MAP;
-    typedef boost::unordered_map<const int, NETINFO_ITEM*> NETCODES_MAP;
+    typedef std::unordered_map<const wxString, NETINFO_ITEM*, WXSTRING_HASH> NETNAMES_MAP;
+    typedef std::unordered_map<int, NETINFO_ITEM*> NETCODES_MAP;
 
 #ifndef SWIG
     ///> Wrapper class, so you can iterate through NETINFO_ITEM*s, not

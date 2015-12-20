@@ -36,6 +36,7 @@
 #include <class_libentry.h>
 
 #include <project.h>
+#include <map>
 
 class LINE_READER;
 class OUTPUTFORMATTER;

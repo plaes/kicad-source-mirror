@@ -32,6 +32,7 @@
 #define CLASS_DRAWSHEET_PATH_H
 
 #include <base_struct.h>
+#include <map>
 
 
 /** Info about complex hierarchies handling:
