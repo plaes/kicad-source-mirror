@@ -725,7 +725,7 @@ int SELECTION_TOOL::find( const TOOL_EVENT& aEvent )
 
 int SELECTION_TOOL::findMove( const TOOL_EVENT& aEvent )
 {
-    MODULE* module = m_frame->GetModuleByName();
+    MODULE* module = m_frame->GetFootprintFromBoardByReference();
 
     if( module )
     {
