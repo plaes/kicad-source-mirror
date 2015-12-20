@@ -27,6 +27,7 @@
 #include <boost/range/adaptor/map.hpp>
 
 #include <list>
+#include <unordered_set>
 #include <geometry/shape_index.h>
 
 #include "pns_item.h"
@@ -43,7 +44,7 @@ class PNS_INDEX
 public:
     typedef std::list<PNS_ITEM*>            NET_ITEMS_LIST;
     typedef SHAPE_INDEX<PNS_ITEM*>          ITEM_SHAPE_INDEX;
-    typedef boost::unordered_set<PNS_ITEM*> ITEM_SET;
+    typedef std::unordered_set<PNS_ITEM*> ITEM_SET;
 
     PNS_INDEX();
     ~PNS_INDEX();

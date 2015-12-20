@@ -24,7 +24,7 @@
 #include <list>
 
 #include <boost/optional.hpp>
-#include <boost/unordered_set.hpp>
+#include <unordered_set>
 
 #include <geometry/shape_line_chain.h>
 #include <class_undoredo_container.h>
@@ -269,7 +269,7 @@ private:
     PNS_ROUTING_SETTINGS m_settings;
     PNS_PCBNEW_CLEARANCE_FUNC* m_clearanceFunc;
 
-    boost::unordered_set<BOARD_CONNECTED_ITEM*> m_hiddenItems;
+    std::unordered_set<BOARD_CONNECTED_ITEM*> m_hiddenItems;
 
     ///> Stores list of modified items in the current operation
     PICKED_ITEMS_LIST m_undoBuffer;

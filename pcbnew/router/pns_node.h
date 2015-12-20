@@ -24,7 +24,7 @@
 #include <vector>
 #include <list>
 
-#include <boost/unordered_set.hpp>
+#include <unordered_set>
 #include <boost/optional.hpp>
 
 #include <geometry/shape.h>
@@ -455,7 +455,7 @@ private:
     std::set<PNS_NODE*> m_children;
 
     ///> hash of root's items that have been changed in this node
-    boost::unordered_set<PNS_ITEM*> m_override;
+    std::unordered_set<PNS_ITEM*> m_override;
 
     ///> worst case item-item clearance
     int m_maxClearance;
@@ -472,7 +472,7 @@ private:
     ///> optional collision filtering object
     PNS_COLLISION_FILTER* m_collisionFilter;
 
-    boost::unordered_set<PNS_ITEM*> m_garbageItems;
+    std::unordered_set<PNS_ITEM*> m_garbageItems;
 };
 
 #endif

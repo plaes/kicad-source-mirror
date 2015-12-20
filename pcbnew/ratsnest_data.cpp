@@ -336,7 +336,7 @@ void RN_NET::compute()
         // Check if the only possible connection exists
         if( boardEdges.size() == 0 && boardNodes.size() == 2 )
         {
-            RN_LINKS::RN_NODE_SET::iterator last = ++boardNodes.begin();
+            auto last = ++boardNodes.begin();
 
             // There can be only one possible connection, but it is missing
             m_rnEdges->push_back( std::make_shared<RN_EDGE_MST>( *boardNodes.begin(), *last ) );

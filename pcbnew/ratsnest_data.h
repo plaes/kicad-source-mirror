@@ -37,7 +37,7 @@
 
 #include <math/box2.h>
 
-#include <boost/unordered_set.hpp>
+#include <unordered_set>
 #include <boost/unordered_map.hpp>
 
 class BOARD;
@@ -185,7 +185,7 @@ class RN_LINKS
 {
 public:
     // Helper typedefs
-    typedef boost::unordered_set<RN_NODE_PTR, RN_NODE_HASH, RN_NODE_COMPARE> RN_NODE_SET;
+    typedef std::unordered_set<RN_NODE_PTR, RN_NODE_HASH, RN_NODE_COMPARE> RN_NODE_SET;
     typedef std::list<RN_EDGE_PTR> RN_EDGE_LIST;
 
     /**
@@ -524,7 +524,7 @@ public:
      * ratsnest line per node).
      * @return list of nodes for which ratsnest is drawn in simple mode.
      */
-    inline const boost::unordered_set<RN_NODE_PTR>& GetSimpleNodes() const
+    inline const std::unordered_set<RN_NODE_PTR>& GetSimpleNodes() const
     {
         return m_simpleNodes;
     }
@@ -578,10 +578,10 @@ protected:
     std::shared_ptr< std::vector<RN_EDGE_MST_PTR> > m_rnEdges;
 
     ///> List of nodes which will not be used as ratsnest target nodes.
-    boost::unordered_set<RN_NODE_PTR> m_blockedNodes;
+    std::unordered_set<RN_NODE_PTR> m_blockedNodes;
 
     ///> Nodes to be displayed using the simplified ratsnest algorithm.
-    boost::unordered_set<RN_NODE_PTR> m_simpleNodes;
+    std::unordered_set<RN_NODE_PTR> m_simpleNodes;
 
     ///> Flag indicating necessity of recalculation of ratsnest for a net.
     bool m_dirty;
