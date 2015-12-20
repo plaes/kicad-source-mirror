@@ -30,8 +30,6 @@
 #ifndef _ERC_H
 #define _ERC_H
 
-
-//class EDA_DRAW_PANEL;
 class NETLIST_OBJECT;
 class NETLIST_OBJECT_LIST;
 

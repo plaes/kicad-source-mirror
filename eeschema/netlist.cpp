@@ -56,7 +56,6 @@
 inline int CmpLabel_KEEPCASE( const wxString& aString1, const wxString& aString2 )
 {
     return aString1.Cmp( aString2 );          // case sensitive
-    //return aString1.CmpNoCase( aString2 );  // case insensitive
 }
 
 
