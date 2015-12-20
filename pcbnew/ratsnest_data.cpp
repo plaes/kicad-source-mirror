@@ -40,7 +40,6 @@
 #include <class_zone.h>
 
 #include <boost/range/adaptor/map.hpp>
-#include <boost/scoped_ptr.hpp>
 #include <functional>
 
 #include <geometry/shape_poly_set.h>
@@ -355,7 +354,7 @@ void RN_NET::compute()
 
     TRIANGULATOR triangulator;
     triangulator.CreateDelaunay( nodes.begin(), nodes.end() );
-    boost::scoped_ptr<RN_LINKS::RN_EDGE_LIST> triangEdges( triangulator.GetEdges() );
+    const std::unique_ptr<RN_LINKS::RN_EDGE_LIST> triangEdges( triangulator.GetEdges() );
 
     // Compute weight/distance for edges resulting from triangulation
     RN_LINKS::RN_EDGE_LIST::iterator eit, eitEnd;

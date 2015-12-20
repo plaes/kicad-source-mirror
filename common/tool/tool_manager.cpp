@@ -23,12 +23,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <map>
-#include <deque>
-#include <stack>
 #include <algorithm>
+#include <memory>
+#include <stack>
 
-#include <boost/scoped_ptr.hpp>
 #include <boost/optional.hpp>
 #include <boost/range/adaptor/map.hpp>
 
@@ -612,7 +610,7 @@ void TOOL_MANAGER::dispatchContextMenu( const TOOL_EVENT& aEvent )
             // Run update handlers
             m->UpdateAll();
 
-            boost::scoped_ptr<CONTEXT_MENU> menu( new CONTEXT_MENU( *m ) );
+            const std::unique_ptr<CONTEXT_MENU> menu( new CONTEXT_MENU( *m ) );
             GetEditFrame()->PopupMenu( menu.get() );
 
             // If nothing was chosen from the context menu, we must notify the tool as well
