@@ -27,7 +27,6 @@
  * @file footprint_info.cpp
  */
 
-
 #define USE_WORKER_THREADS      1       // 1:yes, 0:no. use worker thread to load libraries
 
 /*
@@ -37,6 +36,7 @@
 
 #include <fctsys.h>
 #include <common.h>
+#include <confirm.h>
 #include <macros.h>
 #include <pgm_base.h>
 #include <wildcards_and_files_ext.h>
@@ -46,51 +46,6 @@
 #include <fpid.h>
 #include <class_module.h>
 #include <boost/thread.hpp>
-
-
-/*
-static wxString ToHTMLFragment( const IO_ERROR* aDerivative )
-{
-    @todo
-
-    1)  change up IO_ERROR so it keeps linenumbers, source file name and
-        error message in separate strings.
-
-    2)  Add a summarizing virtual member like
-            virtual wxString What()
-        to combine all portions of an IO_ERROR's text into a single wxString.
-
-    3)  Do same for PARSE_ERROR.
-
-    4)  Add a "reason or error category" to IO_ERROR and thereby also PARSE_ERROR?
-
-    msg += "
-
-    for( int i=0; i<aCount; ++i )
-    {
-
-
-        wxArrayString* sl = wxStringSplit( aList, wxChar( '\n' ) );
-
-
-        delete sl;
-    }
-
-    wxString msg = wxT( "<ul>" );
-
-    for ( unsigned ii = 0; ii < strings_list->GetCount(); ii++ )
-    {
-        msg += wxT( "<li>" );
-        msg += strings_list->Item( ii ) + wxT( "</li>" );
-    }
-
-    msg += wxT( "</ul>" );
-
-    m_htmlWindow->AppendToPage( msg );
-
-    delete strings_list;
-}
-*/
 
 
 void FOOTPRINT_INFO::load()
@@ -132,8 +87,6 @@ void FOOTPRINT_INFO::load()
 
 void FOOTPRINT_LIST::loader_job( const wxString* aNicknameList, int aJobZ )
 {
-    //DBG(printf( "%s: first:'%s' count:%d\n", __func__, (char*) TO_UTF8( *aNicknameList ), aJobZ );)
-
     for( int i=0; i<aJobZ; ++i )
     {
         if( m_error_count >= NTOLERABLE_ERRORS )
@@ -225,9 +178,7 @@ bool FOOTPRINT_LIST::ReadFootprintFiles( FP_LIB_TABLE* aTable, const wxString* a
         LOCALE_IO   top_most_nesting;
 
         // Something which will not invoke a thread copy constructor, one of many ways obviously:
-        typedef boost::ptr_vector< boost::thread >  MYTHREADS;
-
-        MYTHREADS threads;
+        boost::ptr_vector< boost::thread > threads;
 
         // Give each thread JOBZ nicknames to process.  The last portion of, or if the entire
         // size() is small, I'll do myself.
@@ -312,13 +263,8 @@ bool FOOTPRINT_INFO::InLibrary( const wxString& aLibrary ) const
 }
 
 
-#include <confirm.h>    // until scaffolding goes.
-
 void FOOTPRINT_LIST::DisplayErrors( wxTopLevelWindow* aWindow )
 {
-#if 1
-    // scaffolding until a better one is written, hopefully below.
-
     DBG(printf( "m_error_count:%d\n", m_error_count );)
 
     wxString msg = _( "Errors were encountered loading footprints" );
@@ -332,23 +278,4 @@ void FOOTPRINT_LIST::DisplayErrors( wxTopLevelWindow* aWindow )
     }
 
     DisplayError( aWindow, msg );
-
-#else   // real evolving deal:
-
-    // @todo: go to a more HTML !<table>! ? centric output, possibly with
-    // recommendations for remedy of errors.  Add numeric error codes
-    // to PARSE_ERROR, and switch on them for remedies, etc.  Full
-    // access is provided to everything in every exception!
-
-    HTML_MESSAGE_BOX dlg( aWindow, _( "Load Error" ) );
-
-    dlg.MessageSet( _( "Errors were encountered loading footprints" ) );
-
-    wxString msg = my html wizardry.
-
-    dlg.AddHTML_Text( msg );
-
-    dlg.ShowModal();
-
-#endif
 }
