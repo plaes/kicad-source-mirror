@@ -73,9 +73,9 @@ wxString GetQuotedText( wxString & text )
 
 // A sort compare function, used to sort a FOOTPRINT_EQUIVALENCE_LIST by cmp values
 // (m_ComponentValue member)
-bool sortListbyCmpValue( const FOOTPRINT_EQUIVALENCE& ref, const FOOTPRINT_EQUIVALENCE& test )
+bool sortListbyCmpValue( const std::unique_ptr<FOOTPRINT_EQUIVALENCE>& ref, const std::unique_ptr<FOOTPRINT_EQUIVALENCE>& test )
 {
-    return ref.m_ComponentValue.Cmp( test.m_ComponentValue ) >= 0;
+    return ref->m_ComponentValue.Cmp( test->m_ComponentValue ) >= 0;
 }
 
 
@@ -156,7 +156,7 @@ int CVPCB_MAINFRAME::buildEquivalenceList( FOOTPRINT_EQUIVALENCE_LIST& aList, wx
             FOOTPRINT_EQUIVALENCE* equivItem = new FOOTPRINT_EQUIVALENCE();
             equivItem->m_ComponentValue = value;
             equivItem->m_FootprintFPID = footprint;
-            aList.push_back( equivItem );
+            aList.push_back( std::unique_ptr<FOOTPRINT_EQUIVALENCE>(equivItem) );
         }
 
         fclose( file );
@@ -210,29 +210,29 @@ void CVPCB_MAINFRAME::AutomaticFootprintMatching( wxCommandEvent& event )
         // non-polar caps for example)
         for( unsigned idx = 0; idx < equiv_List.size(); idx++ )
         {
-            FOOTPRINT_EQUIVALENCE& equivItem = equiv_List[idx];
+            const std::unique_ptr<FOOTPRINT_EQUIVALENCE>& equivItem = equiv_List[idx];
 
-            if( equivItem.m_ComponentValue.CmpNoCase( component->GetValue() ) != 0 )
+            if( equivItem->m_ComponentValue.CmpNoCase( component->GetValue() ) != 0 )
                 continue;
 
-            const FOOTPRINT_INFO *module = m_footprints.GetModuleInfo( equivItem.m_FootprintFPID );
+            const FOOTPRINT_INFO *module = m_footprints.GetModuleInfo( equivItem->m_FootprintFPID );
 
             bool equ_is_unique = true;
             unsigned next = idx+1;
             int  previous = idx-1;
 
             if( next < equiv_List.size() &&
-                equivItem.m_ComponentValue == equiv_List[next].m_ComponentValue )
+                equivItem->m_ComponentValue == equiv_List[next]->m_ComponentValue )
                 equ_is_unique = false;
 
             if( previous >= 0 &&
-                equivItem.m_ComponentValue == equiv_List[previous].m_ComponentValue )
+                equivItem->m_ComponentValue == equiv_List[previous]->m_ComponentValue )
                 equ_is_unique = false;
 
             // If the equivalence is unique, no ambiguity: use the association
             if( module && equ_is_unique )
             {
-                SetNewPkg( equivItem.m_FootprintFPID );
+                SetNewPkg( equivItem->m_FootprintFPID );
                 found = true;
                 break;
             }
@@ -254,7 +254,7 @@ void CVPCB_MAINFRAME::AutomaticFootprintMatching( wxCommandEvent& event )
                 msg.Printf( _( "Component %s: footprint %s not found in any of the project "
                                "footprint libraries." ),
                             GetChars( component->GetReference() ),
-                            GetChars( equivItem.m_FootprintFPID ) );
+                            GetChars( equivItem->m_FootprintFPID ) );
 
                 if( ! error_msg.IsEmpty() )
                     error_msg << wxT("\n\n");
@@ -264,7 +264,7 @@ void CVPCB_MAINFRAME::AutomaticFootprintMatching( wxCommandEvent& event )
 
             if( found )
             {
-                SetNewPkg( equivItem.m_FootprintFPID );
+                SetNewPkg( equivItem->m_FootprintFPID );
                 break;
             }
         }

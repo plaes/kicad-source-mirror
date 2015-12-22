@@ -24,6 +24,9 @@
 #ifndef AUTOSEL_H
 #define AUTOSEL_H
 
+#include <memory>
+#include <vector>
+
 // A helper class to handle info read in .equ files, which gives a footprint FPID
 // corresponding to a component value.
 // Each line is something like:
@@ -40,6 +43,6 @@ public:
     FOOTPRINT_EQUIVALENCE() {}
 };
 
-typedef boost::ptr_vector< FOOTPRINT_EQUIVALENCE > FOOTPRINT_EQUIVALENCE_LIST;
+typedef std::vector<std::unique_ptr<FOOTPRINT_EQUIVALENCE>> FOOTPRINT_EQUIVALENCE_LIST;
 
 #endif      // ifndef AUTOSEL_H
