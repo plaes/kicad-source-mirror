@@ -30,7 +30,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <boost/ptr_container/ptr_vector.hpp>
+#include <boost/ptr_container/exception.hpp>
 
 #include <fctsys.h>
 #include <macros.h>
