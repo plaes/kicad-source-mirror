@@ -470,7 +470,6 @@ bool GITHUB_PLUGIN::repoURL_zipURL( const wxString& aRepoURL, std::string& aZipU
             zip_url += repo.GetPath();      // path comes with a leading '/'
             zip_url += "/zip/master";
         }
-
         else
         {
             zip_url = repo.GetScheme();

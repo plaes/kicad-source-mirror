@@ -498,7 +498,7 @@ void SCH_SHEET::CleanupSheet()
         }
 
         if( HLabel == NULL )   // Hlabel not found: delete sheet label.
-            m_pins.erase( i );
+            i = m_pins.erase( i );
         else
             ++i;
     }
@@ -1245,6 +1245,31 @@ bool SCH_SHEET::IsModified() const
     {
         if( item->Type() == SCH_SHEET_T )
             retv = static_cast<SCH_SHEET*>( item )->IsModified();
+
+        item = item->Next();
+    }
+
+    return retv;
+}
+
+
+bool SCH_SHEET::IsAutoSaveRequired()
+{
+    if( m_screen->IsModify() )
+        return true;
+
+    bool      retv = false;
+    SCH_ITEM* item = m_screen->GetDrawItems();
+
+    while( item && !retv )
+    {
+        if( item->Type() == SCH_SHEET_T )
+        {
+            SCH_SHEET* sheet = static_cast<SCH_SHEET*>( item );
+
+            if( sheet->m_screen )
+                retv = sheet->m_screen->IsSave();
+        }
 
         item = item->Next();
     }

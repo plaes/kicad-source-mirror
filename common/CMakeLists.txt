@@ -202,6 +202,7 @@ set( COMMON_SRCS
     dsnlexer.cpp
     eda_dde.cpp
     eda_doc.cpp
+    eda_pattern_match.cpp
     filter_reader.cpp
     gestfich.cpp
     getrunningmicrosecs.cpp

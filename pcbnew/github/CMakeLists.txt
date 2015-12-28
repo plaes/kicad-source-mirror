@@ -20,11 +20,6 @@
 #  or you may write to the Free Software Foundation, Inc.,
 #  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 
-
-
-# Download avhttp and install the headers, not actually compiled
-#################################################
-
 # These are additions to any inherited from pcbnew dir:
 include_directories( . )
 
@@ -47,5 +42,4 @@ if( MINGW )
         ws2_32
         )
 endif()
-
 

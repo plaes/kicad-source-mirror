@@ -514,7 +514,7 @@ void LIB_PART::RemoveDrawItem( LIB_ITEM* aItem, EDA_DRAW_PANEL* aPanel, wxDC* aD
 
     LIB_ITEMS::iterator i;
 
-    for( i = drawings.begin(); i < drawings.end(); i++ )
+    for( i = drawings.begin(); i != drawings.end(); i++ )
     {
         if( *i == aItem )
         {
@@ -1199,7 +1199,7 @@ void LIB_PART::deleteAllFields()
 {
     LIB_ITEMS::iterator it;
 
-    for( it = drawings.begin();  it!=drawings.end();  /* deleting */  )
+    for( it = drawings.begin();  it != drawings.end();  /* deleting */  )
     {
         if( it->Type() != LIB_FIELD_T  )
         {
@@ -1686,7 +1686,7 @@ wxArrayString LIB_PART::GetAliasNames( bool aIncludeRoot ) const
 
     LIB_ALIASES::const_iterator it;
 
-    for( it=m_aliases.begin();  it<m_aliases.end();  ++it )
+    for( it=m_aliases.begin();  it != m_aliases.end();  ++it )
     {
         if( !aIncludeRoot && (*it)->IsRoot() )
             continue;
@@ -1733,7 +1733,7 @@ void LIB_PART::SetAliases( const wxArrayString& aAliasList )
     // Remove names in the current component that are not in the new alias list.
     LIB_ALIASES::iterator it;
 
-    for( it = m_aliases.begin(); it < m_aliases.end(); it++ )
+    for( it = m_aliases.begin(); it != m_aliases.end(); it++ )
     {
         int index = aAliasList.Index( (*it)->GetName(), false );
 
@@ -1755,7 +1755,7 @@ void LIB_PART::RemoveAlias( const wxString& aName )
 
     LIB_ALIASES::iterator it;
 
-    for( it = m_aliases.begin(); it < m_aliases.end(); it++ )
+    for( it = m_aliases.begin(); it != m_aliases.end(); it++ )
     {
         if( Cmp_KEEPCASE( aName, (*it)->GetName() ) == 0 )
         {

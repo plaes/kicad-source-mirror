@@ -209,7 +209,6 @@ bool GITHUB_GETLIBLIST::repoURL2listURL( const wxString& aRepoURL,
 bool GITHUB_GETLIBLIST::remoteGetJSON( const std::string& aFullURLCommand, wxString* aMsgError )
 {
     KICAD_CURL_EASY kcurl;
-    
     wxLogDebug( wxT( "Attempting to download: " ) + aFullURLCommand );
 
     kcurl.SetURL(aFullURLCommand);
