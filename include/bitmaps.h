@@ -26,13 +26,7 @@
 #ifndef BITMAPS_H_
 #define BITMAPS_H_
 
-//FIXME: cannot include only this file in wxWidgets 2.9.3
-// test if it works under stable release
-// #include <wx/bitmap.h>   // only to define wxBitmap
-class wxBitmap;     // only to define wxBitmap
-
-#include <config.h>
-
+#include <wx/bitmap.h>
 
 /// PNG memory record (file in memory).
 struct BITMAP_OPAQUE
