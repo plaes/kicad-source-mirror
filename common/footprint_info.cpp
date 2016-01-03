@@ -27,8 +27,6 @@
  * @file footprint_info.cpp
  */
 
-#define USE_WORKER_THREADS      1       // 1:yes, 0:no. use worker thread to load libraries
-
 /*
  * Functions to read footprint libraries and fill m_footprints by available footprints names
  * and their documentation (comments and keywords)
@@ -72,14 +70,6 @@ void FOOTPRINT_INFO::load()
         m_loaded = true;
     }
 }
-
-
-#define JOBZ                6       // no. libraries per worker thread.  It takes about
-                                    // a second to load a GITHUB library, so assigning
-                                    // this no. libraries to each thread should give a little
-                                    // over this no. seconds total time if the original delay
-                                    // were caused by latencies alone.
-                                    // (If https://github.com does not mind.)
 
 #define NTOLERABLE_ERRORS   4       // max errors before aborting, although threads
                                     // in progress will still pile on for a bit.  e.g. if 9 threads
@@ -156,8 +146,10 @@ bool FOOTPRINT_LIST::ReadFootprintFiles( FP_LIB_TABLE* aTable, const wxString* a
     m_list.clear();
 
     if( aNickname )
+    {
         // single footprint
         loader_job( aNickname, 1 );
+    }
     else
     {
         std::vector< wxString > nicknames;
@@ -165,61 +157,7 @@ bool FOOTPRINT_LIST::ReadFootprintFiles( FP_LIB_TABLE* aTable, const wxString* a
         // do all of them
         nicknames = aTable->GetLogicalLibs();
 
-#if USE_WORKER_THREADS
-
-        // Even though the PLUGIN API implementation is the place for the
-        // locale toggling, in order to keep LOCAL_IO::C_count at 1 or greater
-        // for the duration of all helper threads, we increment by one here via instantiation.
-        // Only done here because of the multi-threaded nature of this code.
-        // Without this C_count skips in and out of "equal to zero" and causes
-        // needless locale toggling among the threads, based on which of them
-        // are in a PLUGIN::FootprintLoad() function.  And that is occasionally
-        // none of them.
-        LOCALE_IO   top_most_nesting;
-
-        // Something which will not invoke a thread copy constructor, one of many ways obviously:
-        boost::ptr_vector< boost::thread > threads;
-
-        // Give each thread JOBZ nicknames to process.  The last portion of, or if the entire
-        // size() is small, I'll do myself.
-        for( unsigned i=0; i<nicknames.size();  )
-        {
-            if( m_error_count >= NTOLERABLE_ERRORS )
-            {
-                // abort the remaining nicknames.
-                retv = false;
-                break;
-            }
-
-            int jobz = JOBZ;
-
-            if( i + jobz >= nicknames.size() )
-            {
-                jobz = nicknames.size() - i;
-
-                // Only a little bit to do, I'll do it myself, on current thread.
-                loader_job( &nicknames[i], jobz );
-            }
-            else
-            {
-                // Delegate the job to a worker thread created here.
-                threads.push_back( new boost::thread( &FOOTPRINT_LIST::loader_job,
-                        this, &nicknames[i], jobz ) );
-            }
-
-            i += jobz;
-        }
-
-        // Wait for all the worker threads to complete, it does not matter in what order
-        // we wait for them as long as a full sweep is made.  Think of the great race,
-        // everyone must finish.
-        for( unsigned i=0;  i<threads.size();  ++i )
-        {
-            threads[i].join();
-        }
-#else
         loader_job( &nicknames[0], nicknames.size() );
-#endif
 
         m_list.sort();
     }
