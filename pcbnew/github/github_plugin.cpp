@@ -38,7 +38,7 @@ I have lost my enthusiasm for local caching until a faster time stamp retrieval
 mechanism can be found, or github gets more servers.  But note that the occasionally
 slow response is the exception rather than the norm.  Normally the response is
 down around a 1/3 of a second.  The information we would use is in the header
-named "Last-Modified" as seen below. 
+named "Last-Modified" as seen below.
 
 
 HTTP/1.1 200 OK
@@ -538,8 +538,8 @@ void GITHUB_PLUGIN::remoteGetZip( const wxString& aRepoURL ) throw( IO_ERROR )
     {
         UTF8 fmt( _( "%s\nCannot get/download Zip archive: '%s'\nfor library path: '%s'.\nReason: '%s'" ) );
 
-        std::string msg = StrPrintf( fmt.c_str(), 
-                                     zip_url.c_str(), 
+        std::string msg = StrPrintf( fmt.c_str(),
+                                     zip_url.c_str(),
                                      TO_UTF8( aRepoURL ),
                                      TO_UTF8( ioe.errorText ) );
 

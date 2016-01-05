@@ -23,9 +23,8 @@
 # These are additions to any inherited from pcbnew dir:
 include_directories( . )
 
-# Tell AVHTTP we have SSL.
 set( GITHUB_PLUGIN_SRCS
-    github_plugin.cpp 
+    github_plugin.cpp
     github_getliblist.cpp
     html_link_parser.cpp
     )
