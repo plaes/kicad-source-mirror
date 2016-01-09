@@ -83,7 +83,7 @@ void SCH_EDIT_FRAME::OnFindDrcMarker( wxFindDialogEvent& event )
         {
             sheetFoundIn->LastScreen()->SetZoom( GetScreen()->GetZoom() );
             *m_CurrentSheet = *sheetFoundIn;
-            m_CurrentSheet->UpdateAllScreenReferences();
+            m_CurrentSheet->Last()->UpdateAllScreenReferences();
         }
 
         SetCrossHairPosition( lastMarker->GetPosition() );
@@ -137,7 +137,7 @@ SCH_ITEM* SCH_EDIT_FRAME::FindComponentAndItem( const wxString& aReference,
 
             SCH_COMPONENT* pSch = (SCH_COMPONENT*) item;
 
-            if( aReference.CmpNoCase( pSch->GetRef( sheet ) ) == 0 )
+            if( aReference.CmpNoCase( pSch->GetRef( sheet->Last() ) ) == 0 )
             {
                 Component = pSch;
                 sheetWithComponentFound = sheet;
@@ -191,7 +191,7 @@ SCH_ITEM* SCH_EDIT_FRAME::FindComponentAndItem( const wxString& aReference,
         {
             sheet->LastScreen()->SetZoom( GetScreen()->GetZoom() );
             *m_CurrentSheet = *sheet;
-            m_CurrentSheet->UpdateAllScreenReferences();
+            m_CurrentSheet->Last()->UpdateAllScreenReferences();
             centerAndRedraw = true;
         }
 
@@ -487,7 +487,7 @@ void SCH_EDIT_FRAME::updateFindReplaceView( wxFindDialogEvent& aEvent )
         {
             sheet->LastScreen()->SetZoom( GetScreen()->GetZoom() );
             *m_CurrentSheet = *sheet;
-            m_CurrentSheet->UpdateAllScreenReferences();
+            m_CurrentSheet->Last()->UpdateAllScreenReferences();
             SetScreen( sheet->LastScreen() );
         }
 
