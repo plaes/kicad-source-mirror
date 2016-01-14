@@ -1,4 +1,4 @@
-QiEDA README
+QiEDA [![Build Status](https://travis-ci.org/QiEDA/QiEDA.svg?branch=master)](https://travis-ci.org/QiEDA/QiEDA)
 ============
 A "fork" of KiCad. For now it's just a "experimental" fork where we try and do things by purging all
 the not nice stuff. For example we go to C++11 and purge any boost functionality replacable by it. There's also liberal deletion of commented out code, #if 0, etc.
