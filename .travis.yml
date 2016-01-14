@@ -1,0 +1,18 @@
+language: cpp
+compiler:
+    - gcc
+sudo: required
+dist: trusty
+branches:
+  only:
+    - master
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libbz2-dev libcairo2-dev libglew-dev libwxgtk3.0-dev libglm-dev libboost-all-dev
+install: true
+script:
+  - cd $TRAVIS_BUILD_DIR
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make -j4
