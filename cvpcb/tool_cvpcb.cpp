@@ -31,7 +31,7 @@
 #include <kiface_i.h>
 #include <common.h>
 
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 #include <cvpcb.h>
 #include <cvpcb_mainframe.h>
 #include <cvpcb_id.h>

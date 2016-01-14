@@ -1,8 +1,8 @@
 /*
  * This program source code file is part of KiCad, a free EDA CAD application.
  *
- * Copyright (C) 2011 SoftPLC Corporation, Dick Hollenbeck <dick@softplc.com>
- * Copyright (C) 2011 KiCad Developers, see change_log.txt for contributors.
+ * Copyright (C) 2007-2014 Jean-Pierre Charras, jp.charras at wanadoo.fr
+ * Copyright (C) 1992-2014 KiCad Developers, see CHANGELOG.TXT for contributors.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,25 +21,27 @@
  * or you may write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
+#ifndef KIBITMAP_H_
+#define KIBITMAP_H_
 
-
-#include <wx/image.h>
 #include <wx/bitmap.h>
-#include <wx/mstream.h>
+#include "common/bitmaps.h"
 
-#include <bitmaps.h>
+/**
+ * Function KiBitmap
+ * constructs a wxBitmap from a memory record, held in a
+ * BITMAP_DEF.
+ */
+wxBitmap KiBitmap( BITMAP_DEF aBitmap );
 
 
-wxBitmap KiBitmap( BITMAP_DEF aBitmap )
-{
-    wxMemoryInputStream is( aBitmap->png, aBitmap->byteCount );
+/**
+ * Function KiBitmapNew
+ * allocates a wxBitmap on heap from a memory record, held in a
+ * BITMAP_DEF.
+ *
+ * @return wxBitmap* - caller owns it.
+ */
+wxBitmap* KiBitmapNew( BITMAP_DEF aBitmap );
 
-    return wxBitmap( wxImage( is, wxBITMAP_TYPE_PNG, -1 ), -1 );
-}
-
-wxBitmap* KiBitmapNew( BITMAP_DEF aBitmap )
-{
-    wxMemoryInputStream is( aBitmap->png, aBitmap->byteCount );
-
-    return new wxBitmap( wxImage( is, wxBITMAP_TYPE_PNG, -1 ), -1 );
-}
+#endif

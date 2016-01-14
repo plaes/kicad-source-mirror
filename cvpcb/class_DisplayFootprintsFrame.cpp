@@ -34,7 +34,7 @@
 #include <class_draw_panel_gal.h>
 #include <confirm.h>
 #include <macros.h>
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 #include <msgpanel.h>
 #include <wildcards_and_files_ext.h>
 #include <fpid.h>

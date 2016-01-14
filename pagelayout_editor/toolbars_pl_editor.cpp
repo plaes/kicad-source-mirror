@@ -31,7 +31,7 @@
 
 #include <common.h>
 #include <macros.h>
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 #include <pl_editor_id.h>
 #include <pl_editor_frame.h>
 #include <hotkeys.h>

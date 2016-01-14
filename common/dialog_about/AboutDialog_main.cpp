@@ -35,7 +35,7 @@
  *  edit_module_xpm[];
  *  icon_kicad_xpm[];   // Icon of the application
  */
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 #include <wxstruct.h>
 #include <common.h>
 #include <pgm_base.h>

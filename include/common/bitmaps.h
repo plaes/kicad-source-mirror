@@ -22,11 +22,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-
 #ifndef BITMAPS_H_
 #define BITMAPS_H_
-
-#include <wx/bitmap.h>
 
 /// PNG memory record (file in memory).
 struct BITMAP_OPAQUE
@@ -39,31 +36,9 @@ struct BITMAP_OPAQUE
 // declared as single element _array_, so its name assigns to pointer
 #define EXTERN_BITMAP(x) extern const BITMAP_OPAQUE x[1];
 
-
 /// a BITMAP_DEF is really a const pointer to an opaque
 /// structure.  So you should never need to use 'const' with it.
 typedef const BITMAP_OPAQUE *BITMAP_DEF;
-
-
-/**
- * Function KiBitmap
- * constructs a wxBitmap from a memory record, held in a
- * BITMAP_DEF.
- */
-wxBitmap KiBitmap( BITMAP_DEF aBitmap );
-
-
-/**
- * Function KiBitmapNew
- * allocates a wxBitmap on heap from a memory record, held in a
- * BITMAP_DEF.
- *
- * @return wxBitmap* - caller owns it.
- */
-wxBitmap* KiBitmapNew( BITMAP_DEF aBitmap );
-
-
-// may eventually generate this file automatically.
 
 EXTERN_BITMAP( shape_3d_xpm )
 EXTERN_BITMAP( add_arc_xpm )

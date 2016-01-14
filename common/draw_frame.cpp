@@ -32,7 +32,7 @@
 #include <kiface_i.h>
 #include <gr_basic.h>
 #include <common.h>
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 #include <macros.h>
 #include <id.h>
 #include <class_drawpanel.h>

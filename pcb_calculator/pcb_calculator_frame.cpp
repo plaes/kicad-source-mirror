@@ -27,7 +27,7 @@
 #include <pgm_base.h>
 #include <pcb_calculator.h>
 #include <UnitSelector.h>
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 
 
 #define KEYWORD_FRAME_POSX                      wxT( "Pcb_calculator_Pos_x" )

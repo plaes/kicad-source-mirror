@@ -25,7 +25,7 @@
 #include <common.h>
 #include <colors_selection.h>
 #include <layers_id_colors_and_visibility.h>
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 #include <colors.h>
 
 #include <wx/wx.h>

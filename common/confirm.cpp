@@ -34,7 +34,7 @@
 #include <wx/stockitem.h>
 #include <html_messagebox.h>
 #include <dialog_exit_base.h>
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 
 class DIALOG_EXIT: public DIALOG_EXIT_BASE
 {

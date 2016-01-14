@@ -44,7 +44,7 @@
  *  info_xpm[];          // Bulb for description tab
  *  tools_xpm[];         // Sheet of paper icon for license info tab
  */
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 
 /**
  * About dialog to show application specific information.

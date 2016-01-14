@@ -27,7 +27,7 @@
  */
 
 
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 
 /**
  * Definition SETBITMAPS

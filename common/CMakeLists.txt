@@ -172,7 +172,7 @@ set( COMMON_SRCS
     basicframe.cpp
     bezier_curves.cpp
     bin_mod.cpp
-    bitmap.cpp
+    kibitmap.cpp
     block_commande.cpp
     build_version.cpp
     class_bitmap_base.cpp

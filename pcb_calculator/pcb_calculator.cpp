@@ -34,7 +34,7 @@
 #include <pcb_calculator_frame_base.h>
 #include <pcb_calculator.h>
 
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 #include <colors_selection.h>
 #include <build_version.h>
 

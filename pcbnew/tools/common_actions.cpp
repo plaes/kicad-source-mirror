@@ -26,7 +26,7 @@
 #include <tool/action_manager.h>
 #include <pcbnew_id.h>
 #include <layers_id_colors_and_visibility.h>
-#include <bitmaps.h>
+#include "common/kibitmap.h"
 #include <wx/defs.h>
 #include <hotkeys.h>
 
