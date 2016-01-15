@@ -621,7 +621,6 @@ add_subdirectory( lib_dxf )
 add_subdirectory( pcbnew )
 add_subdirectory( polygon )
 add_subdirectory( pagelayout_editor )
-add_subdirectory( potrace )
 add_subdirectory( bitmap2component )
 add_subdirectory( pcb_calculator )
 add_subdirectory( kicad )               # should follow pcbnew, eeschema

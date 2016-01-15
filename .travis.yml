@@ -8,7 +8,7 @@ branches:
     - master
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y libbz2-dev libcairo2-dev libglew-dev libwxgtk3.0-dev libglm-dev libboost-all-dev
+  - sudo apt-get install -y libbz2-dev libcairo2-dev libglew-dev libwxgtk3.0-dev libglm-dev libboost-all-dev libpotrace-dev
 install: true
 script:
   - cd $TRAVIS_BUILD_DIR

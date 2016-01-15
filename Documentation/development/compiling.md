@@ -212,6 +212,18 @@ package versions by running the `msys2_shell.bat` file located in the MSYS2 inst
 running the command `pacman -Syu`.  If the msys2-runtime package is updated, close the shell
 and run `msys2_shell.bat`.
 
+## MSYS2 libpotrace
+Before continuing to either the easy way or hard way. We need to install libpotrace which is not available in
+the msys2 tree. However compiling and installing it is extremely simple.
+
+Open `msys2_shell.bat`.
+Execute the following:
+    wget http://potrace.sourceforge.net/download/1.13/potrace-1.13.tar.gz
+    tar -xzvf potrace-1.13.tar.gz
+    cd potrace-1.13
+    ./configure --with-libpotrace
+    make install
+
 ## MSYS2 the Easy Way ## {#msys2_easy}
 
 The easiest way to build KiCad using the [MSYS2][] build environment is to use the KiCad

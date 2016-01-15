@@ -42,17 +42,7 @@
 
 // include this after shape_poly_set.h to avoid redefinition of min, max ...
 #include <potracelib.h>
-
-/* free a potrace bitmap */
-static void bm_free( potrace_bitmap_t* bm )
-{
-    if( bm != NULL )
-    {
-        free( bm->map );
-    }
-    free( bm );
-}
-
+#include "potrace_bitmap.h"
 
 /* Helper class to handle useful info to convert a bitmap image to
  *  a polygonal object description

@@ -1,14 +1,16 @@
+find_package( Potrace REQUIRED )
 
 include_directories( BEFORE ${INC_BEFORE} )
 include_directories(
-    ../potrace
     ../common
     ../polygon
+    ${POTRACE_INCLUDE_DIR}
     ${INC_AFTER}
     )
 
 set( BITMAP2COMPONENT_SRCS
     ../common/single_top.cpp
+    potrace_bitmap.c
     bitmap2component.cpp
     bitmap2cmp_gui_base
     bitmap2cmp_gui
@@ -42,7 +44,7 @@ target_link_libraries( bitmap2component
     polygon
     bitmaps
     ${wxWidgets_LIBRARIES}
-    potrace
+    ${POTRACE_LIBRARIES}
     )
 
 if( APPLE )

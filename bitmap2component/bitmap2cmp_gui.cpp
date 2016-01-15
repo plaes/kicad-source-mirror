@@ -35,7 +35,7 @@
 #include <bitmap2component.h>
 
 #include <potracelib.h>
-#include <bitmap_io.h>
+#include "potrace_bitmap.h"
 
 #include <colors_selection.h>
 #include <build_version.h>
@@ -60,6 +60,7 @@
 extern int bitmap2component( potrace_bitmap_t* aPotrace_bitmap, FILE* aOutfile,
                              OUTPUT_FMT_ID aFormat, int aDpi_X, int aDpi_Y,
                              BMP2CMP_MOD_LAYER aModLayer );
+
 
 /**
  * Class BM2CMP_FRAME_BASE
