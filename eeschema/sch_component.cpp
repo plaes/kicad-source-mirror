@@ -118,6 +118,7 @@ SCH_COMPONENT::SCH_COMPONENT( const wxPoint& aPos, SCH_ITEM* aParent ) :
 {
     Init( aPos );
     m_currentSheetPath = NULL;
+    m_fieldsAutoplaced = AUTOPLACED_NO;
 }
 
 
@@ -132,6 +133,7 @@ SCH_COMPONENT::SCH_COMPONENT( LIB_PART& aPart, SCH_SHEET_PATH* sheet, int unit,
     m_part_name = aPart.GetName();
     m_part      = aPart.SharedPtr();
     m_currentSheetPath = NULL;
+    m_fieldsAutoplaced = AUTOPLACED_NO;
 
     SetTimeStamp( GetNewTimeStamp() );
 
