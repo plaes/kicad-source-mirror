@@ -312,7 +312,7 @@ int EDIT_TOOL::Main( const TOOL_EVENT& aEvent )
 
             lockOverride = false;
         }
-    } while( evt = Wait() );
+    } while( ( evt = Wait() ) ); //Should be assignment not equality test
 
     if( m_dragging )
         decUndoInhibit();

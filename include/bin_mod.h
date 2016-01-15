@@ -1,6 +1,3 @@
-#ifndef BIN_MOD_H_
-#define BIN_MOD_H_
-
 /*
  * This program source code file is part of KiCad, a free EDA CAD application.
  *
@@ -24,7 +21,14 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <wx/docview.h>
+#ifndef BIN_MOD_H_
+#define BIN_MOD_H_
+
+#if 0
+ #include <wx/filehistory.h>    // wx 3.0:
+#else
+ #include <wx/docview.h>
+#endif
 
 #include <wx/string.h>
 
