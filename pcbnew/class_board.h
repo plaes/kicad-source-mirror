@@ -984,7 +984,7 @@ public:
 
     /***************************************************************************/
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "BOARD" );
     }

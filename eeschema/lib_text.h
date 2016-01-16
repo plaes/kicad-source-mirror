@@ -61,7 +61,7 @@ public:
 
     ~LIB_TEXT() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "LIB_TEXT" );
     }

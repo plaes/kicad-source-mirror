@@ -56,7 +56,7 @@ public:
     SCH_LINE* Next() const { return (SCH_LINE*) Pnext; }
     SCH_LINE* Back() const { return (SCH_LINE*) Pback; }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "SCH_LINE" );
     }

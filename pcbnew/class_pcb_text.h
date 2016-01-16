@@ -94,7 +94,7 @@ public:
         return TextHitTest( aRect, aContained, aAccuracy );
     }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "PTEXT" );
     }

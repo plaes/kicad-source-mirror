@@ -67,7 +67,7 @@ public:
 
     ~SCH_FIELD();
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "SCH_FIELD" );
     }

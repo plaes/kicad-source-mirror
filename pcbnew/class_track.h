@@ -268,7 +268,7 @@ public:
      */
     int GetEndSegments( int NbSegm, TRACK** StartTrack, TRACK** EndTrack );
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "TRACK" );
     }

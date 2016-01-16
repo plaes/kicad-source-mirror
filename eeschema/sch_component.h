@@ -137,7 +137,7 @@ public:
 
     ~SCH_COMPONENT() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "SCH_COMPONENT" );
     }

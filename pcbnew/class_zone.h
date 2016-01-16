@@ -405,7 +405,7 @@ public:
      * returns the class name.
      * @return wxString
      */
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "ZONE_CONTAINER" );
     }

@@ -53,7 +53,7 @@ public:
 
     ~LIB_BEZIER() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "LIB_BEZIER" );
     }

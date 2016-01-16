@@ -91,7 +91,7 @@ public:
 
     ~LIB_FIELD();
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "LIB_FIELD" );
     }

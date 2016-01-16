@@ -46,7 +46,7 @@ public:
 
     ~SCH_NO_CONNECT() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "SCH_NO_CONNECT" );
     }

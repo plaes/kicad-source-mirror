@@ -491,7 +491,7 @@ public:
      * returns the class name.
      * @return wxString
      */
-    virtual wxString GetClass() const
+    virtual wxString GetClass() const override
     {
         return wxT( "BASE_SCREEN" );
     }

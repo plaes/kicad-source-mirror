@@ -120,7 +120,7 @@ public:
 
     void GetMsgPanelInfo( std::vector< MSG_PANEL_ITEM >& aList );
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "MGRAPHIC" );
     }

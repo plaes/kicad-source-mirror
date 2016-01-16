@@ -51,7 +51,7 @@ public:
 
     ~LIB_CIRCLE() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "LIB_CIRCLE" );
     }

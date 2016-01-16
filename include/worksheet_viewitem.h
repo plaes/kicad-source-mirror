@@ -133,7 +133,7 @@ public:
     /** Get class name
      * @return  string "WORKSHEET_VIEWITEM"
      */
-    virtual wxString GetClass() const
+    virtual wxString GetClass() const override
     {
         return wxT( "WORKSHEET_VIEWITEM" );
     }

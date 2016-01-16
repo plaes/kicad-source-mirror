@@ -220,28 +220,6 @@ void BOARD::SynchronizeNetsAndNetClasses()
 }
 
 
-#if defined(DEBUG)
-
-void NETCLASS::Show( int nestLevel, std::ostream& os ) const
-{
-    // for now, make it look like XML:
-    //NestedSpace( nestLevel, os )
-
-    os << '<' << GetClass().Lower().mb_str() << ">\n";
-
-    for( const_iterator i = begin();  i!=end();  ++i )
-    {
-        // NestedSpace( nestLevel+1, os ) << *i;
-        os << TO_UTF8( *i );
-    }
-
-    // NestedSpace( nestLevel, os )
-    os << "</" << GetClass().Lower().mb_str() << ">\n";
-}
-
-#endif
-
-
 void NETCLASS::Format( OUTPUTFORMATTER* aFormatter, int aNestLevel, int aControlBits ) const
     throw( IO_ERROR )
 {

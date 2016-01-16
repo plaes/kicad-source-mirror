@@ -72,7 +72,7 @@ public:
     /** Get class name
      * @return  string "SELECTION_AREA"
      */
-    virtual wxString GetClass() const
+    virtual wxString GetClass() const override
     {
         return wxT( "SELECTION_AREA" );
     }

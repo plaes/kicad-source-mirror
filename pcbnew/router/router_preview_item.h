@@ -79,7 +79,7 @@ public:
     /** Get class name
      * @return  string "ROUTER_PREVIEW_ITEM"
      */
-    virtual wxString GetClass() const
+    virtual wxString GetClass() const override
     {
         return wxT( "ROUTER_PREVIEW_ITEM" );
     }

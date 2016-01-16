@@ -414,7 +414,7 @@ public:
 
     bool HitTest( const wxPoint& aPosition ) const;
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "PAD" );
     }

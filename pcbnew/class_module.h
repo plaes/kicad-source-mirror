@@ -550,7 +550,7 @@ public:
     SEARCH_RESULT Visit( INSPECTOR* inspector, const void* testData,
                          const KICAD_T scanTypes[] );
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "MODULE" );
     }

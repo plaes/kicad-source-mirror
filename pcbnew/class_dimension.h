@@ -215,7 +215,7 @@ public:
      */
     bool HitTest( const EDA_RECT& aRect, bool aContained = true, int aAccuracy = 0 ) const;
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "DIMENSION" );
     }

@@ -127,7 +127,7 @@ public:
     /** Get class name
      * @return  string "MARKER_PCB"
      */
-    virtual wxString GetClass() const
+    virtual wxString GetClass() const override
     {
         return wxT( "MARKER_PCB" );
     }

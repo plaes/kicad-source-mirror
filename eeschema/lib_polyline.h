@@ -52,7 +52,7 @@ public:
 
     ~LIB_POLYLINE() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "LIB_POLYLINE" );
     }

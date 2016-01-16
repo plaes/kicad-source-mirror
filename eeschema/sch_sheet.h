@@ -97,7 +97,7 @@ public:
 
     ~SCH_SHEET_PIN() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "SCH_SHEET_PIN" );
     }

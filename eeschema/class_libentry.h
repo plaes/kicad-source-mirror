@@ -108,7 +108,7 @@ public:
 
     virtual ~LIB_ALIAS();
 
-    virtual wxString GetClass() const
+    virtual wxString GetClass() const override
     {
         return wxT( "LIB_ALIAS" );
     }

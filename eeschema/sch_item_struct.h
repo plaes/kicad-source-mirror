@@ -128,7 +128,7 @@ public:
 
     ~SCH_ITEM();
 
-    virtual wxString GetClass() const
+    virtual wxString GetClass() const override
     {
         return wxT( "SCH_ITEM" );
     }

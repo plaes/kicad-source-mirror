@@ -142,7 +142,7 @@ public:
 
     ~SCH_BUS_WIRE_ENTRY() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "SCH_BUS_WIRE_ENTRY" );
     }

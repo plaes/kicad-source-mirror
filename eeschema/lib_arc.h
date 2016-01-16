@@ -90,7 +90,7 @@ public:
 
     ~LIB_ARC() { }
 
-    wxString GetClass() const
+    wxString GetClass() const override
     {
         return wxT( "LIB_ARC" );
     }
