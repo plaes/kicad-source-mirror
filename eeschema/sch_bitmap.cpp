@@ -29,13 +29,15 @@
 #include <wx/dc.h>
 #include <wx/debug.h>
 #include <wx/gdicmn.h>
+#include <wx/mstream.h>
 #include <wx/string.h>
+
+#include <config.h> //for strnicmp
+
 #include <class_drawpanel.h>
 #include <trigo.h>
 #include <macros.h>
 #include <sch_bitmap.h>
-
-#include <wx/mstream.h>
 
 
 /*
