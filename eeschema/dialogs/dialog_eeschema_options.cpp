@@ -32,6 +32,7 @@
 
 #include <dialog_eeschema_options.h>
 #include <widgets/widget_hotkey_list.h>
+#include "../widgets/widget_eeschema_color_config.h"
 #include <schframe.h>
 #include <hotkeys.h>
 
@@ -57,6 +58,10 @@ DIALOG_EESCHEMA_OPTIONS::DIALOG_EESCHEMA_OPTIONS( SCH_EDIT_FRAME* parent ) :
     HOTKEY_SECTIONS sections = WIDGET_HOTKEY_LIST::GenSections( g_Eeschema_Hokeys_Descr );
     m_hotkeyListCtrl = new WIDGET_HOTKEY_LIST( m_panelHotkeys, sections );
     m_hotkeyListCtrl->InstallOnPanel( m_panelHotkeys );
+
+    // Embed the color configurator
+    m_colorConfigCtrl = new WIDGET_EESCHEMA_COLOR_CONFIG( m_panelColors, GetParent() );
+    m_colorConfigCtrl->InstallOnPanel( m_panelColors );
 
     // Make sure we select the first tab of the options tab page
     m_notebook->SetSelection( 0 );
@@ -285,6 +290,9 @@ bool DIALOG_EESCHEMA_OPTIONS::TransferDataFromWindow()
         return false;
 
     if( !m_hotkeyListCtrl->TransferDataFromControl() )
+        return false;
+
+    if( !m_colorConfigCtrl->TransferDataFromControl() )
         return false;
 
     // Refresh hotkeys
