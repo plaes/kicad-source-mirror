@@ -28,7 +28,9 @@
  *        lists of schematic items.
  */
 
-#include <fctsys.h>
+#include <wx/debug.h>
+#include <wx/msgdlg.h>
+
 #include <pgm_base.h>
 #include <class_drawpanel.h>
 #include <schframe.h>

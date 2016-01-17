@@ -29,7 +29,10 @@
  * @brief Implementation of SCH_SCREEN and SCH_SCREENS classes.
  */
 
-#include <fctsys.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+
 #include <gr_basic.h>
 #include <common.h>
 #include <kicad_string.h>

@@ -28,7 +28,10 @@
  * @brief Eeschema pin edit code.
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/msgdlg.h>
+#include <wx/string.h>
+
 #include <gr_basic.h>
 #include <class_drawpanel.h>
 #include <confirm.h>

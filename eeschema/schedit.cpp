@@ -27,7 +27,7 @@
  * @file schedit.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <kiway.h>
 #include <gr_basic.h>
 #include <pgm_base.h>

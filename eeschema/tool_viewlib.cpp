@@ -27,8 +27,11 @@
  * @file tool_viewlib.cpp
  * @brief Build the toolbars for the library browser.
  */
+ 
+#include <wx/aui/aui.h>
+#include <wx/menu.h>
+#include <wx/string.h>
 
-#include <fctsys.h>
 #include <macros.h>
 #include <eeschema_id.h>
 

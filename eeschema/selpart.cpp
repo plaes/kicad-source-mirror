@@ -26,7 +26,10 @@
  * @file selpart.cpp
  */
 
-#include <fctsys.h>
+#include <wx/arrstr.h>
+#include <wx/debug.h>
+#include <wx/string.h>
+
 #include <gr_basic.h>
 #include <confirm.h>
 #include <pgm_base.h>

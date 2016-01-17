@@ -27,7 +27,12 @@
  * @brief Implementation of SCH_SHEET class.
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/log.h>
+#include <wx/string.h>
+#include <config.h>     //strnicmp
+
 #include <class_drawpanel.h>
 #include <drawtxt.h>
 #include <trigo.h>

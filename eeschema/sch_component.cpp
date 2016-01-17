@@ -27,7 +27,11 @@
  * @brief Implementation of the class SCH_COMPONENT.
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/string.h>
+#include <wx/tokenzr.h>
+#include <config.h> //strnicmp
+
 #include <pgm_base.h>
 #include <class_drawpanel.h>
 #include <gr_basic.h>
@@ -51,7 +55,6 @@
 
 #include <dialogs/dialog_schematic_find.h>
 
-#include <wx/tokenzr.h>
 #include <iostream>
 
 #define NULL_STRING "_NONAME_"

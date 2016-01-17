@@ -24,7 +24,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
+#include <wx/gdicmn.h>
+#include <wx/filename.h>
+#include <wx/string.h>
+
 #include <plot_common.h>
 #include <class_sch_screen.h>
 #include <schframe.h>

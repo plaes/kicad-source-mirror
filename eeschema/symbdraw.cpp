@@ -27,8 +27,11 @@
  * @file symbdraw.cpp
  * @brief Create, move .. graphic shapes used to build and draw a component (lines, arcs ..)
  */
+ 
+#include <wx/dc.h>
+#include <wx/event.h>
+#include <wx/gdicmn.h>
 
-#include <fctsys.h>
 #include <gr_basic.h>
 #include <class_drawpanel.h>
 #include <confirm.h>

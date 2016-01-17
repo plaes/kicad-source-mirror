@@ -26,7 +26,11 @@
  * @file sheet.cpp
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/filename.h>
+#include <wx/string.h>
+
 #include <class_drawpanel.h>
 #include <confirm.h>
 #include <schframe.h>

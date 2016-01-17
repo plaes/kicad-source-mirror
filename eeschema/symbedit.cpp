@@ -28,7 +28,11 @@
  * @brief Functions to load from and save to file component libraries and symbols.
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/event.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+
 #include <kiway.h>
 #include <pgm_base.h>
 #include <class_drawpanel.h>

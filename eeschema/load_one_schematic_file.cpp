@@ -31,6 +31,7 @@
 #include <wx/filename.h>
 #include <wx/log.h>
 #include <wx/string.h>
+#include <config.h>     //strnicmp
 
 #include <confirm.h>
 #include <kicad_string.h>

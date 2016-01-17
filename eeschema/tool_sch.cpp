@@ -27,7 +27,9 @@
  * @file tool_sch.cpp
  */
 
-#include <fctsys.h>
+#include <wx/aui/aui.h>
+#include <wx/string.h>
+
 #include <class_drawpanel.h>
 #include <schframe.h>
 #include <kiface_i.h>

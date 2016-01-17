@@ -34,6 +34,8 @@
 #include <wx/regex.h>
 #include <wx/tokenzr.h>
 
+#include <config.h>     //strnicmp
+
 #include <kiface_i.h>
 #include <gr_basic.h>
 #include <macros.h>

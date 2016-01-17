@@ -21,10 +21,11 @@
  * or you may write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
+ 
+#include <wx/string.h>
 
 #include <template_fieldnames.h>
 #include <dsnlexer.h>
-#include <fctsys.h>
 #include <macros.h>
 
 using namespace TFIELD_T;

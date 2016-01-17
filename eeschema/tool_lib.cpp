@@ -27,7 +27,10 @@
  * @file tool_lib.cpp
  */
 
-#include <fctsys.h>
+#include <wx/aui/aui.h>
+#include <wx/combobox.h>
+#include <wx/string.h>
+
 #include <hotkeys.h>
 #include <eeschema_id.h>
 

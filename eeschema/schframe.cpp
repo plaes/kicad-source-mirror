@@ -26,7 +26,8 @@
  * @file schframe.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
+
 #include <kiface_i.h>
 #include <pgm_base.h>
 #include <gr_basic.h>

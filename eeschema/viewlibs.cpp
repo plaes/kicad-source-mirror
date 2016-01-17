@@ -25,8 +25,11 @@
 /**
  * @file viewlibs.cpp
  */
+ 
+#include <wx/dc.h>
+#include <wx/event.h>
+#include <wx/string.h>
 
-#include <fctsys.h>
 #include <kiway.h>
 #include <gr_basic.h>
 #include <pgm_base.h>

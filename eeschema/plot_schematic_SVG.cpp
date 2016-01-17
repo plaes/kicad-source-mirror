@@ -27,7 +27,10 @@
  * @file plot_schematic_SVG.cpp
  */
 
-#include <fctsys.h>
+#include <wx/gdicmn.h>
+#include <wx/filename.h>
+#include <wx/string.h>
+
 #include <pgm_base.h>
 #include <class_drawpanel.h>
 #include <class_sch_screen.h>

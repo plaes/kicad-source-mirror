@@ -27,7 +27,9 @@
  * @file eeschema/onrightclick.cpp
  */
 
-#include <fctsys.h>
+#include <wx/menu.h>
+#include <wx/string.h>
+
 #include <eeschema_id.h>
 #include <class_drawpanel.h>
 #include <confirm.h>

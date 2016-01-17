@@ -19,6 +19,7 @@
  * along with this program; if not, you may find one here:
  * http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * or you may search the http://www.gnu.org website for the version 2 license,
+ * or you may search the http://www.gnu.org website for the version 2 license,
  * or you may write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
@@ -28,7 +29,10 @@
  * @brief SCH_SHEET_PATH class implementation.
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/filename.h>
+#include <wx/string.h>
 
 #include <general.h>
 #include <dlist.h>
