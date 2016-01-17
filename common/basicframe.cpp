@@ -36,8 +36,9 @@
 #include <wx/platinfo.h>
 #include <wx/stdpaths.h>
 
+#include <config.h>
 #include <build_version.h>
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <id.h>

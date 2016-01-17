@@ -28,7 +28,8 @@
  * @file footprint_wizard_frame.cpp
  */
 
-#include <fctsys.h>
+#include <config.h>
+#include <wx/wx.h>
 #include <kiface_i.h>
 #include <class_drawpanel.h>
 #include <wxPcbStruct.h>

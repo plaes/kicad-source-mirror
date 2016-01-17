@@ -3,6 +3,8 @@
 
 // undefs explained here: https://bugzilla.redhat.com/show_bug.cgi?id=427617
 
+#include <config.h>
+
 #ifdef _POSIX_C_SOURCE
     #undef _POSIX_C_SOURCE
 #endif

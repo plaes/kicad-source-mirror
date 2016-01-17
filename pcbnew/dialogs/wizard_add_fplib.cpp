@@ -34,6 +34,7 @@
 
 #include <memory>
 
+#include <config.h>
 #include <wx/wx.h>
 #include <wx/uri.h>
 #include <wx/dir.h>

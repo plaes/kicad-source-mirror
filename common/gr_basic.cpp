@@ -2,8 +2,8 @@
 /* Low level graphics routines  */
 /********************************/
 
-
-#include <fctsys.h>
+#include <config.h>
+#include <wx/wx.h>
 #include <gr_basic.h>
 #include <common.h>
 #include <trigo.h>

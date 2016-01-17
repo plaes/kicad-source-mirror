@@ -23,7 +23,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
+#include <config.h>
+#include <wx/wx.h>
 #include <kicad_string.h>
 #include <common.h>
 #include <build_version.h>      // LEGACY_BOARD_FILE_VERSION

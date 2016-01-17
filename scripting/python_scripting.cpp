@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <wxstruct.h>
 #include <common.h>
 #include <colors.h>

@@ -29,7 +29,8 @@
  * @brief PCB editor main window implementation.
  */
 
-#include <fctsys.h>
+#include <config.h>
+#include <wx/wx.h>
 #include <kiface_i.h>
 #include <pgm_base.h>
 #include <class_drawpanel.h>

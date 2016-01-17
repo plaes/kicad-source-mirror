@@ -33,7 +33,8 @@
 #include <limits.h>
 #include <algorithm>
 
-#include <fctsys.h>
+#include <config.h>
+#include <wx/wx.h>
 #include <common.h>
 #include <kicad_string.h>
 #include <wxBasePcbFrame.h>

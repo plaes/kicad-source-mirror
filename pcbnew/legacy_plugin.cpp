@@ -62,6 +62,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+
+#include <config.h>
 #include <wx/ffile.h>
 
 #include <legacy_plugin.h>   // implement this here

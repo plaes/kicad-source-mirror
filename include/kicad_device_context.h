@@ -31,6 +31,7 @@
 #ifndef __KICAD_DEVICE_CONTEXT_H__
 #define __KICAD_DEVICE_CONTEXT_H__
 
+#include <config.h>
 #include <wx/dcbuffer.h>
 
 #if defined(KICAD_USE_BUFFERED_PAINTDC)

@@ -28,7 +28,7 @@
  * @brief Read and write board files.
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <class_drawpanel.h>
 #include <confirm.h>
 #include <kicad_string.h>

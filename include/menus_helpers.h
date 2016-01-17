@@ -29,7 +29,7 @@
  * @brief Usefull macros and inline functions to create menus items
  * in menubars or popup menus
  */
-
+#include <config.h>
 #include "common/kibitmap.h"
 
 /**

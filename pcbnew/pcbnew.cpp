@@ -28,11 +28,13 @@
  * @brief Pcbnew main program.
  */
 
+#include <config.h>
+#include <wx/wx.h>
+
 #ifdef KICAD_SCRIPTING
  #include <python_scripting.h>
  #include <pcbnew_scripting_helpers.h>
 #endif
-#include <fctsys.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <confirm.h>

@@ -28,7 +28,8 @@
  * @file menubar_pcbframe.cpp
  * Pcbnew editor menu bar
  */
-#include <fctsys.h>
+#include <config.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <pcbnew.h>

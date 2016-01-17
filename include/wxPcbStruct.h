@@ -30,6 +30,7 @@
 #define  WXPCB_STRUCT_H_
 
 
+#include <config.h>
 #include <pcb_base_edit_frame.h>
 #include <config_params.h>
 #include <class_macros_record.h>

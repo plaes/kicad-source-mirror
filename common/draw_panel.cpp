@@ -27,7 +27,8 @@
  * @file draw_panel.cpp
  */
 
-#include <fctsys.h>
+#include <config.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <gr_basic.h>
