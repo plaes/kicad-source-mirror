@@ -27,7 +27,7 @@
  * @brief Common GERBER plot routines.
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <gr_basic.h>
 #include <trigo.h>
 #include <wxstruct.h>

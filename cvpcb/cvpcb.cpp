@@ -27,7 +27,7 @@
  * @file cvpcb.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <macros.h>
 #include <fp_lib_table.h>
 #include <kiface_i.h>

@@ -27,7 +27,7 @@
  * @file preferences.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_kicad.h>
 #include <confirm.h>
 #include <gestfich.h>

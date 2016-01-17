@@ -27,7 +27,7 @@
  * applications Pcbnew and CvPcb.
  */
 
-#include <fctsys.h>
+#include <wx/string.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 

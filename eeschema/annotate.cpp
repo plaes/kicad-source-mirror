@@ -29,7 +29,9 @@
 #include <algorithm>
 #include <map>
 
-#include <fctsys.h>
+#include <wx/arrstr.h>
+#include <wx/debug.h>
+#include <wx/string.h>
 #include <class_drawpanel.h>
 #include <confirm.h>
 #include <schframe.h>

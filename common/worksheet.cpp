@@ -30,7 +30,7 @@
  */
 
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <gr_basic.h>
 #include <common.h>

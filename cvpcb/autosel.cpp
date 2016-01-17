@@ -30,8 +30,7 @@
 // These associations have this form:
 // 'FT232BL'		'QFP:LQFP-32_7x7mm_Pitch0.8mm'
 
-
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <common.h>
 #include <kiface_i.h>
 #include <project.h>

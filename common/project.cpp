@@ -23,9 +23,12 @@
  */
 
 
+#include <wx/config.h>
+#include <wx/debug.h>
+#include <wx/fileconf.h>
+#include <wx/filename.h>
+#include <wx/log.h>
 #include <wx/stdpaths.h>
-
-#include <fctsys.h>
 #include <macros.h>
 #include <pgm_base.h>
 #include <project.h>

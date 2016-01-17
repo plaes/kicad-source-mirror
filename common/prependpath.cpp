@@ -23,9 +23,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <macros.h>
-#include <fctsys.h>
+#include <wx/arrstr.h>
+#include <wx/filefn.h>
 #include <wx/filename.h>
+#include <wx/string.h>
 
 
 /// Put aPriorityPath in front of all paths in the value of aEnvVar.

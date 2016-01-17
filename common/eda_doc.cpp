@@ -26,7 +26,7 @@
  * @file eda_doc.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <common.h>
 #include <confirm.h>

@@ -26,7 +26,6 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
 #include <gr_basic.h>
 #include <common.h>
 #include <class_bitmap_base.h>

@@ -28,7 +28,7 @@
  * @brief Some functions to handle hotkeys in KiCad
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <kiface_i.h>
 #include <hotkeys_basic.h>
 #include <id.h>

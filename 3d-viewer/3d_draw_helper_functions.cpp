@@ -25,7 +25,8 @@
  * @file 3d_draw_helper_functions.cpp
  */
 
-#include <fctsys.h>
+#include <wx/gdicmn.h>
+#include <wx/log.h>
 
 #include <PolyLine.h>
 #include <colors.h>

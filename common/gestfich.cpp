@@ -32,8 +32,7 @@
 #include <wx/filename.h>
 #include <wx/dir.h>
 
-// For compilers that support precompilation, includes "wx.h".
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <confirm.h>
 #include <common.h>

@@ -26,9 +26,8 @@
  * @file copy_to_clipboard.cpp
  */
 
+#include <wx/wx.h>
 #include <wx/clipbrd.h>
-//#include <wx/metafile.h>
-#include <fctsys.h>
 #include <gr_basic.h>
 #include <common.h>
 #include <id.h>

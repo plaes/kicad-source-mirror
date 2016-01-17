@@ -25,7 +25,7 @@
  * @file 3d_class.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 
 #include "3d_viewer.h"
 #include "3d_struct.h"

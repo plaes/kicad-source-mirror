@@ -54,7 +54,7 @@
  * describes the page layout (can be the default page layout or a custom file).
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <drawtxt.h>
 #include <worksheet.h>
 #include <class_title_block.h>

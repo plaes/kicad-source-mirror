@@ -27,7 +27,7 @@
  * @brief Common routines for managing on block commands.
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <gr_basic.h>
 #include <draw_frame.h>
 #include <common.h>

@@ -27,7 +27,12 @@
  * @brief Implementation of EDA_ITEM base class for KiCad.
  */
 
-#include <fctsys.h>
+#include <wx/chartype.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/log.h>
+#include <wx/fdrepdlg.h>
+#include <wx/string.h>
 #include <trigo.h>
 #include <common.h>
 #include <macros.h>

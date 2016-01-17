@@ -26,7 +26,7 @@
  * @file wxwineda.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <wxstruct.h>
 #include <dialog_helpers.h>
 #include <base_units.h>

@@ -26,7 +26,9 @@
 /* routines to handle bezier curves */
 /************************************/
 
-#include <fctsys.h>
+#include <wx/chartype.h>
+#include <wx/gdicmn.h>
+#include <wx/log.h>
 #include <bezier_curves.h>
 
 

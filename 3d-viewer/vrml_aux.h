@@ -30,7 +30,6 @@
 #ifndef _VRML_AUX_H
 #define _VRML_AUX_H
 
-#include <fctsys.h>
 #include <common.h>
 #include <macros.h>
 #include <base_struct.h>

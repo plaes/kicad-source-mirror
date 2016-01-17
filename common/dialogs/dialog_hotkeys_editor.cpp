@@ -23,7 +23,6 @@
 
 #include <algorithm>
 
-#include <fctsys.h>
 #include <pgm_base.h>
 #include <common.h>
 #include <confirm.h>

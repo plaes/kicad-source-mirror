@@ -26,8 +26,6 @@
  * @file info3d_visu.cpp
  */
 
-#include <fctsys.h>
-
 #include <common.h>
 
 #include <class_board_design_settings.h>

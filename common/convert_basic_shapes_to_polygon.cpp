@@ -26,7 +26,7 @@
  */
 #include <vector>
 
-#include <fctsys.h>
+#include <wx/gdicmn.h>
 #include <trigo.h>
 #include <macros.h>
 #include <common.h>

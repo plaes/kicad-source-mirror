@@ -27,7 +27,7 @@
  * @file tool_cvpcb.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <kiface_i.h>
 #include <common.h>
 

@@ -26,7 +26,7 @@
  * @brief Implementation of class for displaying footprint list and component lists.
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <wxstruct.h>
 #include <macros.h>
 

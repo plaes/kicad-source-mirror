@@ -25,7 +25,7 @@
  * @file 3d_class.cpp
  */
 
-#include <fctsys.h>
+#include <wx/string.h>
 #include <3d_struct.h>
 #include <3d_material.h>
 #include <info3d_visu.h>

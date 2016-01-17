@@ -26,7 +26,8 @@
  * @brief Some useful functions to handle strings.
  */
 
-#include <fctsys.h>
+#include <wx/datetime.h>
+#include <wx/string.h>
 #include <macros.h>
 #include <richio.h>                        // StrPrintf
 #include <kicad_string.h>

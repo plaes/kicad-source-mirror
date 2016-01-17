@@ -27,7 +27,6 @@
  * @brief
  */
 
-#include <fctsys.h>
 #include <3d_mesh_model.h>
 #include <boost/geometry/algorithms/area.hpp>
 #define GLM_FORCE_RADIANS

@@ -26,7 +26,7 @@
  * @file 3d_draw_basic_functions.cpp
  */
 
-#include <fctsys.h>
+#include <wx/gdicmn.h>
 #include <trigo.h>
 #include <convert_basic_shapes_to_polygon.h>
 

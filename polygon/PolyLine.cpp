@@ -38,7 +38,9 @@
 #include <vector>
 #include <algorithm>
 
-#include <fctsys.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+
 #include <common.h>     // KiROUND
 
 #include <PolyLine.h>

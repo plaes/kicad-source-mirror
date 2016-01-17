@@ -23,7 +23,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
+#include <wx/chartype.h>
+#include <wx/debug.h>
+#include <wx/msgdlg.h>
+#include <wx/string.h>
 #include <common.h>
 #include <base_struct.h>
 

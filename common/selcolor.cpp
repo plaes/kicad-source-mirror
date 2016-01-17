@@ -26,12 +26,11 @@
 /* Dialog for selecting color from the palette of available colors.
  */
 
-#include <fctsys.h>
-#include <common.h>
-#include <colors.h>
-
+#include <wx/wx.h>
 #include <wx/statline.h>
 
+#include <common.h>
+#include <colors.h>
 
 enum colors_id {
     ID_COLOR_BLACK = 2000 // ID_COLOR_ = ID_COLOR_BLACK a ID_COLOR_BLACK + 31

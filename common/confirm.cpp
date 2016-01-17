@@ -27,7 +27,6 @@
  * @brief utilities to display some error, warning and info short messges
  */
 
-#include <fctsys.h>
 #include <common.h>
 #include <wx/wx.h>
 #include <wx/html/htmlwin.h>

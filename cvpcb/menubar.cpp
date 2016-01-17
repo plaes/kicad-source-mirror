@@ -26,7 +26,7 @@
  * @file cvpcb/menubar.cpp
  * @brief (Re)Create the menubar for CvPcb
  */
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <confirm.h>

@@ -23,10 +23,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-
-#include <fctsys.h>
+#include <wx/chartype.h>
 #include <wx/config.h>      // wxExpandEnvVars()
 #include <wx/filename.h>
+#include <wx/string.h>
 #include <wx/stdpaths.h>
 
 #include <set>

@@ -27,7 +27,7 @@
  * @file 3d_aux.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 
 #include <common.h>
 #include <trigo.h>

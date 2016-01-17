@@ -27,7 +27,7 @@
  * @file draw_frame.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <gr_basic.h>

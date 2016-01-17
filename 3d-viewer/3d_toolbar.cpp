@@ -27,7 +27,7 @@
  * @file 3d_toolbar.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 
 #include <3d_viewer.h>
 #include <info3d_visu.h>

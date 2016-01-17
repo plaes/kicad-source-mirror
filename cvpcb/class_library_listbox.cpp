@@ -26,7 +26,7 @@
  * class to display used library and selecting it
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <wxstruct.h>
 #include <macros.h>
 

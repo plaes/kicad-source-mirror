@@ -32,7 +32,7 @@
  * and their documentation (comments and keywords)
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <common.h>
 #include <confirm.h>
 #include <macros.h>

@@ -29,7 +29,7 @@
 
 #include <algorithm> // sort
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <trigo.h>
 #include <wxPcbStruct.h>
 

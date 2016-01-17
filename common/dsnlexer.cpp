@@ -30,7 +30,7 @@
 #include <cctype>
 
 #include <macros.h>
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <dsnlexer.h>
 
 

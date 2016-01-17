@@ -49,7 +49,8 @@
  * describes the page layout (can be the default page layout or a custom file).
  */
 
-#include <fctsys.h>
+#include <wx/filename.h>
+#include <wx/string.h>
 #include <kiface_i.h>
 #include <drawtxt.h>
 #include <worksheet.h>

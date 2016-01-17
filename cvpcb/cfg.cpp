@@ -26,7 +26,7 @@
  * @file cfg.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <kiface_i.h>
 #include <fp_lib_table.h>
 #include <id.h>

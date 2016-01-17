@@ -27,7 +27,7 @@
  * @file cvframe.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <build_version.h>
 #include <kiway_express.h>
 #include <pgm_base.h>

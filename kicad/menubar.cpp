@@ -27,7 +27,7 @@
  * @file kicad/menubar.cpp
  * @brief (Re)Create the project manager menubar for KiCad
  */
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_kicad.h>
 #include <kicad.h>
 #include <menus_helpers.h>

@@ -25,7 +25,7 @@
  * @file class_components_listbox.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <wxstruct.h>
 
 #include <cvpcb.h>

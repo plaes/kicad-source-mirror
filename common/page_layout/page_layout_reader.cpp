@@ -29,7 +29,9 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
+#include <wx/file.h>
+#include <wx/mstream.h>
 #include <base_struct.h>
 #include <worksheet.h>
 #include <worksheet_shape_builder.h>
@@ -315,7 +317,6 @@ void PAGE_LAYOUT_READER_PARSER::parsePolyOutline( WORKSHEET_DATAITEM_POLYPOLYGON
     }
 }
 
-#include <wx/mstream.h>
 void PAGE_LAYOUT_READER_PARSER::parseBitmap( WORKSHEET_DATAITEM_BITMAP * aItem )
     throw( IO_ERROR, PARSE_ERROR )
 {
@@ -774,8 +775,6 @@ void WORKSHEET_LAYOUT::SetPageLayout( const char* aPageLayout, bool Append )
         wxLogMessage( ioe.errorText );
     }
 }
-
-#include <wx/file.h>
 
 // SetLayout() try to load the aFullFileName custom layout file,
 // if aFullFileName is empty, try the filename defined by the

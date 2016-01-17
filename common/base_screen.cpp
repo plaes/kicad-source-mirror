@@ -29,7 +29,7 @@
  * @brief BASE_SCREEN object implementation.
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <macros.h>
 #include <common.h>
 #include <base_struct.h>
