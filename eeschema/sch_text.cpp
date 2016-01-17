@@ -29,6 +29,9 @@
  */
 
 #include <wx/wx.h>
+
+#include <config.h> //for strnicmp
+
 #include <gr_basic.h>
 #include <macros.h>
 #include <trigo.h>

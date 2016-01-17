@@ -25,26 +25,24 @@
 #ifndef __WX_STATUS_POPUP_H_
 #define __WX_STATUS_POPUP_H_
 
-
-#include <common.h>
+#include <wx/panel.h>
 #include <wx/popupwin.h>
-
-class PCB_EDIT_FRAME;
+#include <wx/sizer.h>
 
 /**
- * Class WX_STATUS_POPUP
+ * Class WIDGET_STATUS_POPUP
  *
  * A tiny, headerless popup window used to display useful status (e.g. line length
  * tuning info) next to the mouse cursor.
  */
 
-class WX_STATUS_POPUP: public wxPopupWindow
+class WIDGET_STATUS_POPUP: public wxPopupWindow
 {
 public:
-    WX_STATUS_POPUP( PCB_EDIT_FRAME* aParent );
-    virtual ~WX_STATUS_POPUP();
+    WIDGET_STATUS_POPUP( wxWindow* aParent );
+    virtual ~WIDGET_STATUS_POPUP();
 
-    virtual void Popup(wxWindow* aFocus = NULL);
+    virtual void Popup( wxWindow* aFocus = NULL );
     virtual void Move( const wxPoint &aWhere );
 
 protected:

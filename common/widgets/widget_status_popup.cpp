@@ -26,10 +26,9 @@
  * Transient mouse following popup window implementation.
  */
 
-#include <wx_status_popup.h>
-#include <wxPcbStruct.h>
+#include "widgets/widget_status_popup.h"
 
-WX_STATUS_POPUP::WX_STATUS_POPUP( PCB_EDIT_FRAME* aParent ) :
+WIDGET_STATUS_POPUP::WIDGET_STATUS_POPUP( wxWindow* aParent ) :
     wxPopupWindow( aParent )
 {
     m_panel = new wxPanel( this, wxID_ANY );
@@ -40,26 +39,26 @@ WX_STATUS_POPUP::WX_STATUS_POPUP( PCB_EDIT_FRAME* aParent ) :
 }
 
 
-void WX_STATUS_POPUP::updateSize()
+void WIDGET_STATUS_POPUP::updateSize()
 {
     m_topSizer->Fit( m_panel );
     SetClientSize( m_panel->GetSize() );
 }
 
 
-WX_STATUS_POPUP::~WX_STATUS_POPUP()
+WIDGET_STATUS_POPUP::~WIDGET_STATUS_POPUP()
 {
 }
 
 
-void WX_STATUS_POPUP::Popup( wxWindow* )
+void WIDGET_STATUS_POPUP::Popup( wxWindow* )
 {
     Show( true );
     Raise();
 }
 
 
-void WX_STATUS_POPUP::Move( const wxPoint& aWhere )
+void WIDGET_STATUS_POPUP::Move( const wxPoint& aWhere )
 {
-    SetPosition ( aWhere );
+    SetPosition( aWhere );
 }
