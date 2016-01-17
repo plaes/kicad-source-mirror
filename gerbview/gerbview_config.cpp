@@ -28,7 +28,10 @@
  * @brief GerbView configuration.
 */
 
-#include <fctsys.h>
+#include <wx/debug.h>
+#include <wx/msgdlg.h>
+#include <wx/string.h>
+
 #include <macros.h>
 #include <id.h>
 #include <common.h>

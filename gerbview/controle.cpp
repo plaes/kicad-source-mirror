@@ -26,7 +26,9 @@
  * @file gerbview/controle.cpp
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/gdicmn.h>
+
 #include <common.h>
 #include <class_drawpanel.h>
 #include <gerbview.h>

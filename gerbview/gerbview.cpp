@@ -26,7 +26,11 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
+#include <wx/file.h>
+#include <wx/snglinst.h>
+#include <wx/string.h>
+#include <wx/window.h>
+
 #include <kiface_i.h>
 #include <pgm_base.h>
 #include <class_drawpanel.h>
@@ -40,8 +44,6 @@
 
 #include <build_version.h>
 
-#include <wx/file.h>
-#include <wx/snglinst.h>
 
 // Colors for layers and items
 COLORS_DESIGN_SETTINGS g_ColorsSettings;

@@ -62,7 +62,11 @@
   * Feed Rate and Spindle Speed are just skipped because they are not used in a viewer
   */
 
-#include <fctsys.h>
+#include <wx/gdicmn.h>
+#include <wx/msgdlg.h>
+#include <wx/string.h>
+#include <config.h> // for strnicmp
+
 #include <common.h>
 #include <confirm.h>
 

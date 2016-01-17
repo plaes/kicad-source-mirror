@@ -28,7 +28,11 @@
  */
 
 
-#include <fctsys.h>
+#include <wx/bitmap.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/utils.h>
+
 #include <gr_basic.h>
 #include <common.h>
 #include <class_drawpanel.h>

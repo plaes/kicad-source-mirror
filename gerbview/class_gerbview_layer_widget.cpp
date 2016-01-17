@@ -29,7 +29,10 @@
  * @brief  GerbView layers manager.
  */
 
-#include <fctsys.h>
+#include <wx/menu.h>
+#include <wx/string.h>
+#include <wx/window.h>
+
 #include <common.h>
 #include <class_drawpanel.h>
 #include <pcbstruct.h>

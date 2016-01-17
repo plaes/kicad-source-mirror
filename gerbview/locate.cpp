@@ -26,7 +26,8 @@
  * @file locate.cpp
  */
 
-#include <fctsys.h>
+#include <wx/gdicmn.h>
+
 #include <common.h>
 #include <msgpanel.h>
 

@@ -29,7 +29,9 @@
 
 #include <vector>
 
-#include <fctsys.h>
+#include <wx/filedlg.h>
+#include <wx/string.h>
+
 #include <common.h>
 #include <confirm.h>
 #include <macros.h>

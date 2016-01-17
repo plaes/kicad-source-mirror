@@ -27,8 +27,9 @@
  * @brief Set some general options of GerbView.
  */
 
+#include <wx/event.h>
+#include <wx/msgdlg.h>
 
-#include <fctsys.h>
 #include <common.h>
 #include <class_drawpanel.h>
 

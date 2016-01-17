@@ -26,7 +26,8 @@
  * @file class_gbr_screen.cpp
  */
 
-#include <fctsys.h>
+#include <wx/gdicmn.h>
+
 #include <common.h>
 #include <macros.h>
 #include <class_gbr_screen.h>

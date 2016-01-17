@@ -27,7 +27,8 @@
  * @brief GerbView command event functions.
  */
 
-#include <fctsys.h>
+#include <wx/event.h>
+
 #include <pgm_base.h>
 #include <class_drawpanel.h>
 #include <confirm.h>

@@ -26,7 +26,12 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
+#include <wx/button.h>
+#include <wx/debug.h>
+#include <wx/sizer.h>
+#include <wx/stattext.h>
+#include <wx/string.h>
+
 #include <kiface_i.h>
 #include <gerbview.h>
 #include <gerbview_frame.h>

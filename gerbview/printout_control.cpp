@@ -31,7 +31,11 @@
 // Set this to 1 if you want to test PostScript printing under MSW.
 #define wxTEST_POSTSCRIPT_IN_MSW 1
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/print.h>
+#include <wx/string.h>
+#include <wx/utils.h>
+
 #include <pgm_base.h>
 #include <gr_basic.h>
 #include <class_drawpanel.h>

@@ -27,7 +27,14 @@
  * @brief Set up a dialog to choose a PCB Layer.
  */
 
-#include <fctsys.h>
+#include <wx/arrstr.h>
+#include <wx/button.h>
+#include <wx/debug.h>
+#include <wx/dialog.h>
+#include <wx/event.h>
+#include <wx/radiobox.h>
+#include <wx/sizer.h>
+
 #include <gerbview_frame.h>
 #include <select_layers_to_pcb.h>
 

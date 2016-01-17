@@ -30,7 +30,6 @@
 #include <limits.h>
 #include <algorithm>
 
-#include <fctsys.h>
 #include <common.h>
 #include <class_gbr_layout.h>
 

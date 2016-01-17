@@ -27,8 +27,9 @@
  * @brief Block operations: displacement.
  */
 
+#include <wx/dc.h>
+#include <wx/debug.h>
 
-#include <fctsys.h>
 #include <common.h>
 #include <class_drawpanel.h>
 #include <confirm.h>

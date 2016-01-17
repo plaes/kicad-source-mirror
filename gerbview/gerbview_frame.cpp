@@ -26,7 +26,13 @@
  * @file gerbview_frame.cpp
  */
 
-#include <fctsys.h>
+#include <wx/arrstr.h>
+#include <wx/aui/aui.h>
+#include <wx/choicdlg.h>
+#include <wx/debug.h>
+#include <wx/log.h>
+#include <wx/string.h>
+
 #include <kiface_i.h>
 #include <pgm_base.h>
 #include <wxstruct.h>

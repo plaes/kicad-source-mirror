@@ -28,7 +28,10 @@
  * @brief D_CODE class implementation
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+
 #include <common.h>
 #include <class_drawpanel.h>
 #include <confirm.h>

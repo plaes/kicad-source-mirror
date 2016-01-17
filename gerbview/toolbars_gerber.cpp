@@ -28,7 +28,8 @@
  * @brief Build tool bars
  */
 
-#include <fctsys.h>
+#include <wx/aui/aui.h>
+#include <wx/event.h>
 
 #include <common.h>
 #include <macros.h>

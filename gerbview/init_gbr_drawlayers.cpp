@@ -26,7 +26,8 @@
  * @file init_gbr_drawlayers.cpp
  */
 
-#include <fctsys.h>
+#include <wx/string.h>
+
 #include <common.h>
 #include <class_drawpanel.h>
 #include <confirm.h>
