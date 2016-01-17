@@ -26,7 +26,11 @@
  * @file lib_field.cpp
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+
 #include <pgm_base.h>
 #include <gr_basic.h>
 #include <macros.h>

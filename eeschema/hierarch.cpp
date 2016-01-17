@@ -27,7 +27,10 @@
  * @file hierarch.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
+#include <wx/string.h>
+#include <wx/treectrl.h>
+
 #include <class_drawpanel.h>
 #include <confirm.h>
 #include <id.h>
@@ -36,9 +39,6 @@
 #include <general.h>
 #include <sch_sheet.h>
 #include <sch_sheet_path.h>
-
-#include <wx/imaglist.h>
-#include <wx/treectrl.h>
 
 
 enum

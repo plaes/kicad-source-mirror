@@ -38,7 +38,6 @@
  * but there are not really plugins, there are only external binaries
  */
 
-#include <fctsys.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <gestfich.h>

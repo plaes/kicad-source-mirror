@@ -28,7 +28,11 @@
  * @brief Schematic component editing code.
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+
 #include <gr_basic.h>
 #include <class_drawpanel.h>
 #include <confirm.h>

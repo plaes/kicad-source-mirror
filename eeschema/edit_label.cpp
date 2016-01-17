@@ -27,7 +27,11 @@
  * @brief Label, global label and text creation and editing.
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+
 #include <gr_basic.h>
 #include <base_struct.h>
 #include <drawtxt.h>

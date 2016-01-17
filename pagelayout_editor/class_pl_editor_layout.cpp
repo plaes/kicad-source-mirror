@@ -29,7 +29,7 @@
 #include <limits.h>
 #include <algorithm>
 
-#include <fctsys.h>
+#include <wx/string.h>
 #include <common.h>
 #include <class_pl_editor_layout.h>
 

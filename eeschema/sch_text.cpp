@@ -28,7 +28,7 @@
  * @brief Code for handling schematic sheet labels.
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <gr_basic.h>
 #include <macros.h>
 #include <trigo.h>

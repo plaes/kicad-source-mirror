@@ -28,7 +28,8 @@
  * @file eeschema/files-io.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
+
 #include <class_drawpanel.h>
 #include <confirm.h>
 #include <gestfich.h>

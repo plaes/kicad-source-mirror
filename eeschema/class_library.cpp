@@ -27,7 +27,13 @@
  * @file class_library.cpp
  */
 
-#include <fctsys.h>
+#include <wx/arrstr.h>
+#include <wx/debug.h>
+#include <wx/log.h>
+#include <wx/string.h>
+#include <wx/regex.h>
+#include <wx/tokenzr.h>
+
 #include <kiface_i.h>
 #include <gr_basic.h>
 #include <macros.h>
@@ -42,9 +48,6 @@
 
 #include <general.h>
 #include <class_library.h>
-
-#include <wx/tokenzr.h>
-#include <wx/regex.h>
 
 #define duplicate_name_msg  \
     _(  "Library '%s' has duplicate entry name '%s'.\n" \

@@ -27,7 +27,7 @@
  * @file eeschema/cross-probing.cpp
  */
 
-#include <fctsys.h>
+#include <wx/string.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <kiway_express.h>

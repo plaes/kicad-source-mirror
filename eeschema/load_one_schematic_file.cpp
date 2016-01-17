@@ -28,7 +28,10 @@
  * @brief Code to load and save Eeschema files.
  */
 
-#include <fctsys.h>
+#include <wx/filename.h>
+#include <wx/log.h>
+#include <wx/string.h>
+
 #include <confirm.h>
 #include <kicad_string.h>
 #include <schframe.h>

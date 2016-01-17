@@ -28,9 +28,12 @@
  * @see   common.h
  */
 
-
 #ifndef __INCLUDE__CONFIRM_H__
-#define __INCLUDE__CONFIRM_H__ 1
+#define __INCLUDE__CONFIRM_H__
+
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+#include <wx/window.h>
 
 /**
  * Function DisplayExitDialog

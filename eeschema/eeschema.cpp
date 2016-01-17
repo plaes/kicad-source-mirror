@@ -28,7 +28,7 @@
  * @brief the main file
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <class_drawpanel.h>

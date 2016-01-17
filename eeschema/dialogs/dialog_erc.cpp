@@ -28,7 +28,6 @@
  * @brief Electrical Rules Check dialog implementation.
  */
 
-#include <fctsys.h>
 #include <class_drawpanel.h>
 #include <kicad_string.h>
 #include <gestfich.h>

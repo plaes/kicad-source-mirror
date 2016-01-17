@@ -28,7 +28,10 @@
  * @brief Net list generation code.
  */
 
-#include <fctsys.h>
+#include <wx/filename.h>
+#include <wx/string.h>
+#include <wx/utils.h>
+
 #include <kicad_string.h>
 #include <gestfich.h>
 #include <pgm_base.h>

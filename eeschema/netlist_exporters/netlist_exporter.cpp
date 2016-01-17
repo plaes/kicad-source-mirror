@@ -28,7 +28,7 @@
  * @file netlist_exporter.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <confirm.h>
 #include <kicad_string.h>
 #include <gestfich.h>

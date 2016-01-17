@@ -27,7 +27,7 @@
  * @file eeschema/hotkeys.cpp
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <eeschema_id.h>
 #include <hotkeys.h>
 #include <schframe.h>

@@ -34,23 +34,27 @@
 
 #include <vector>
 
-#include <wx/socket.h>
-#include <wx/log.h>
-#include <wx/config.h>
-#include <wx/wxhtml.h>
-#include <wx/laywin.h>
 #include <wx/aui/aui.h>
+#include <wx/config.h>
 #include <wx/docview.h>
-
-#include <colors.h>
-#include <fctsys.h>
-#include <common.h>
-#include <layers_id_colors_and_visibility.h>
-#include <frame_type.h>
+#include <wx/event.h>
+#include <wx/filename.h>
+#include <wx/frame.h>
+#include <wx/laywin.h>
+#include <wx/log.h>
+#include <wx/socket.h>
+#include <wx/string.h>
+#include <wx/wxhtml.h>
 
 #ifdef USE_WX_OVERLAY
 #include <wx/overlay.h>
 #endif
+
+#include <colors.h>
+#include <common.h>
+#include <layers_id_colors_and_visibility.h>
+#include <frame_type.h>
+
 
 // Option for main frames
 #define KICAD_DEFAULT_DRAWFRAME_STYLE wxDEFAULT_FRAME_STYLE | wxWANTS_CHARS

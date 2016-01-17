@@ -28,7 +28,13 @@
  * @brief Eeschema component library editor.
  */
 
-#include <fctsys.h>
+#include <wx/debug.h>
+#include <wx/dc.h>
+#include <wx/filename.h>
+#include <wx/log.h>
+#include <wx/string.h>
+
+
 #include <kiway.h>
 #include <gr_basic.h>
 #include <macros.h>

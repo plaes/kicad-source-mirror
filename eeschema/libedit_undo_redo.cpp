@@ -22,11 +22,9 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
+#include <wx/event.h>
 #include <class_drawpanel.h>
 
-//#include <general.h>
-//#include <protos.h>
 #include <libeditframe.h>
 #include <class_libentry.h>
 

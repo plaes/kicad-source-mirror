@@ -26,7 +26,12 @@
  */
 
 
-#include <fctsys.h>
+#include <wx/bitmap.h>
+#include <wx/dc.h>
+#include <wx/gdicmn.h>
+#include <wx/filename.h>
+#include <wx/msgdlg.h>
+#include <wx/string.h>
 
 #include <gr_basic.h>
 #include <pgm_base.h>

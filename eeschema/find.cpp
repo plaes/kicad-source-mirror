@@ -33,7 +33,12 @@
  *  search a component in libraries, a marker ...,
  *  in current sheet or whole the project
  */
-#include <fctsys.h>
+#include <wx/debug.h>
+#include <wx/log.h>
+#include <wx/fdrepdlg.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+
 #include <pgm_base.h>
 #include <class_drawpanel.h>
 #include <confirm.h>

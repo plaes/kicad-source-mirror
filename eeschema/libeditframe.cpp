@@ -28,7 +28,7 @@
  * @brief LIB_EDIT_FRAME class is the component library editor frame.
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <class_drawpanel.h>

@@ -27,8 +27,6 @@
  * @brief Dialog box for creating bom and other documents from generic netlist.
  */
 
-
-#include <fctsys.h>
 #include <pgm_base.h>
 #include <kiface_i.h>
 #include <confirm.h>

@@ -28,7 +28,9 @@
  * @brief Electrical Rules Check implementation.
  */
 
-#include <fctsys.h>
+#include <wx/ffile.h>
+#include <wx/string.h>
+
 #include <class_drawpanel.h>
 #include <kicad_string.h>
 #include <schframe.h>
@@ -41,7 +43,6 @@
 #include <sch_component.h>
 #include <sch_sheet.h>
 
-#include <wx/ffile.h>
 
 
 /* ERC tests :

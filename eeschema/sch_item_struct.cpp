@@ -25,8 +25,10 @@
 /**
  * @file sch_item_struct.cpp
  */
-
-#include <fctsys.h>
+ 
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
 #include <common.h>
 #include <gr_basic.h>
 #include <base_struct.h>

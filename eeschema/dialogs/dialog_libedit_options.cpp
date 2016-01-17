@@ -27,7 +27,6 @@
  * @file dialog_libedit_options.cpp
  */
 
-#include <fctsys.h>
 #include <class_base_screen.h>
 
 #include <dialog_libedit_options.h>

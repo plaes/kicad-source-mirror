@@ -27,7 +27,12 @@
  * @file lib_pin.cpp
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+#include <wx/tokenzr.h>
+
 #include <pgm_base.h>
 #include <gr_basic.h>
 #include <macros.h>
@@ -716,8 +721,6 @@ bool LIB_PIN::Save( OUTPUTFORMATTER& aFormatter )
 
     return true;
 }
-
-#include <wx/tokenzr.h>
 
 bool LIB_PIN::Load( LINE_READER& aLineReader, wxString& aErrorMsg )
 {

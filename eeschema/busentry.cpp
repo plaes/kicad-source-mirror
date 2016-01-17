@@ -28,7 +28,8 @@
  * @brief Code to handle manipulation of bus entry objects.
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/gdicmn.h>
 #include <gr_basic.h>
 #include <class_drawpanel.h>
 #include <schframe.h>

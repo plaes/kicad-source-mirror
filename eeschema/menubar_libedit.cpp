@@ -27,7 +27,9 @@
  * @file eeschema/menubar_libedit.cpp
  * @brief (Re)Create the main menubar for the component editor frame (LibEdit)
  */
-#include <fctsys.h>
+#include <wx/menu.h>
+#include <wx/string.h>
+
 #include <pgm_base.h>
 
 #include <general.h>

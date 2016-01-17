@@ -29,11 +29,14 @@
  */
 
 
+#include <wx/arrstr.h>
+#include <wx/debug.h>
 #include <wx/regex.h>
+#include <wx/string.h>
+
 #include <algorithm>
 #include <vector>
 
-#include <fctsys.h>
 #include <kicad_string.h>
 #include <schframe.h>
 #include <sch_component.h>

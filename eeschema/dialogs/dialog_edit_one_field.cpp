@@ -27,7 +27,6 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include <fctsys.h>
 #include <common.h>
 #include <base_units.h>
 #include <kiway.h>

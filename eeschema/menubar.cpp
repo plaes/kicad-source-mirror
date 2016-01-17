@@ -28,7 +28,9 @@
  * @brief (Re)Create the main menubar for the schematic frame
  */
 
-#include <fctsys.h>
+#include <wx/menu.h>
+#include <wx/string.h>
+
 #include <kiface_i.h>
 #include <pgm_base.h>
 #include <schframe.h>

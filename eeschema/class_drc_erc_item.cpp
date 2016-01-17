@@ -25,7 +25,7 @@
 /******************************************************************/
 /* class_drc_erc_item.cpp - DRC_ITEM class functions for eeschema */
 /******************************************************************/
-#include <fctsys.h>
+#include <wx/string.h>
 #include <common.h>
 
 #include <class_drc_item.h>

@@ -28,7 +28,10 @@
  * @brief Class NETLIST_OBJECT to handle 1 item connected (in netlist and erc calculations)
  */
 
-#include <fctsys.h>
+#include <wx/debug.h>
+#include <wx/regex.h>
+#include <wx/string.h>
+
 #include <macros.h>
 #include <schframe.h>
 

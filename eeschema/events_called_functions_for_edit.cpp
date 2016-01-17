@@ -26,7 +26,10 @@
  * @file events_called_functions.cpp
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/event.h>
+#include <wx/gdicmn.h>
+
 #include <gr_basic.h>
 #include <class_drawpanel.h>
 #include <general.h>

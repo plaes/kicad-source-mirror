@@ -29,7 +29,8 @@
  *        create, edit, and delete components.
  */
 
-#include <fctsys.h>
+#include <wx/wx.h>
+
 #include <class_drawpanel.h>
 #include <confirm.h>
 

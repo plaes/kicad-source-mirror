@@ -25,7 +25,11 @@
  * @file lib_bezier.cpp
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
+
 #include <gr_basic.h>
 #include <macros.h>
 #include <class_drawpanel.h>

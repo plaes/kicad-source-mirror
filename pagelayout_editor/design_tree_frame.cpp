@@ -26,9 +26,9 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
+#include <wx/wx.h>
 #include <wx/imaglist.h>
 #include <wx/wupdlock.h>
-#include <fctsys.h>
 #include <worksheet_shape_builder.h>
 #include <class_worksheet_dataitem.h>
 #include <pl_editor_id.h>

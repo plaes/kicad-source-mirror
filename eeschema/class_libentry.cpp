@@ -26,8 +26,11 @@
 /**
  * @file class_libentry.cpp
  */
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/log.h>
+#include <wx/string.h>
 
-#include <fctsys.h>
 #include <macros.h>
 #include <kicad_string.h>
 #include <class_drawpanel.h>

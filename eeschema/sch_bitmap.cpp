@@ -26,7 +26,10 @@
  * @file sch_bitmap.cpp
  */
 
-#include <fctsys.h>
+#include <wx/dc.h>
+#include <wx/debug.h>
+#include <wx/gdicmn.h>
+#include <wx/string.h>
 #include <class_drawpanel.h>
 #include <trigo.h>
 #include <macros.h>

@@ -69,11 +69,12 @@ Vary: Accept-Encoding
 #include <boost/ptr_container/ptr_map.hpp>
 #include <set>
 
-#include <wx/zipstrm.h>
+#include <wx/debug.h>
+#include <wx/log.h>
 #include <wx/mstream.h>
+#include <wx/string.h>
 #include <wx/uri.h>
-
-#include <fctsys.h>
+#include <wx/zipstrm.h>
 
 #include <io_mgr.h>
 #include <richio.h>

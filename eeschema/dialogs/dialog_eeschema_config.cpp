@@ -26,7 +26,6 @@
  * @file dialog_eeschema_config.cpp
  */
 
-#include <fctsys.h>
 #include <pgm_base.h>
 #include <kiway.h>
 #include <confirm.h>

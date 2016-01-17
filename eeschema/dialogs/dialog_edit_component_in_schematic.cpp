@@ -28,7 +28,6 @@
 #include <wx/tooltip.h>
 #include <wx/hyperlink.h>
 
-#include <fctsys.h>
 #include <pgm_base.h>
 #include <kiway.h>
 #include <gr_basic.h>

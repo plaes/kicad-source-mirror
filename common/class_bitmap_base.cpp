@@ -26,7 +26,11 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
  */
 
-#include "fctsys.h"
+#include <wx/arrstr.h>
+#include <wx/bitmap.h>
+#include <wx/gdicmn.h>
+#include <wx/mstream.h>
+#include <wx/string.h>
 #include "gr_basic.h"
 #include "macros.h"
 #include "class_drawpanel.h"
@@ -37,7 +41,6 @@
 
 #include "class_bitmap_base.h"
 
-#include <wx/mstream.h>
 
 
 /**********************/
