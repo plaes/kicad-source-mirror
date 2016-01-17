@@ -29,6 +29,7 @@
 #include <wx/debug.h>
 #include <wx/gdicmn.h>
 #include <wx/string.h>
+#include <config.h> //for strnicmp
 
 #include <gr_basic.h>
 #include <macros.h>
