@@ -42,8 +42,9 @@
 #include <class_library.h>
 #include <sch_component.h>
 #include <sch_sheet_path.h>
-#include <dialog_helpers.h>
 #include <dialog_edit_component_in_schematic_fbp.h>
+
+#include "widgets/widget_graphic_text_ctrl.h"
 
 
 /**
@@ -852,7 +853,7 @@ void DIALOG_EDIT_COMPONENT_IN_SCHEMATIC::copySelectedFieldToPanel()
     else
         fieldValueTextCtrl->Enable( true );
 
-    textSizeTextCtrl->SetValue( EDA_GRAPHIC_TEXT_CTRL::FormatSize( g_UserUnit, field.GetSize().x ) );
+    textSizeTextCtrl->SetValue( WIDGET_GRAPHIC_TEXT_CTRL::FormatSize( g_UserUnit, field.GetSize().x ) );
 
     wxPoint coord = field.GetTextPosition();
     wxPoint zero  = -m_cmp->m_Pos;  // relative zero
@@ -930,7 +931,7 @@ bool DIALOG_EDIT_COMPONENT_IN_SCHEMATIC::copyPanelToSelectedField()
 
     setRowItem( fieldNdx, field );  // update fieldListCtrl
 
-    int tmp = EDA_GRAPHIC_TEXT_CTRL::ParseSize( textSizeTextCtrl->GetValue(), g_UserUnit );
+    int tmp = WIDGET_GRAPHIC_TEXT_CTRL::ParseSize( textSizeTextCtrl->GetValue(), g_UserUnit );
     field.SetSize( wxSize( tmp, tmp ) );
     int style = m_StyleRadioBox->GetSelection();
 

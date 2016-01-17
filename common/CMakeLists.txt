@@ -160,6 +160,10 @@ set( COMMON_DLG_SRCS
 
 set( COMMON_WIDGET_SRCS
     widgets/widget_hotkey_list.cpp
+    widgets/widget_graphic_text_ctrl.cpp
+    widgets/widget_position_ctrl.cpp
+    widgets/widget_value_ctrl.cpp
+    widgets/widget_size_ctrl.cpp
     )
 
 set( COMMON_PAGE_LAYOUT_SRCS
@@ -243,7 +247,6 @@ set( COMMON_SRCS
     validators.cpp
     wildcards_and_files_ext.cpp
     worksheet.cpp
-    wxwineda.cpp
     wx_unit_binder.cpp
     wx_status_popup.cpp
     xnode.cpp

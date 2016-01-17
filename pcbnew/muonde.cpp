@@ -36,7 +36,6 @@
 #include <kicad_string.h>
 #include <gestfich.h>
 #include <wxPcbStruct.h>
-#include <dialog_helpers.h>
 #include <richio.h>
 #include <filter_reader.h>
 #include <gr_basic.h>
@@ -47,6 +46,8 @@
 #include <class_board.h>
 #include <class_module.h>
 #include <class_edge_mod.h>
+
+#include "widgets/widget_size_ctrl.h"
 
 #include <pcbnew.h>
 
@@ -742,7 +743,7 @@ class MWAVE_POLYGONAL_SHAPE_DLG : public wxDialog
 private:
     PCB_EDIT_FRAME*  m_Parent;
     wxRadioBox*      m_ShapeOptionCtrl;
-    EDA_SIZE_CTRL*   m_SizeCtrl;
+    WIDGET_SIZE_CTRL*   m_SizeCtrl;
 
 public:
     MWAVE_POLYGONAL_SHAPE_DLG( PCB_EDIT_FRAME* parent, const wxPoint& pos );
@@ -819,7 +820,7 @@ MWAVE_POLYGONAL_SHAPE_DLG::MWAVE_POLYGONAL_SHAPE_DLG( PCB_EDIT_FRAME* parent,
                                         wxRA_SPECIFY_COLS );
     LeftBoxSizer->Add( m_ShapeOptionCtrl, 0, wxGROW | wxALL, 5 );
 
-    m_SizeCtrl = new EDA_SIZE_CTRL( this, _( "Size" ), ShapeSize, g_UserUnit, LeftBoxSizer );
+    m_SizeCtrl = new WIDGET_SIZE_CTRL( this, _( "Size" ), ShapeSize, g_UserUnit, LeftBoxSizer );
 
     GetSizer()->SetSizeHints( this );
 }

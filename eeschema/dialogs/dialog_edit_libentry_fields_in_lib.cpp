@@ -40,9 +40,10 @@
 #include <sch_component.h>
 #include <sch_field.h>
 #include <template_fieldnames.h>
-#include <dialog_helpers.h>
 
 #include <dialog_edit_libentry_fields_in_lib_base.h>
+
+#include "widgets/widget_graphic_text_ctrl.h"
 
 // Local variables:
 static int s_SelectedRow;
@@ -695,7 +696,7 @@ void DIALOG_EDIT_LIBENTRY_FIELDS_IN_LIB::copySelectedFieldToPanel()
 
     fieldValueTextCtrl->SetValue( field.GetText() );
 
-    textSizeTextCtrl->SetValue( EDA_GRAPHIC_TEXT_CTRL::FormatSize( g_UserUnit, field.GetSize().x ) );
+    textSizeTextCtrl->SetValue( WIDGET_GRAPHIC_TEXT_CTRL::FormatSize( g_UserUnit, field.GetSize().x ) );
 
     m_show_datasheet_button->Enable( fieldNdx == DATASHEET || fieldNdx == FOOTPRINT );
 
@@ -795,7 +796,7 @@ bool DIALOG_EDIT_LIBENTRY_FIELDS_IN_LIB::copyPanelToSelectedField()
 
     setRowItem( fieldNdx, field );  // update fieldListCtrl
 
-    int tmp = EDA_GRAPHIC_TEXT_CTRL::ParseSize( textSizeTextCtrl->GetValue(), g_UserUnit );
+    int tmp = WIDGET_GRAPHIC_TEXT_CTRL::ParseSize( textSizeTextCtrl->GetValue(), g_UserUnit );
 
     field.SetSize( wxSize( tmp, tmp ) );
 
