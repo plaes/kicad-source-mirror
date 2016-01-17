@@ -31,6 +31,8 @@
 #include <wx/gdicmn.h>
 #include <wx/mstream.h>
 #include <wx/string.h>
+#include <config.h> // strnicmp
+
 #include "gr_basic.h"
 #include "macros.h"
 #include "class_drawpanel.h"
