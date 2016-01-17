@@ -88,10 +88,12 @@ int BOARD_CONNECTED_ITEM::GetClearance( BOARD_CONNECTED_ITEM* aItem ) const
 
         return myClearance;
     }
+#ifdef DEBUG
     else
     {
-        DBG(printf( "%s: NULL netclass,type %d", __func__, Type() );)
+        printf( "%s: NULL netclass,type %d", __func__, Type() );
     }
+#endif
 
     return 0;
 }
@@ -108,7 +110,9 @@ NETCLASSPTR BOARD_CONNECTED_ITEM::GetNetClass() const
 
     if( board == NULL )     // Should not occur
     {
-        DBG(printf( "%s: NULL board,type %d", __func__, Type() );)
+#ifdef DEBUG
+        printf( "%s: NULL board,type %d", __func__, Type() );
+#endif
 
         return NETCLASSPTR();
     }
@@ -119,8 +123,6 @@ NETCLASSPTR BOARD_CONNECTED_ITEM::GetNetClass() const
     if( net )
     {
         netclass = net->GetNetClass();
-
-        //DBG( if(!netclass) printf( "%s: NULL netclass,type %d", __func__, Type() );)
     }
 
     if( netclass )

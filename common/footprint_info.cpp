@@ -203,7 +203,9 @@ bool FOOTPRINT_INFO::InLibrary( const wxString& aLibrary ) const
 
 void FOOTPRINT_LIST::DisplayErrors( wxTopLevelWindow* aWindow )
 {
-    DBG(printf( "m_error_count:%d\n", m_error_count );)
+#ifdef DEBUG
+    printf( "m_error_count:%d\n", m_error_count );
+#endif
 
     wxString msg = _( "Errors were encountered loading footprints" );
 

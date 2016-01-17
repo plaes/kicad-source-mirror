@@ -1799,10 +1799,6 @@ TRACK* BOARD::MarkTrace( TRACK*  aTrace, int* aCount,
         chainMarkedSegments( aTrace->GetStart(), layer_set, &from_start );
         chainMarkedSegments( aTrace->GetEnd(),   layer_set, &from_end );
 
-        // DBG( dump_tracks( "first_clicked", trackList ); )
-        // DBG( dump_tracks( "from_start", from_start ); )
-        // DBG( dump_tracks( "from_end",   from_end ); )
-
         // combine into one trackList:
         trackList.insert( trackList.end(), from_start.begin(), from_start.end() );
         trackList.insert( trackList.end(), from_end.begin(),   from_end.end() );
@@ -1856,12 +1852,14 @@ TRACK* BOARD::MarkTrace( TRACK*  aTrace, int* aCount,
                 // The via connects segments of another track: it is removed
                 // from list because it is member of another track
 
-                DBG(printf( "%s: omit track (%d, %d) (%d, %d) on layer:%d (!= our_layer:%d)\n",
+#ifdef DEBUG
+                printf( "%s: omit track (%d, %d) (%d, %d) on layer:%d (!= our_layer:%d)\n",
                     __func__,
                     track->GetStart().x, track->GetStart().y,
                     track->GetEnd().x, track->GetEnd().y,
                     track->GetLayer(), layer
-                    ); )
+                    );
+#endif
 
                 via->SetState( BUSY, false );
                 break;
@@ -1966,7 +1964,9 @@ TRACK* BOARD::MarkTrace( TRACK*  aTrace, int* aCount,
             }
         }
 
-        DBG( printf( "%s: NbSegmBusy:%d\n", __func__, NbSegmBusy ); )
+#ifdef DEBUG
+        printf( "%s: NbSegmBusy:%d\n", __func__, NbSegmBusy );
+#endif
     }
 
     if( aTraceLength )

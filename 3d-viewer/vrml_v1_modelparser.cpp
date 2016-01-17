@@ -104,8 +104,6 @@ int VRML1_MODEL_PARSER::read_separator()
 {
     char text[BUFLINE_SIZE];
 
-    // DBG( printf( "Separator\n" ) );
-
     while( GetNextTag( m_file, text, sizeof(text) ) )
     {
         if( strcmp( text, "Material" ) == 0 )
@@ -137,7 +135,6 @@ int VRML1_MODEL_PARSER::read_separator()
         }
         else if( ( *text != '}' ) )
         {
-            // DBG( printf( "read_NotImplemented %s\n", text ) );
             Read_NotImplemented( m_file, '}' );
         }
         else
@@ -152,8 +149,6 @@ int VRML1_MODEL_PARSER::readMaterial()
 {
     char text[BUFLINE_SIZE];
     S3D_MATERIAL* material = NULL;
-
-    // DBG( printf( "  readMaterial\n" ) );
 
     wxString mat_name;
 
@@ -210,8 +205,6 @@ int VRML1_MODEL_PARSER::readCoordinate3()
 {
     char text[BUFLINE_SIZE];
 
-    // DBG( printf( "  readCoordinate3\n" ) );
-
     while( GetNextTag( m_file, text, sizeof( text ) ) )
     {
         if( *text == ']' )
@@ -238,8 +231,6 @@ int VRML1_MODEL_PARSER::readCoordinate3()
 int VRML1_MODEL_PARSER::readIndexedFaceSet()
 {
     char text[BUFLINE_SIZE];
-
-    // DBG( printf( "  readIndexedFaceSet\n" ) );
 
     while( GetNextTag( m_file, text, sizeof(text) ) )
     {
@@ -270,24 +261,18 @@ int VRML1_MODEL_PARSER::readIndexedFaceSet()
 
 int VRML1_MODEL_PARSER::readMaterial_ambientColor()
 {
-    // DBG( printf( "    readMaterial_ambientColor\n" ) );
-
     return ParseVertexList( m_file, m_model->m_Materials->m_AmbientColor );
 }
 
 
 int VRML1_MODEL_PARSER::readMaterial_diffuseColor()
 {
-    // DBG( printf( "    readMaterial_diffuseColor\n" ) );
-
     return ParseVertexList( m_file, m_model->m_Materials->m_DiffuseColor );
 }
 
 
 int VRML1_MODEL_PARSER::readMaterial_emissiveColor()
 {
-    // DBG( printf( "    readMaterial_emissiveColor\n" ) );
-
     int ret = ParseVertexList( m_file, m_model->m_Materials->m_EmissiveColor );
 
     if( m_Master->m_use_modelfile_emissiveColor == false )
@@ -301,8 +286,6 @@ int VRML1_MODEL_PARSER::readMaterial_emissiveColor()
 
 int VRML1_MODEL_PARSER::readMaterial_specularColor()
 {
-    // DBG( printf( "    readMaterial_specularColor\n" ) );
-
     int ret = ParseVertexList( m_file, m_model->m_Materials->m_SpecularColor );
 
     if( m_Master->m_use_modelfile_specularColor == false )
@@ -316,8 +299,6 @@ int VRML1_MODEL_PARSER::readMaterial_specularColor()
 
 int VRML1_MODEL_PARSER::readMaterial_shininess()
 {
-    // DBG( printf( "    readMaterial_shininess\n" ) );
-
     m_model->m_Materials->m_Shininess.clear();
 
     float shininess_value;
@@ -333,17 +314,12 @@ int VRML1_MODEL_PARSER::readMaterial_shininess()
     {
         m_model->m_Materials->m_Shininess.clear();
     }
-
-    // DBG( printf( "    m_Shininess.size: %ld\n", m_model->m_Materials->m_Shininess.size() ) );
-
     return 0;
 }
 
 
 int VRML1_MODEL_PARSER::readMaterial_transparency()
 {
-    // DBG( printf( "    readMaterial_transparency\n" ) );
-
     m_model->m_Materials->m_Transparency.clear();
 
     float tmp;
@@ -358,16 +334,12 @@ int VRML1_MODEL_PARSER::readMaterial_transparency()
         m_model->m_Materials->m_Transparency.clear();
     }
 
-    // DBG( printf( "    m_Transparency.size: %ld\n", m_model->m_Materials->m_Transparency.size() ) );
-
     return 0;
 }
 
 
 int VRML1_MODEL_PARSER::readCoordinate3_point()
 {
-    // DBG( printf( "    readCoordinate3_point\n" ) );
-
     if( ParseVertexList( m_file, m_model->m_Point ) == 0 )
     {
         return 0;
@@ -380,8 +352,6 @@ int VRML1_MODEL_PARSER::readCoordinate3_point()
 
 int VRML1_MODEL_PARSER::readIndexedFaceSet_coordIndex()
 {
-    // DBG( printf( "    readIndexedFaceSet_coordIndex\n" ) );
-
     m_model->m_CoordIndex.clear();
 
     glm::ivec3 coord;
@@ -414,16 +384,12 @@ int VRML1_MODEL_PARSER::readIndexedFaceSet_coordIndex()
         m_model->m_CoordIndex.push_back( coord_list );
     }
 
-    // DBG( printf( "    m_CoordIndex.size: %ld\n", m_model->m_CoordIndex.size() ) );
-
     return 0;
 }
 
 
 int VRML1_MODEL_PARSER::readIndexedFaceSet_materialIndex()
 {
-    // DBG( printf( "    readIndexedFaceSet_materialIndex\n" ) );
-
     m_model->m_MaterialIndexPerFace.clear();
 
     int index;
@@ -432,8 +398,6 @@ int VRML1_MODEL_PARSER::readIndexedFaceSet_materialIndex()
     {
         m_model->m_MaterialIndexPerFace.push_back( index );
     }
-
-    // DBG( printf( "    m_MaterialIndexPerFace.size: %ld\n", m_model->m_MaterialIndexPerFace.size() ) );
 
     return 0;
 }

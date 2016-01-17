@@ -52,8 +52,6 @@ bool VRML_MODEL_PARSER::Load( const wxString& aFilename )
     char       line[11 + 1];
     FILE*      file;
 
-    //DBG( printf( "Load %s", GetChars( aFilename ) ) );
-
     file = wxFopen( aFilename, wxT( "rt" ) );
 
     if( file == NULL )
@@ -84,6 +82,9 @@ bool VRML_MODEL_PARSER::Load( const wxString& aFilename )
         return true;
     }
 
-    DBG( printf( "Unknown internal VRML file format: %s\n", line ) );
+#ifdef DEBUG
+    printf( "Unknown internal VRML file format: %s\n", line );
+#endif
+
     return false;
 }

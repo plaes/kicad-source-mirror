@@ -301,7 +301,9 @@ FOOTPRINT_VIEWER_FRAME::~FOOTPRINT_VIEWER_FRAME()
 
 void FOOTPRINT_VIEWER_FRAME::OnCloseWindow( wxCloseEvent& Event )
 {
-    DBG(printf( "%s:\n", __func__ );)
+#ifdef DEBUG
+    printf( "%s:\n", __func__ );
+#endif
 
     if( IsGalCanvasActive() )
         GetGalCanvas()->StopDrawing();

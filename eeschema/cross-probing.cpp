@@ -204,7 +204,9 @@ void SCH_EDIT_FRAME::KiwayMailIn( KIWAY_EXPRESS& mail )
         }
         catch( const IO_ERROR& ioe )
         {
-            DBG( printf( "%s: ioe:%s\n", __func__, TO_UTF8( ioe.errorText ) );)
+#ifdef DEBUG
+            printf( "%s: ioe:%s\n", __func__, TO_UTF8( ioe.errorText ) );
+#endif
         }
         break;
 

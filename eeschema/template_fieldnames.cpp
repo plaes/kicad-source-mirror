@@ -180,15 +180,10 @@ int TEMPLATES::AddTemplateFieldName( const TEMPLATE_FIELDNAME& aFieldName )
     {
         if( m_Fields[i].m_Name == aFieldName.m_Name )
         {
-            // DBG( printf( "inserting template fieldname:'%s' at %d\n",
-            //            TO_UTF8( aFieldName.m_Name ), i ); )
-
             m_Fields[i] = aFieldName;
             return i;   // return the container index
         }
     }
-
-    // DBG(printf("appending template fieldname:'%s'\n", aFieldName.m_Name.utf8_str() );)
 
     // the name is legal and not previously added to the config container, append
     // it and return its index within the container.

@@ -257,13 +257,15 @@ void UpdateCopyOfZonesList( PICKED_ITEMS_LIST& aPickList,
                     }
                 }
 
+#ifdef DEBUG
                 if( notfound )  // happens when the new zone overlaps an existing zone
                                 // and these zones are combined
                 {
-                    DBG( printf(
+                    printf(
                         "UpdateCopyOfZonesList(): item not found in aAuxiliaryList,"
-                        "combined with an other zone\n" ) );
+                        "combined with an other zone\n" );
                 }
+#endif
                 break;
             }
 

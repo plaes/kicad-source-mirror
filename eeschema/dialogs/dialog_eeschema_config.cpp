@@ -116,7 +116,9 @@ DIALOG_EESCHEMA_CONFIG::DIALOG_EESCHEMA_CONFIG( wxWindow* aParent,
     // along with aCallersProjectSpecificLibPaths at the front.
     SEARCH_STACK* libpaths = Prj().SchSearchS();
 
-    DBG( libpaths->Show( __func__ ); )
+#ifdef DEBUG
+    libpaths->Show( __func__ );
+#endif
 
     for( unsigned ii = 0; ii < libpaths->GetCount(); ii++ )
     {

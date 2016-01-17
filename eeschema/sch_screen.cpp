@@ -566,7 +566,9 @@ void SCH_SCREEN::CheckComponentsToPartsLinks()
             m_modification_sync = mod_hash;     // note the last mod_hash
 
             // guard against unneeded runs through this code path by printing trace
-            DBG(printf("%s: resync-ing %s\n", __func__, TO_UTF8( GetFileName() ) );)
+#ifdef DEBUG
+            printf("%s: resync-ing %s\n", __func__, TO_UTF8( GetFileName() ) );
+#endif
         }
     }
 }

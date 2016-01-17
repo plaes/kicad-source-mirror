@@ -415,7 +415,6 @@ void DIALOG_EDIT_LIBENTRY_FIELDS_IN_LIB::showButtonHandler( wxCommandEvent& even
 
         if( frame->ShowModal( &fpid, this ) )
         {
-            // DBG( printf( "%s: %s\n", __func__, TO_UTF8( fpid ) ); )
             fieldValueTextCtrl->SetValue( fpid );
         }
 
@@ -517,7 +516,9 @@ void DIALOG_EDIT_LIBENTRY_FIELDS_IN_LIB::initBuffers()
     // fixed fields:
     for( int i=0; i<MANDATORY_FIELDS; ++i )
     {
-        DBG( printf( "add fixed:%s\n", TO_UTF8( cmpFields[i].GetName() ) ); )
+#ifdef DEBUG
+        printf( "add fixed:%s\n", TO_UTF8( cmpFields[i].GetName() ) );
+#endif
         m_FieldsBuf.push_back( cmpFields[i] );
     }
 
@@ -543,7 +544,9 @@ void DIALOG_EDIT_LIBENTRY_FIELDS_IN_LIB::initBuffers()
         // values from the component will be set.
         if( !libField )
         {
-            DBG( printf( "add template:%s\n", TO_UTF8( it->m_Name ) ); )
+#ifdef DEBUG
+            printf( "add template:%s\n", TO_UTF8( it->m_Name ) );
+#endif
 
             fld.SetName( it->m_Name );
             fld.SetText( it->m_Value );   // empty? ok too.
@@ -555,7 +558,9 @@ void DIALOG_EDIT_LIBENTRY_FIELDS_IN_LIB::initBuffers()
         }
         else
         {
-            DBG( printf( "match template:%s\n", TO_UTF8( libField->GetName() ) ); )
+#ifdef DEBUG
+            printf( "match template:%s\n", TO_UTF8( libField->GetName() ) );
+#endif
             fld = *libField;    // copy values from component, m_Name too
         }
 
@@ -571,7 +576,9 @@ void DIALOG_EDIT_LIBENTRY_FIELDS_IN_LIB::initBuffers()
 
         if( !buf )
         {
-            DBG( printf( "add cmp:%s\n", TO_UTF8( cmp->GetName() ) ); )
+#ifdef DEBUG
+            printf( "add cmp:%s\n", TO_UTF8( cmp->GetName() ) );
+#endif
             m_FieldsBuf.push_back( *cmp );
         }
     }
@@ -776,11 +783,16 @@ bool DIALOG_EDIT_LIBENTRY_FIELDS_IN_LIB::copyPanelToSelectedField()
     if( field.GetId() >= MANDATORY_FIELDS )
     {
         wxString name = fieldNameTextCtrl->GetValue();
-        DBG( printf("name:%s\n", TO_UTF8( name ) ); )
+
+#ifdef DEBUG
+        printf("name:%s\n", TO_UTF8( name ) );
+#endif
         field.SetName( name );
     }
 
-    DBG( printf("setname:%s\n", TO_UTF8( field.GetName() ) ); )
+#ifdef DEBUG
+    printf("setname:%s\n", TO_UTF8( field.GetName() ) );
+#endif
 
     setRowItem( fieldNdx, field );  // update fieldListCtrl
 

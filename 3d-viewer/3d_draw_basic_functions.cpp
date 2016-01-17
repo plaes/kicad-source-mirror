@@ -415,12 +415,11 @@ void CALLBACK tessCPolyPt2Vertex( const GLvoid* data )
 
 void CALLBACK tessErrorCB( GLenum errorCode )
 {
-#if defined(DEBUG)
+#ifdef DEBUG
     const GLubyte* errorStr;
 
     errorStr = gluErrorString( errorCode );
 
-    // DEBUG //
-    DBG( printf( "Tess ERROR: %s\n", errorStr ); )
+    printf( "Tess ERROR: %s\n", errorStr );
 #endif
 }

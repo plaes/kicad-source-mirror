@@ -208,29 +208,17 @@ void X3D_MODEL_PARSER::readMaterial( wxXmlNode* aMatNode )
 
         m_model->m_Materials = material;
 
-        if( !parseDoubleTriplet( properties[ wxT( "diffuseColor" ) ], color ) )
-        {
-            // DBG( printf( "diffuseColor parsing error" ) );
-        }
-        else
+        if( parseDoubleTriplet( properties[ wxT( "diffuseColor" ) ], color ) )
         {
             m_model->m_Materials->m_DiffuseColor.push_back( color );
         }
 
-        if( !parseDoubleTriplet( properties[ wxT( "specularColor" ) ], color ) )
-        {
-            // DBG( printf( "specularColor parsing error" ) );
-        }
-        else
+        if( parseDoubleTriplet( properties[ wxT( "specularColor" ) ], color ) )
         {
             m_model->m_Materials->m_SpecularColor.push_back( color );
         }
 
-        if( !parseDoubleTriplet( properties[ wxT( "emissiveColor" ) ], color ) )
-        {
-            // DBG( printf( "emissiveColor parsing error" ) );
-        }
-        else
+        if( parseDoubleTriplet( properties[ wxT( "emissiveColor" ) ], color ) )
         {
             m_model->m_Materials->m_EmissiveColor.push_back( color );
         }
@@ -241,10 +229,6 @@ void X3D_MODEL_PARSER::readMaterial( wxXmlNode* aMatNode )
         if( values.GetNextToken().ToDouble( &amb ) )
         {
             m_model->m_Materials->m_AmbientColor.push_back( glm::vec3( amb, amb, amb ) );
-        }
-        else
-        {
-            // DBG( printf( "ambienterror" ) );
         }
 
         values.SetString( properties[ wxT( "shininess" ) ]  );
@@ -262,20 +246,12 @@ void X3D_MODEL_PARSER::readMaterial( wxXmlNode* aMatNode )
             shine = shine * 128.0f;
             m_model->m_Materials->m_Shininess.push_back( shine );
         }
-        else
-        {
-            // DBG( printf( "shininess error" ) );
-        }
 
         values.SetString( properties[ wxT( "transparency" ) ] );
 
         if( values.GetNextToken().ToDouble( &transp ) )
         {
             m_model->m_Materials->m_Transparency.push_back( transp );
-        }
-        else
-        {
-            // DBG( printf( "trans error" ) );
         }
 
         // VRML
@@ -332,8 +308,6 @@ void X3D_MODEL_PARSER::readMaterial( wxXmlNode* aMatNode )
                 return;
             }
         }
-
-        // DBG( printf( "ReadMaterial error: material not found\n" ) );
     }
 }
 
@@ -411,14 +385,10 @@ void X3D_MODEL_PARSER::readIndexedFaceSet( wxXmlNode* aFaceNode,
 
     double x = 0.0, y = 0.0, z = 0.0;
 
-    if( !( tokens.GetNextToken().ToDouble( &x )
+    if( ( tokens.GetNextToken().ToDouble( &x )
            && tokens.GetNextToken().ToDouble( &y )
            && tokens.GetNextToken().ToDouble( &z )
            && tokens.GetNextToken().ToDouble( &angle ) ) )
-    {
-        // DBG( printf( "rotation read error" ) );
-    }
-    else
     {
         rotation.x  = x;
         rotation.y  = y;
@@ -453,7 +423,6 @@ void X3D_MODEL_PARSER::readIndexedFaceSet( wxXmlNode* aFaceNode,
 
     if( points.size() % 3 != 0 )
     {
-        // DBG( printf( "Number of points is incorrect" ) );
         return;
     }
 
@@ -520,7 +489,6 @@ void X3D_MODEL_PARSER::readIndexedFaceSet( wxXmlNode* aFaceNode,
 
         if( color_points.size() % 3 != 0 )
         {
-            // DBG( printf( "Number of points is incorrect" ) );
             return;
         }
 

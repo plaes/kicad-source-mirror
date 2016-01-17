@@ -122,8 +122,6 @@ bool PGM_KICAD::OnPgmInit( wxApp* aWxApp )
 
         SystemDirsAppend( &bases );
 
-        // DBG( bases.Show( (std::string(__func__) + " bases").c_str() );)
-
         for( unsigned i = 0; i < bases.GetCount(); ++i )
         {
             wxFileName fn( bases[i], wxEmptyString );
@@ -132,8 +130,6 @@ bool PGM_KICAD::OnPgmInit( wxApp* aWxApp )
             fn.AppendDir( wxT( "template" ) );
             m_bm.m_search.AddPaths( fn.GetPath() );
         }
-
-        //DBG( m_bm.m_search.Show( (std::string( __func__ ) + " SysSearch()").c_str() );)
     }
 
     // Must be called before creating the main frame in order to

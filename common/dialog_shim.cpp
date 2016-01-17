@@ -300,7 +300,10 @@ int DIALOG_SHIM::ShowQuasiModal()
     wxWindow* parent = GetParentForModalDialog( GetParent(), GetWindowStyle() );
 
     // Show the optimal parent
-    DBG( if( parent ) printf( "%s: optimal parent: %s\n", __func__, typeid(*parent).name() );)
+#ifdef DEBUG
+    if( parent ) 
+        printf( "%s: optimal parent: %s\n", __func__, typeid(*parent).name() );
+#endif
 
     wxASSERT_MSG( !m_qmodal_parent_disabler,
             wxT( "Caller using ShowQuasiModal() twice on same window?" ) );

@@ -416,8 +416,10 @@ int PCB_EDIT_FRAME::DoGenFootprintsPositionFile( const wxString& aFullFileName,
 
         if( module->GetAttributes() & MOD_VIRTUAL )
         {
-            DBG( printf( "skipping module %s because it's virtual\n",
-                       TO_UTF8( module->GetReference() ) );)
+#ifdef DEBUG
+            printf( "skipping module %s because it's virtual\n",
+                       TO_UTF8( module->GetReference() ) );
+#endif
             continue;
         }
 
@@ -433,8 +435,10 @@ int PCB_EDIT_FRAME::DoGenFootprintsPositionFile( const wxString& aFullFileName,
                 }
                 else
                 {
-                    DBG(printf( "skipping %s because its attribute is not CMS and it has non SMD pins\n",
-                              TO_UTF8(module->GetReference()) ) );
+#ifdef DEBUG
+                    printf( "skipping %s because its attribute is not CMS and it has non SMD pins\n",
+                              TO_UTF8(module->GetReference()) );
+#endif
                     continue;
                 }
             }

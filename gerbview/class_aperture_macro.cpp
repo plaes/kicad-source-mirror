@@ -409,7 +409,9 @@ void AM_PRIMITIVE::DrawBasicShape( GERBER_DRAW_ITEM* aParent,
 
     case AMP_UNKNOWN:
     default:
-        DBG( printf( "AM_PRIMITIVE::DrawBasicShape() err: unknown prim id %d\n",primitive_id) );
+#ifdef DEBUG
+        printf( "AM_PRIMITIVE::DrawBasicShape() err: unknown prim id %d\n",primitive_id);
+#endif
         break;
     }
 }

@@ -815,8 +815,10 @@ IMAGE* SPECCTRA_DB::makeIMAGE( BOARD* aBoard, MODULE* aModule )
         case S_RECT:
         case S_ARC:
         default:
-            DBG( printf( "makeIMAGE(): unsupported shape %s\n",
-                       TO_UTF8( BOARD_ITEM::ShowShape( graphic->GetShape() ) ) ); )
+#ifdef DEBUG
+            printf( "makeIMAGE(): unsupported shape %s\n",
+                       TO_UTF8( BOARD_ITEM::ShowShape( graphic->GetShape() ) ) );
+#endif
             continue;
         }
     }

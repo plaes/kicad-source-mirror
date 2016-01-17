@@ -1045,7 +1045,9 @@ void TREE_PROJECT_FRAME::FileWatcherReset()
             // we can see wxString under a debugger, not a wxFileName
             wxString path = itemData->GetFileName();
 
-            DBG(printf( "%s: add '%s'\n", __func__, TO_UTF8( path ) );)
+#ifdef DEBUG
+            printf( "%s: add '%s'\n", __func__, TO_UTF8( path ) );
+#endif
 
             if( wxFileName::IsDirReadable( path ) )     // linux whines about watching protected dir
             {

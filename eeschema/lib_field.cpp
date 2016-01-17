@@ -611,7 +611,9 @@ void LIB_FIELD::SetName( const wxString& aName )
     // Besides, m_id is a relic that is untrustworthy now.
     if( m_id >=0 && m_id < MANDATORY_FIELDS )
     {
-        DBG(printf( "trying to set a MANDATORY_FIELD's name\n" );)
+#ifdef DEBUG
+        printf( "trying to set a MANDATORY_FIELD's name\n" );
+#endif
         return;
     }
 

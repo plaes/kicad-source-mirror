@@ -52,8 +52,9 @@ TRACK* PCB_EDIT_FRAME::Delete_Segment( wxDC* DC, TRACK* aTrack )
         if( g_CurrentTrackList.GetCount() > 0 )
         {
             LAYER_ID previous_layer = GetActiveLayer();
-
-            DBG( g_CurrentTrackList.VerifyListIntegrity(); )
+#ifdef DEBUG
+            g_CurrentTrackList.VerifyListIntegrity();
+#endif
 
             // Delete the current trace
             ShowNewTrackWhenMovingCursor( m_canvas, DC, wxDefaultPosition, false );
@@ -217,9 +218,11 @@ void PCB_EDIT_FRAME::Remove_One_Track( wxDC* DC, TRACK* pt_segm )
         next_track = tracksegment->Next();
         tracksegment->SetState( BUSY, false );
 
-        DBG( std::cout << __func__ << ": track " << tracksegment << " status=" \
+#ifdef DEBUG
+        std::cout << __func__ << ": track " << tracksegment << " status=" \
                      << TO_UTF8( TRACK::ShowState( tracksegment->GetStatus() ) ) \
-                     << std::endl; )
+                     << std::endl;
+#endif
 
         GetBoard()->GetRatsnest()->Remove( tracksegment );
         tracksegment->ViewRelease();

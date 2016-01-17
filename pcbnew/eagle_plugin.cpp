@@ -2950,7 +2950,6 @@ LAYER_ID EAGLE_PLUGIN::kicad_layer( int aEagleLayer ) const
         case 161:   kiLayer = Eco2_User;    break;
         default:
             // some layers do not map to KiCad
-            // DBG( printf( "unsupported eagle layer: %d\n", aEagleLayer );)
             kiLayer = UNDEFINED_LAYER;      break;
         }
     }
@@ -2977,8 +2976,10 @@ void EAGLE_PLUGIN::centerBoard()
             int desired_x = ( w - bbbox.GetWidth() )  / 2;
             int desired_y = ( h - bbbox.GetHeight() ) / 2;
 
-            DBG(printf( "bbox.width:%d bbox.height:%d w:%d h:%d desired_x:%d desired_y:%d\n",
-                bbbox.GetWidth(), bbbox.GetHeight(), w, h, desired_x, desired_y );)
+#ifdef DEBUG
+            printf( "bbox.width:%d bbox.height:%d w:%d h:%d desired_x:%d desired_y:%d\n",
+                bbbox.GetWidth(), bbbox.GetHeight(), w, h, desired_x, desired_y );
+#endif
 
             m_board->Move( wxPoint( desired_x - bbbox.GetX(), desired_y - bbbox.GetY() ) );
         }

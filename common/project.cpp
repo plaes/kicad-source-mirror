@@ -44,7 +44,9 @@ PROJECT::PROJECT()
 
 void PROJECT::ElemsClear()
 {
-    DBG( printf( "%s: clearing all _ELEMS for project %s\n", __func__, TO_UTF8( GetProjectFullName() ) );)
+#ifdef DEBUG
+    printf( "%s: clearing all _ELEMS for project %s\n", __func__, TO_UTF8( GetProjectFullName() ) );
+#endif
 
     // careful here, this should work, but the virtual destructor may not
     // be in the same link image as PROJECT.
@@ -73,7 +75,9 @@ void PROJECT::SetProjectFullName( const wxString& aFullPathAndName )
     {
         Clear();            // clear the data when the project changes.
 
-        DBG(printf( "%s: old:'%s' new:'%s'\n", __func__, TO_UTF8( GetProjectFullName() ), TO_UTF8( aFullPathAndName ) );)
+#ifdef DEBUG
+        printf( "%s: old:'%s' new:'%s'\n", __func__, TO_UTF8( GetProjectFullName() ), TO_UTF8( aFullPathAndName ) );
+#endif
 
         m_project_name = aFullPathAndName;
 
@@ -114,8 +118,6 @@ const wxString PROJECT::FootprintLibTblName() const
 {
     wxFileName  fn = GetProjectFullName();
     wxString    path = fn.GetPath();
-
-    // DBG(printf( "path:'%s'  fn:'%s'\n", TO_UTF8(path), TO_UTF8(fn.GetFullPath()) );)
 
     // if there's no path to the project name, or the name as a whole is bogus or its not
     // write-able then use a template file.
@@ -226,7 +228,9 @@ static bool copy_pro_file_template( const SEARCH_STACK& aSearchS, const wxString
 {
     if( aDestination.IsEmpty() )
     {
-        DBG( printf( "%s: destination is empty.\n", __func__ );)
+#ifdef DEBUG
+        printf( "%s: destination is empty.\n", __func__ );
+#endif
         return false;
     }
 
@@ -236,7 +240,9 @@ static bool copy_pro_file_template( const SEARCH_STACK& aSearchS, const wxString
 
     if( !kicad_pro_template )
     {
-        DBG( printf( "%s: template file '%s' not found using search paths.\n", __func__, TO_UTF8( templateFile ) );)
+#ifdef DEBUG
+        printf( "%s: template file '%s' not found using search paths.\n", __func__, TO_UTF8( templateFile ) );
+#endif
 
         wxFileName  templ( wxStandardPaths::Get().GetDocumentsDir(),
                             wxT( "kicad" ), ProjectFileExtension );
@@ -255,7 +261,9 @@ static bool copy_pro_file_template( const SEARCH_STACK& aSearchS, const wxString
         kicad_pro_template = templ.GetFullPath();
     }
 
-    DBG( printf( "%s: using template file '%s' as project file.\n", __func__, TO_UTF8( kicad_pro_template ) );)
+#ifdef DEBUG
+    printf( "%s: using template file '%s' as project file.\n", __func__, TO_UTF8( kicad_pro_template ) );
+#endif
 
     // Verify aDestination can be created. if this is not the case, wxCopyFile
     // will generate a crappy log error message, and we *do not want* this kind

@@ -219,8 +219,10 @@ bool CVPCB_MAINFRAME::ReadNetListAndLinkFiles( const std::string& aNetlist )
                         switch( guess )
                         {
                         case 0:
-                            DBG(printf("%s: guessed OK ref:%s  fpid:%s\n", __func__,
-                                TO_UTF8( component->GetReference() ), component->GetFPID().Format().c_str() );)
+#ifdef DEBUG
+                            printf("%s: guessed OK ref:%s  fpid:%s\n", __func__,
+                                TO_UTF8( component->GetReference() ), component->GetFPID().Format().c_str() );
+#endif
                             m_modified = true;
                             break;
 

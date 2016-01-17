@@ -622,8 +622,9 @@ void LEGACY_PLUGIN::loadGENERAL()
             LEG_MASK enabledLayers = hexParse( line + SZ( "EnabledLayers" ) );
 
             LSET new_mask = leg_mask2new( m_cu_count, enabledLayers );
-
-            //DBG( printf( "EnabledLayers: %s\n", new_mask.FmtHex().c_str() );)
+#ifdef DEBUG
+            printf( "EnabledLayers: %s\n", new_mask.FmtHex().c_str() );
+#endif
 
             m_board->SetEnabledLayers( new_mask );
 

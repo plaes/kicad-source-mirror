@@ -117,7 +117,9 @@ void DIALOG_EDIT_ONE_FIELD::OnTextValueSelectButtonClick( wxCommandEvent& aEvent
 
     if( frame->ShowModal( &fpid, this ) )
     {
-        // DBG( printf( "%s: %s\n", __func__, TO_UTF8( fpid ) ); )
+#ifdef DEBUG
+        printf( "%s: %s\n", __func__, TO_UTF8( fpid ) );
+#endif
         m_TextValue->SetValue( fpid );
     }
 

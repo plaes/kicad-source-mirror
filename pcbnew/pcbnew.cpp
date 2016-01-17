@@ -227,7 +227,6 @@ static bool scriptingSetup()
             ppath << kipython << wxT( "/lib;" );
             ppath << kipython << wxT( "/dll" );
             wxSetEnv( wxT( "PYTHONPATH" ), ppath );
-            // DBG( std::cout << "set PYTHONPATH to "  << TO_UTF8( ppath ) << "\n"; )
 
             // Add python executable path:
             wxGetEnv( wxT( "PATH" ), &ppath );
@@ -236,7 +235,6 @@ static bool scriptingSetup()
             {
                 kipython << wxT( ";" ) << ppath;
                 wxSetEnv( wxT( "PATH" ), kipython );
-                // DBG( std::cout << "set PATH to " << TO_UTF8( kipython ) << "\n"; )
             }
         }
     }

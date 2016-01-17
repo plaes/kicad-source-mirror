@@ -836,8 +836,9 @@ void PCB_PARSER::parseLayers() throw( IO_ERROR, PARSE_ERROR )
 
         if( layer.m_visible )
             visibleLayers.set( layer.m_number );
-
-        // DBG( printf( "aux m_visible:%s\n", layer.m_visible ? "true" : "false" );)
+#ifdef DEBUG
+        printf( "aux m_visible:%s\n", layer.m_visible ? "true" : "false" );
+#endif
 
         m_board->SetLayerDescr( it->second, layer );
 

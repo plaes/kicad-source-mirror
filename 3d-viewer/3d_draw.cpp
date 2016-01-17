@@ -201,7 +201,9 @@ void EDA_3D_CANVAS::generateFakeShadowsTextures( REPORTER* aErrorMessages, REPOR
     // Init info 3d parameters and create gl lists:
     CreateDrawGL_List( aErrorMessages, aActivity );
 
-    DBG( unsigned strtime = GetRunningMicroSecs() );
+#ifdef DEBUG
+    unsigned strtime = GetRunningMicroSecs();
+#endif
 
     m_shadow_init = true;
 
@@ -283,7 +285,9 @@ void EDA_3D_CANVAS::generateFakeShadowsTextures( REPORTER* aErrorMessages, REPOR
 
     create_and_render_shadow_buffer( &m_text_fake_shadow_board, 512, true, 10 );
 
-    DBG( printf( "  generateFakeShadowsTextures total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 ) );
+#ifdef DEBUG
+    printf( "  generateFakeShadowsTextures total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 );
+#endif
 }
 
 
@@ -813,19 +817,25 @@ void EDA_3D_CANVAS::CreateDrawGL_List( REPORTER* aErrorMessages, REPORTER* aActi
 
     if( ! m_glLists[GL_ID_BOARD] )
     {
-        DBG( unsigned strtime = GetRunningMicroSecs() );
+#ifdef DEBUG
+        unsigned strtime = GetRunningMicroSecs();
+#endif
 
         m_glLists[GL_ID_BOARD] = glGenLists( 1 );
         m_glLists[GL_ID_BODY] = glGenLists( 1 );
         buildBoard3DView(m_glLists[GL_ID_BOARD], m_glLists[GL_ID_BODY], aErrorMessages, aActivity );
         CheckGLError( __FILE__, __LINE__ );
 
-        DBG( printf( "  buildBoard3DView total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 ) );
+#ifdef DEBUG
+        printf( "  buildBoard3DView total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 );
+#endif
     }
 
     if( ! m_glLists[GL_ID_TECH_LAYERS] )
     {
-        DBG( unsigned strtime = GetRunningMicroSecs() );
+#ifdef DEBUG
+        unsigned strtime = GetRunningMicroSecs();
+#endif
 
         m_glLists[GL_ID_TECH_LAYERS] = glGenLists( 1 );
         glNewList( m_glLists[GL_ID_TECH_LAYERS], GL_COMPILE );
@@ -835,12 +845,16 @@ void EDA_3D_CANVAS::CreateDrawGL_List( REPORTER* aErrorMessages, REPORTER* aActi
         glEndList();
         CheckGLError( __FILE__, __LINE__ );
 
-        DBG( printf( "  buildTechLayers3DView total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 ) );
+#ifdef DEBUG
+        printf( "  buildTechLayers3DView total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 );
+#endif
     }
 
     if( ! m_glLists[GL_ID_AUX_LAYERS] )
     {
-        DBG( unsigned strtime = GetRunningMicroSecs() );
+#ifdef DEBUG
+        unsigned strtime = GetRunningMicroSecs();
+#endif
 
         m_glLists[GL_ID_AUX_LAYERS] = glGenLists( 1 );
         glNewList( m_glLists[GL_ID_AUX_LAYERS], GL_COMPILE );
@@ -848,7 +862,9 @@ void EDA_3D_CANVAS::CreateDrawGL_List( REPORTER* aErrorMessages, REPORTER* aActi
         glEndList();
         CheckGLError( __FILE__, __LINE__ );
 
-        DBG( printf( "  buildBoard3DAuxLayers total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 ) );
+#ifdef DEBUG
+        printf( "  buildBoard3DAuxLayers total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 );
+#endif
     }
 
     // draw modules 3D shapes
@@ -980,8 +996,10 @@ void EDA_3D_CANVAS::buildFootprintShape3DList( GLuint aOpaqueList,
                                                GLuint aTransparentList,
                                                REPORTER* aErrorMessages,
                                                REPORTER* aActivity )
-{
-    DBG( unsigned strtime = GetRunningMicroSecs() );
+{    
+#ifdef DEBUG
+    unsigned strtime = GetRunningMicroSecs();
+#endif
 
     if( aActivity )
         aActivity->Report( _( "Load 3D Shapes" ) );
@@ -995,9 +1013,11 @@ void EDA_3D_CANVAS::buildFootprintShape3DList( GLuint aOpaqueList,
     for( MODULE* module = pcb->m_Modules; module; module = module->Next() )
         read3DComponentShape( module );
 
-    DBG( printf( "  read3DComponentShape total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 ) );
+#ifdef DEBUG
+    printf( "  read3DComponentShape total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 );
 
-    DBG( strtime = GetRunningMicroSecs() );
+    strtime = GetRunningMicroSecs();
+#endif
 
     bool useMaterial = g_Parm_3D_Visu.GetFlag( FL_RENDER_MATERIAL );
 
@@ -1036,7 +1056,9 @@ void EDA_3D_CANVAS::buildFootprintShape3DList( GLuint aOpaqueList,
         glEndList();
     }
 
-    DBG( printf( "  render3DComponentShape total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 ) );
+#ifdef DEBUG
+    printf( "  render3DComponentShape total time %f ms\n", (double) (GetRunningMicroSecs() - strtime) / 1000.0 );
+#endif
 }
 
 

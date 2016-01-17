@@ -141,7 +141,9 @@ void LIB_EDIT_FRAME::InstallConfigFrame( wxCommandEvent& event )
     }
     catch( const IO_ERROR& ioe )
     {
-        DBG(printf( "%s: %s\n", __func__, TO_UTF8( ioe.errorText ) );)
+#ifdef DEBUG
+        printf( "%s: %s\n", __func__, TO_UTF8( ioe.errorText ) );
+#endif
         return;
     }
 
@@ -217,7 +219,9 @@ void SCH_EDIT_FRAME::InstallConfigFrame( wxCommandEvent& event )
     }
     catch( const IO_ERROR& ioe )
     {
-        DBG(printf( "%s: %s\n", __func__, TO_UTF8( ioe.errorText ) );)
+#ifdef DEBUG
+        printf( "%s: %s\n", __func__, TO_UTF8( ioe.errorText ) );
+#endif
         return;
     }
 
@@ -226,7 +230,7 @@ void SCH_EDIT_FRAME::InstallConfigFrame( wxCommandEvent& event )
         // save the [changed] settings.
         PART_LIBS::LibNamesAndPaths( prj, true, &lib_paths, &lib_names );
 
-#if defined(DEBUG)
+#ifdef DEBUG
         printf( "%s: lib_names:\n", __func__ );
         for( unsigned i=0; i<lib_names.size();  ++i )
         {
@@ -674,8 +678,10 @@ void SCH_EDIT_FRAME::LoadSettings( wxConfigBase* aCfg )
         catch( const IO_ERROR& e )
         {
             // @todo show error msg
-            DBG( printf( "templatefieldnames parsing error: '%s'\n",
-                       TO_UTF8( e.errorText ) ); )
+#ifdef DEBUG
+            printf( "templatefieldnames parsing error: '%s'\n",
+                       TO_UTF8( e.errorText ) );
+#endif
         }
     }
 }

@@ -111,10 +111,12 @@ void FOOTPRINT_WIZARD_FRAME::ReloadFootprint()
         GetBoard()->Add( module, ADD_APPEND );
         module->SetPosition( wxPoint( 0, 0 ) );
     }
+#ifdef DEBUG
     else
     {
-        DBG(printf( "footprintWizard->GetFootprint() returns NULL\n" );)
+        printf( "footprintWizard->GetFootprint() returns NULL\n" );
     }
+#endif
 
     m_canvas->Refresh();
 }

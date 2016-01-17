@@ -273,7 +273,9 @@ void DIALOG_EDIT_COMPONENT_IN_SCHEMATIC::OnSelectChipName( wxCommandEvent& event
 
 void DIALOG_EDIT_COMPONENT_IN_SCHEMATIC::OnListItemSelected( wxListEvent& event )
 {
-    DBG( printf( "OnListItemSelected()\n" ); )
+#ifdef DEBUG
+    printf( "OnListItemSelected()\n" );
+#endif
 
     // remember the selected row, statically
     s_SelectedRow = event.GetIndex();
@@ -537,7 +539,6 @@ void DIALOG_EDIT_COMPONENT_IN_SCHEMATIC::showButtonHandler( wxCommandEvent& even
 
         if( frame->ShowModal( &fpid, this ) )
         {
-            // DBG( printf( "%s: %s\n", __func__, TO_UTF8( fpid ) ); )
             fieldValueTextCtrl->SetValue( fpid );
         }
 
@@ -566,8 +567,10 @@ void DIALOG_EDIT_COMPONENT_IN_SCHEMATIC::moveUpButtonHandler( wxCommandEvent& ev
     // and in the fieldListCtrl
     SCH_FIELD tmp = m_FieldsBuf[fieldNdx - 1];
 
-    DBG( printf( "tmp.m_Text=\"%s\" tmp.m_Name=\"%s\"\n",
-                 TO_UTF8( tmp.GetText() ), TO_UTF8( tmp.GetName( false ) ) ); )
+#ifdef DEBUG
+    printf( "tmp.m_Text=\"%s\" tmp.m_Name=\"%s\"\n",
+                 TO_UTF8( tmp.GetText() ), TO_UTF8( tmp.GetName( false ) ) );
+#endif
 
     m_FieldsBuf[fieldNdx - 1] = m_FieldsBuf[fieldNdx];
     setRowItem( fieldNdx - 1, m_FieldsBuf[fieldNdx] );
@@ -995,12 +998,16 @@ void DIALOG_EDIT_COMPONENT_IN_SCHEMATIC::copyOptionsToPanel()
     if( mirror == CMP_MIRROR_X )
     {
         mirrorRadioBox->SetSelection( 1 );
-        DBG( printf( "mirror=X,1\n" ); )
+#ifdef DEBUG
+        printf( "mirror=X,1\n" );
+#endif
     }
     else if( mirror == CMP_MIRROR_Y )
     {
         mirrorRadioBox->SetSelection( 2 );
-        DBG( printf( "mirror=Y,2\n" ); )
+#ifdef DEBUG
+        printf( "mirror=Y,2\n" );
+#endif
     }
     else
         mirrorRadioBox->SetSelection( 0 );

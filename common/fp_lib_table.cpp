@@ -522,12 +522,9 @@ std::vector<wxString> FP_LIB_TABLE::GetLogicalLibs()
 
     ret.reserve( unique.size() );
 
-    // DBG(printf( "%s: count:%zd\n", __func__, unique.size() );)
-
     // return a sorted, unique set of nicknames in a std::vector<wxString> to caller
     for( std::set<wxString>::const_iterator it = unique.begin();  it!=unique.end();  ++it )
     {
-        //DBG(printf( " %s\n", TO_UTF8( *it ) );)
         ret.push_back( *it );
     }
 

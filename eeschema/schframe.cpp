@@ -113,7 +113,9 @@ SEARCH_STACK* PROJECT::SchSearchS()
         }
         catch( const IO_ERROR& ioe )
         {
-            DBG(printf( "%s: %s\n", __func__, TO_UTF8( ioe.errorText ) );)
+#ifdef DEBUG
+            printf( "%s: %s\n", __func__, TO_UTF8( ioe.errorText ) );
+#endif
         }
 
         if( !!libDir )

@@ -297,7 +297,9 @@ bool SCH_EDIT_FRAME::OpenProjectFiles( const std::vector<wxString>& aFileSet, in
     {
         g_RootSheet->SetScreen( NULL );
 
-        DBG( printf( "%s: loading schematic %s\n", __func__, TO_UTF8( fullFileName ) );)
+#ifdef DEBUG
+        printf( "%s: loading schematic %s\n", __func__, TO_UTF8( fullFileName ) );
+#endif
 
         bool diag = g_RootSheet->Load( this );
         (void) diag;

@@ -47,7 +47,6 @@ KIWAY_PLAYER::KIWAY_PLAYER( KIWAY* aKiway, wxWindow* aParent, FRAME_T aFrameType
     m_modal( false ),
     m_modal_loop( 0 ), m_modal_resultant_parent( 0 )
 {
-    // DBG( printf("KIWAY_EXPRESS::wxEVENT_ID:%d\n", KIWAY_EXPRESS::wxEVENT_ID );)
     m_modal_ret_val = 0;
 }
 
@@ -62,7 +61,6 @@ KIWAY_PLAYER::KIWAY_PLAYER( wxWindow* aParent, wxWindowID aId, const wxString& a
     m_modal_resultant_parent( 0 ),
     m_modal_ret_val( false )
 {
-    // DBG( printf("KIWAY_EXPRESS::wxEVENT_ID:%d\n", KIWAY_EXPRESS::wxEVENT_ID );)
 }
 
 
@@ -136,8 +134,9 @@ bool KIWAY_PLAYER::ShowModal( wxString* aResult, wxWindow* aResultantFocusWindow
     if( aResult )
         *aResult = m_modal_string;
 
-    DBG(printf( "~%s: aResult:'%s'  ret:%d\n",
-            __func__, TO_UTF8( m_modal_string ), m_modal_ret_val );)
+#ifdef DEBUG
+    printf( "~%s: aResult:'%s'  ret:%d\n", __func__, TO_UTF8( m_modal_string ), m_modal_ret_val );
+#endif
 
     if( aResultantFocusWindow )
     {
@@ -161,7 +160,9 @@ bool KIWAY_PLAYER::IsDismissed()
 {
     bool ret = !m_modal_loop;
 
-    DBG(printf( "%s: ret:%d\n", __func__, ret );)
+#ifdef DEBUG
+    printf( "%s: ret:%d\n", __func__, ret );
+#endif
 
     return ret;
 }

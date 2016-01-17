@@ -86,11 +86,8 @@ static int SkipGetChar( FILE* File )
 
     if( ( c = fgetc( File ) ) == EOF )
     {
-        // DBG( printf( "EOF\n" ) );
         return EOF;
     }
-
-    // DBG( printf( "c %c 0x%02X\n", c, c ) );
 
     do
     {
@@ -98,13 +95,10 @@ static int SkipGetChar( FILE* File )
 
         if( (c == ' ') || (c == '\t') || (c == '{') || (c == '[') )
         {
-            // DBG( printf( "Skipping space \\t or { or [\n" ) );
             do
             {
                 if( ( c = fgetc( File ) ) == EOF )
                 {
-                    // DBG( printf( "EOF\n" ) );
-
                     return EOF;
                 }
             } while( (c == ' ') || (c == '\t') || (c == '{') || (c == '[') );
@@ -114,12 +108,10 @@ static int SkipGetChar( FILE* File )
         {
             if( c == '#' )
             {
-                // DBG( printf( "Skipping # \\n or \\r or 0, 0x%02X\n", c ) );
                 do
                 {
                     if( ( c = fgetc( File ) ) == EOF )
                     {
-                        // DBG( printf( "EOF\n" ) );
                         return EOF;
                     }
                 } while( (c != '\n') &&  (c != '\r') && (c != 0) && (c != ',') );
@@ -128,7 +120,6 @@ static int SkipGetChar( FILE* File )
             {
                 if( ( c = fgetc( File ) ) == EOF )
                 {
-                    // DBG( printf( "EOF\n" ) );
                     return EOF;
                 }
             }
@@ -153,7 +144,6 @@ bool GetNextTag( FILE* File, char* tag, size_t len )
     tag[0]  = c;
     tag[1]  = 0;
 
-    // DBG( printf( "tag[0] %c\n", tag[0] ) );
     if( (c != '}') && (c != ']') )
     {
         len--;
@@ -173,7 +163,6 @@ bool GetNextTag( FILE* File, char* tag, size_t len )
         }
 
 
-        // DBG( printf( "tag %s\n", tag ) );
         c = SkipGetChar( File );
 
         if( c != EOF )
@@ -191,35 +180,28 @@ int Read_NotImplemented( FILE* File, char closeChar )
 {
     int c;
 
-    // DBG( printf( "look for %c\n", closeChar) );
     while( ( c = fgetc( File ) ) != EOF )
     {
         if( c == '{' )
         {
-            // DBG( printf( "{\n") );
             Read_NotImplemented( File, '}' );
         }
         else if( c == '[' )
         {
-            // DBG( printf( "[\n") );
             Read_NotImplemented( File, ']' );
         }
         else if( c == closeChar )
         {
-            // DBG( printf( "%c\n", closeChar) );
             return 0;
         }
     }
 
-    // DBG( printf( "  NotImplemented failed\n" ) );
     return -1;
 }
 
 
 int ParseVertexList( FILE* File, std::vector<glm::vec3>& dst_vector )
 {
-    // DBG( printf( "      ParseVertexList\n" ) );
-
     dst_vector.clear();
 
     glm::vec3 vertex;
@@ -249,8 +231,6 @@ bool ParseVertex( FILE* File, glm::vec3& dst_vertex )
         // Puts again the read char in the buffer
         ungetc( s, File );
     }
-
-    // DBG( printf( "ret%d(%.9f,%.9f,%.9f)", ret, a,b,c) );
 
     return ret == 3;
 }

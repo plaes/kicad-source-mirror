@@ -88,9 +88,9 @@ void SCH_EDIT_FRAME::backAnnotateFootprints( const std::string& aChangedSetOfRef
                 footprint = tmp;
             }
             else
+            {
                 footprint.Empty();
-
-            // DBG( printf( "%s: ref:%s  fpid:%s\n", __func__, TO_UTF8( reference ), TO_UTF8( footprint ) ); )
+            }
 
             // Search the component in the flat list
             for( unsigned ii = 0;  ii < refs.GetCount();  ++ii )
@@ -109,7 +109,6 @@ void SCH_EDIT_FRAME::backAnnotateFootprints( const std::string& aChangedSetOfRef
                         fpfield->SetVisible( false );
                     }
 
-                    // DBG( printf("%s: ref:%s  fpid:%s\n", __func__, TO_UTF8( refs[ii].GetRef() ), TO_UTF8( footprint ) );)
                     if( oldfp != footprint )
                         isChanged = true;
 

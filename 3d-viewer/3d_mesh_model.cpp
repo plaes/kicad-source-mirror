@@ -170,7 +170,6 @@ void S3D_MESH::openGL_Render( bool aIsRenderingJustNonTransparentObjects,
         return;
     }
 
-    //DBG( printf( "openGL_Render" ) );
     bool useMaterial = g_Parm_3D_Visu.GetFlag( FL_RENDER_MATERIAL );
     bool smoothShapes = g_Parm_3D_Visu.IsRealisticMode()
                         && g_Parm_3D_Visu.GetFlag( FL_RENDER_SMOOTH_NORMALS );
@@ -660,8 +659,6 @@ void S3D_MESH::perVertexNormalsVerify_and_Repair()
 
     isPerVertexNormalsVerified = true;
 
-    //DBG( printf( "perVertexNormalsVerify_and_Repair\n" ) );
-
     for( unsigned int idx = 0; idx < m_PerVertexNormalsNormalized.size(); idx++ )
     {
         glm::vec3 normal = m_PerVertexNormalsNormalized[idx];
@@ -705,10 +702,12 @@ void S3D_MESH::perVertexNormalsVerify_and_Repair()
         {
             normal = normal / l;
         }
+#ifdef DEBUG
         else
         {
-            DBG( printf( "  Cannot normalize precomputed normal at idx:%u\n", idx ) );
+            printf( "  Cannot normalize precomputed normal at idx:%u\n", idx );
         }
+#endif
 
         m_PerVertexNormalsNormalized[idx] = normal;
     }
@@ -717,8 +716,6 @@ void S3D_MESH::perVertexNormalsVerify_and_Repair()
 
 void S3D_MESH::calcPointNormalized()
 {
-    //DBG( printf( "calcPointNormalized\n" ) );
-
     if( isPointNormalizedComputed == true )
         return;
 
@@ -753,8 +750,6 @@ void S3D_MESH::calcPointNormalized()
 
 void S3D_MESH::calcPerFaceNormals()
 {
-    //DBG( printf( "calcPerFaceNormals" ) );
-
     if( isPerFaceNormalsComputed == true )
         return;
 
@@ -773,7 +768,6 @@ void S3D_MESH::calcPerFaceNormals()
         if( ( m_PerFaceNormalsNormalized.size() == m_Point.size() ) &&
             ( m_PerFaceNormalsNormalized.size() != m_CoordIndex.size() ) )
         {
-            //DBG( printf("m_PerFaceNormalsNormalized.size() != m_CoordIndex.size() Appling a workarroudn recover\n") );
             m_NormalIndex = m_CoordIndex;
             m_PerVertexNormalsNormalized = m_PerFaceNormalsNormalized;
             m_PerFaceNormalsNormalized.clear();
@@ -887,21 +881,6 @@ void S3D_MESH::calcPerFaceNormals()
                 }
                 else
                 {
-
-                    /*
-                    for( unsigned int i = 0; i < m_CoordIndex[idx].size(); i++ )
-                    {
-                        glm::vec3 v = m_Point[m_CoordIndex[idx][i]];
-                        DBG( printf( "v[%u](%f, %f, %f)", i, v.x, v.y, v.z ) );
-                    }
-                    DBG( printf( "Cannot calc normal idx: %u cross(%g, %g, %g) l:%g m_CoordIndex[idx].size: %u\n",
-                            idx,
-                            cross_prod.x, cross_prod.y, cross_prod.z,
-                            l,
-                            (unsigned int)m_CoordIndex[idx].size()) );
-
-                    */
-
                     if( ( cross_prod.x > cross_prod.y ) && ( cross_prod.x > cross_prod.z ) )
                     {
                         cross_prod.x = 0.0;
@@ -941,8 +920,6 @@ void S3D_MESH::calcPerFaceNormals()
 // http://www.emeyex.com/site/tuts/VertexNormals.pdf
 void S3D_MESH::calcPerPointNormals()
 {
-    //DBG( printf( "calcPerPointNormals" ) );
-
     if( isPerPointNormalsComputed == true )
         return;
 
