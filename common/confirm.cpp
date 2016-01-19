@@ -27,13 +27,11 @@
  * @brief utilities to display some error, warning and info short messges
  */
 
-#include <common.h>
-#include <wx/wx.h>
-#include <wx/html/htmlwin.h>
 #include <wx/stockitem.h>
+
+#include "common/kibitmap.h"
 #include <html_messagebox.h>
 #include <dialog_exit_base.h>
-#include "common/kibitmap.h"
 
 class DIALOG_EXIT: public DIALOG_EXIT_BASE
 {
