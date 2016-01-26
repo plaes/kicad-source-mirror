@@ -592,7 +592,7 @@ void FOOTPRINT_VIEWER_FRAME::OnActivate( wxActivateEvent& event )
 }
 
 
-bool FOOTPRINT_VIEWER_FRAME::GeneralControl( wxDC* aDC, const wxPoint& aPosition, int aHotKey )
+bool FOOTPRINT_VIEWER_FRAME::GeneralControl( wxDC* aDC, const wxPoint& aPosition, EDA_KEY aHotKey )
 {
     bool eventHandled = true;
 
